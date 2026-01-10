@@ -1,0 +1,331 @@
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: {#content}
+[Saltar la navegación](#main){.sr-av}
+
+:::: {#header}
+::: {#headerContent}
+Estructuras
+:::
+::::
+
+- [Estructuras](index.html){.daddy .main-node}
+- [1. Descripción y elementos de estructuras sencillas](1_descripcin_y_elementos_de_estructuras_sencillas.html){.no-ch}
+- [2. Cargas. Tipos de apoyos y uniones](2_cargas_tipos_de_apoyos_y_uniones.html){.no-ch}
+- [3. Cálculos básicos en estructuras](3_clculos_bsicos_en_estructuras.html){.no-ch}
+- [4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.](4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html){.current-page-parent .daddy}
+  - [[4.1. Ejemplo 1: carga puntual](41_ejemplo_1_carga_puntual.html){.active .no-ch}]{#active}
+  - [4.2. Ejemplo 2: carga uniformamente repartida](42_ejemplo_2_carga_uniformamente_repartida.html){.no-ch}
+  - [4.3. Ejemplo 3: empotramiento con carga uniformemente repartida](43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html){.no-ch}
+  - [Otros ejemplos](otros_ejemplos.html){.no-ch}
+- [5. Cálculo de esfuerzos en estructuras de barras articuladas.](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.daddy}
+  - [5.1. Método de los nudos](51_mtodo_de_los_nudos.html){.no-ch}
+  - [5.2. Método de las secciones (Ritter)](52_mtodo_de_las_secciones_ritter.html){.no-ch}
+  - [5.3. Método gráfico de Cremona](53_mtodo_grfico_de_cremona.html){.no-ch}
+
+::: {#topPagination}
+[« Anterior](4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html){.prev} [\| ]{.sep}[Siguiente »](42_ejemplo_2_carga_uniformamente_repartida.html){.next}
+:::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: {#main-wrapper}
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::: {#main .section}
+::: {#nodeDecoration}
+# 4.1. Ejemplo 1: carga puntual {#nodeTitle}
+:::
+
+::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# Enunciado {#enunciado .iDeviceTitle}
+:::
+
+::::::::: iDevice_inner
+:::::::: iDevice_content_wrapper
+::::::: {#ta130_135_2 .block .iDevice_content}
+:::::: {.exe-udlContent .exe-udlContent-expression}
+::::: {.section .exe-udlContent-block}
+:::: exe-udlContent-content
+::: exe-udlContent-content-main
+Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:
+
+![](ejemploViga1.png){width="379" height="179" style="display: block; margin-left: auto; margin-right: auto;"}
+
+### 
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+:::::::::::
+
+:::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# 1. Calcular las reacciones {#calcular-las-reacciones .iDeviceTitle}
+:::
+
+:::::::::: iDevice_inner
+::::::::: iDevice_content_wrapper
+:::::::: {#ta131_136_2 .block .iDevice_content}
+::::::: {.exe-udlContent .exe-udlContent-engagement}
+:::::: {.section .exe-udlContent-block}
+::::: exe-udlContent-content
+:::: exe-udlContent-content-main
+Determinamos las reacciones según los tipos de apoyos que vemos en la figura:
+
+![](ejemploViga1-1.png){width="450" height="223" style="display: block; margin-left: auto; margin-right: auto;"}
+
+Aplicando las condiciones de que no haya movimiento en horizontal ni en vertical, ni que haya giro, obtenemos las tres ecuaciones necesarias para calcular las reacciones R~AX~, R~AY~ y R~BY~:
+
+::: {.exe-fx .exe-tabs}
+## Horizontal
+
+Equilibrio de [**fuerzas**]{style="color: #008000;"} en el [**eje horizontal \\(\\sum\_{}\^{}F\_{x}=0\\)**]{style="color: #008000;"}:
+
+\\(R\_{AX}=0\\)
+
+## Vertical
+
+Equilibrio de [**fuerzas**]{style="color: #008000;"} en el [**eje vertical \\(\\sum\_{}\^{}F\_{y}=0\\).** ]{style="color: #008000;"}Recuerda que el criterio es considerar las fuerzas positivas si van hacia arriba y negativas si van hacia abajo:
+
+\\(R\_{AY}-P+R\_{BY}=0\\)
+
+## Giro
+
+Equilibrio de [**momentos**]{style="color: #008000;"} de fuerzas, referido a una sección cualquiera de la viga [**\\(\\sum\_{}\^{}M\_{A}=0\\)**]{style="color: #008000;"}.
+
+Es recomendable seleccionar la sección que más incógnitas elimine. En este caso es la sección A, ya que hay dos fuerzas aplicadas en este punto que, por lo tanto, no generan momento en él.
+
+Recuerda que el criterio de signos es momentos positivos en sentido antihorario y negativos en sentido horario:
+
+\\(-P·1m+R\_{BY}·(4+1)m=0\\)
+:::
+
+Sustituyendo los datos del problema, nos queda este sistema de ecuaciones:
+
+\\(\\left \\{\\begin{array}{r}R\_{AX}=0\\\\ R\_{AY}-15000+R\_{BY}=0\\\\ -15000+5R\_{BY}=0 \\end{array} \\right. \\)
+
+Resolviendo el sistema, obtenemos los valores de las reacciones:
+
+[**\\begin{array}{c}\
+R\_{AX}=0 \\ N\\\\\
+R\_{AY}=12000 \\ N = 12 \\ kN\\\\\
+R\_{BY}=3000 \\ N = 3 \\ kN\
+\\end{array}**]{style="color: #008000;"}
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+::::::::::
+::::::::::::
+
+::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# 2. \"Cortar\" la viga en los tramos que sea necesario {#cortar-la-viga-en-los-tramos-que-sea-necesario .iDeviceTitle}
+:::
+
+::::::::: iDevice_inner
+:::::::: iDevice_content_wrapper
+::::::: {#ta132_137_2 .block .iDevice_content}
+:::::: {.exe-udlContent .exe-udlContent-engagement}
+::::: {.section .exe-udlContent-block}
+:::: exe-udlContent-content
+::: exe-udlContent-content-main
+El procedimiento consiste en partir la viga en tramos, [**separados por cambios de carga o apoyos.**]{style="color: #008000;"} Es decir, recorriendo la viga de derecha a izquierda, se definirá un tramo cuando aparezca una nueva carga o un apoyo. 
+
+Siguiendo este criterio, esta viga se divide en dos tramos, A-C y C-B, definidos por la aplicación de la carga puntual \"P\" en el punto C. Por tanto, las leyes de esfuerzos deberemos calcularlas en estos dos tramos.
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+:::::::::::
+
+:::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# 3. Expresar cada esfuerzo en función de la posición x {#expresar-cada-esfuerzo-en-función-de-la-posición-x .iDeviceTitle}
+:::
+
+:::::::::: iDevice_inner
+::::::::: iDevice_content_wrapper
+:::::::: {#ta133_138_2 .block .iDevice_content}
+::::::: {.exe-udlContent .exe-udlContent-engagement}
+:::::: {.section .exe-udlContent-block}
+::::: exe-udlContent-content
+:::: exe-udlContent-content-main
+::: {.exe-fx .exe-tabs}
+## [**Tramo A-C**]{style="color: #008000;"} {#tramo-a-c style="text-align: left;"}
+
+Nos encontramos con el siguiente trozo de viga (se han indicado en rojo los sentidos positivos de los esfuerzos):
+
+![](ejemploViga1-2.png){width="249" height="193" style="display: block; margin-left: auto; margin-right: auto;"}
+
+**[Esfuerzo axil:]{style="color: #008000;"}**
+
+El esfuerzo axil es nulo, ya que no hay fuerzas en dirección paralela al eje de la viga:
+
+\\(N\_{A-C}(x)=R\_{AX}=0 \\ N\\)
+
+**[Esfuerzo cortante:]{style="color: #008000;"}**
+
+La componente vertical R~AY~ de la reacción en el apoyo A es la única fuerza en dirección perpendicular a la viga que genera cortante. Como va hacia [**arriba**]{style="color: #008000;"}, se cuenta como [**positiva**]{style="color: #008000;"}:
+
+\\(V\_{A-C}(x)=R\_{AY}=12 \\ kN\\)
+
+[**Momento flector:**]{style="color: #008000;"}
+
+El momento flector es generado por la reacción R~AY~, cuya distancia a la sección [**x**]{style="color: #008000;"} es la propia distancia x. Genera un momento en [**sentido horario**]{style="color: #008000;"}, por lo que lo consideramos [**positivo**]{style="color: #008000;"}.
+
+\\(M\_{A-C}(x)=R\_{AY}·x=12x \\ kN·m\\)
+
+## [Tramo C-B]{style="color: #008000;"} {#tramo-c-b style="text-align: left;"}
+
+Nos encontramos con el siguiente trozo de viga:
+
+![](ejemploViga1-3.png){width="350" height="251" style="display: block; margin-left: auto; margin-right: auto;"}
+
+**[Esfuerzo axil:]{style="color: #008000;"}**
+
+El esfuerzo axil es nulo, ya que no hay fuerzas en dirección paralela al eje de la viga:
+
+\\(N\_{C-B}(x)=R\_{AX}=0 \\ N\\)
+
+**[Esfuerzo cortante:]{style="color: #008000;"}**
+
+Al cortante generado por la reacción R~AY~, se le añade la fuerza aplicada de 15 kN, que genera un cortante [**negativo**]{style="color: #008000;"}.
+
+\\(V\_{C-B}(x)=R\_{AY}-15=12-15=-3 \\ kN\\)
+
+[**Momento flector:**]{style="color: #008000;"}
+
+Al momento flector generado por la reacción R~AY~ se suma el producido por la fuerza aplicada de 15 kN, cuya distancia a la sección analizada es (x-1). Esta fuerza genera un momento en sentido antihorario y, por tanto, [**negativo**]{style="color: #008000;"}.
+
+\\(M\_{C-B}(x)=R\_{AY}·x-15·(x-1)=12x-15x+15=15-3x \\ kN·m\\)
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+::::::::::
+::::::::::::
+
+::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# 4. Dibujar los diagramas {#dibujar-los-diagramas .iDeviceTitle}
+:::
+
+::::::::: iDevice_inner
+:::::::: iDevice_content_wrapper
+::::::: {#ta127_133_2 .block .iDevice_content}
+:::::: {.exe-udlContent .exe-udlContent-engagement}
+::::: {.section .exe-udlContent-block}
+:::: exe-udlContent-content
+::: exe-udlContent-content-main
+Ya solo nos queda dibujar las funciones que hemos obtenido en el paso anterior, siendo x el eje horizontal y estando el origen de coordenadas en el apoyo A.
+
+El diagrama de esfuerzos axiles no tiene sentido dibujarlo, ya que N(x) = 0 para toda la viga. Dibujaremos, por tanto, los diagramas de esfuerzos cortantes y de momentos flectores:
+
+![](ejemploViga1-4.png){width="330" height="308" style="display: block; margin-left: auto; margin-right: auto;"}
+
+![](EjemploViga1-5.png){width="330" height="308" style="display: block; margin-left: auto; margin-right: auto;"}
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+:::::::::::
+
+:::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# Ejercicios propuestos {#ejercicios-propuestos .iDeviceTitle}
+:::
+
+:::::: iDevice_inner
+::::: iDevice_content_wrapper
+:::: {#ta152_150_2 .block .iDevice_content}
+::: exe-text
+1 - Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:
+
+![](ejercicio1.png){width="400" height="168" style="display: block; margin-left: auto; margin-right: auto;"}
+
+*Solución (partiendo del punto A):*\
+*Momentos flectores:*\
+*• Para 0 m ≤ x ≤ 2 m → M~x1~ = -5x (kN·m)*\
+*• Para 2 m ≤ x ≤ 9 m → M~x2~ = -10 (kN·m)*\
+*• Para 9 m ≤ x ≤ 10 m → M~x3~ = 10x-100 (kN·m)*\
+*Esfuerzos cortantes:*\
+*• Para 0m ≤ x ≤ 2m → F~x1~ = -5 kN*\
+*• Para 2 m ≤ x ≤ 9 m → F~x2 ~= 0 kN*\
+*• Para 9m ≤ x ≤ 10 m → F~x3~ = 10 kN*
+
+------------------------------------------------------------------------
+
+2 (PAU) - Se requiere analizar la viga presentada en la figura adjunta:
+
+![](ejercicio6.png){width="266" height="150" style="display: block; margin-left: auto; margin-right: auto;"}Considerando los datos proporcionados, calcular:
+
+a.  Las reacciones en ambos apoyos en condiciones de equilibrio estático. *(R~Ax~ = 0 N; R~Ay~ = 12 000 N; R~By~ = 4 000 N)*
+b.  Las ecuaciones de fuerzas cortantes y momentos flectores en cada tramo de la viga en función de la coordenada "x". *(Para 0𝑚 ≤ 𝑥 ≤ 1,5𝑚 V(x) = 12 kN y M(x) = 12x kN·m; Para 1.5𝑚 ≤ 𝑥 ≤ 6𝑚 V(x) = -4 kN y M(x) = -4x + 24 kN·m)*
+c.  Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga.
+
+------------------------------------------------------------------------
+
+3 (PAU) - En la siguiente figura se representan las cargas que debe soportar una viga y los apoyos que tiene en la estructura de la que forma parte.
+
+![](ejercicio7.png){width="254" height="162" style="display: block; margin-left: auto; margin-right: auto;"}Considerando los datos proporcionados, analizar la estructura calculando:
+
+a.  Las reacciones en ambos apoyos en condiciones de equilibrio estático. (𝑅~𝐴𝑥~ = 0 𝑘𝑁; 𝑅~𝐴𝑦~ = 3,5 𝑘𝑁; 𝑅~𝐵𝑦~ = 2,5 𝑘𝑁)
+b.  Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga. *(Para 0 𝑚 ≤ 𝑥 ≤ 1 𝑚 V(x) = 3,5 kN y M(x) = 3,5x kN·m; Para 1 𝑚 ≤ 𝑥 ≤ 4 𝑚 V(x) = -1,5 kN y M(x) = -1,5x + 5 kN·m; Para 4 𝑚 ≤ 𝑥 ≤ 5 𝑚 V(x) = 1 kN y M(x) = x - 5 kN·m)*
+c.  Obtener el momento flector máximo. *(𝑀~𝑚𝑎𝑥~(1 𝑚) = 3,5 𝑘𝑁·𝑚)*
+
+------------------------------------------------------------------------
+
+4 (PAU) - Se requiere analizar una viga de 5 m con su extremo derecho (punto B) empotrado en una pared. Sobre el extremo izquierdo (punto A) actúa una fuerza peso de 3 kN, y a 2 m del empotramiento se localiza otra fuerza peso de 2 kN. Se pide:
+
+a.  Calcular el valor de las reacciones que se producen en el empotramiento (punto B) en condiciones de equilibrio estático. (𝑅~𝐵𝑥~ = 0 𝑘𝑁; 𝑅~𝐵𝑦~ = 5𝑘𝑁; 𝑀~𝐵~ = 19 𝑘𝑁𝑚)
+b.  Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga en función de x. *(Para 0 𝑚 ≤ 𝑥 ≤ 3 𝑚 V(x) = -3 kN y M(x) = -3x kN·m; Para 3 𝑚 ≤ 𝑥 ≤ 5 𝑚 V(x) = -5 kN y M(x) = -5x + 6 kN·m)*
+
+------------------------------------------------------------------------
+
+5 (PAU) - Para evitar inundaciones con las crecidas, se ha canalizado el río Guadalquivir a su paso por Sevilla en varios tramos, y la expansión de la ciudad hace necesario construir un nuevo puente sobre el canal de 46 m de ancho. Se estudia la opción de construir el puente con vigas de hormigón armado tipo Doble T como las de la figura, que pueden alcanzar hasta los 53 m de largo.
+
+![](ejercicio8.png){width="274" height="159" style="display: block; margin-left: auto; margin-right: auto;"}
+
+Tras el estudio del terreno, se decide usar una viga de 50 m de largo apoyada en un extremo en un soporte fijo y el otro en un apoyo móvil o de rodillo. El puente debe soportar el paso de vehículos pesados, por lo que se diseñará para una masa máxima de vehículos de 65 toneladas. La masa de la viga es 110,5 toneladas. Colabora en el diseño del puente resolviendo las siguientes cuestiones.
+
+a.  Dibujar el diagrama de sólido libre del puente cuando el vehículo pesado haya recorrido 25 m del puente desde el extremo fijo, y calcular el valor de las reacciones en ambos apoyos en condiciones de equilibrio estático. (𝑅~𝐴𝑥~ = 0; 𝑅~𝐴𝑦~ = 861 𝑘𝑁; 𝑅~𝐵𝑦~ = 861 𝑘𝑁)
+b.  Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga, y determinar el momento flector máximo que debe soportar la viga cuando el camión esté en esa posición. (Para 0 𝑚 ≤ 𝑥 ≤ 25 𝑚 V(x) = 861 kN y M(x) = 861x kN·m; Para 25 𝑚 ≤ 𝑥 ≤ 50 𝑚 V(x) = -861 kN y M(x) = −861x + 43 050 kN·m; 𝑀~𝑚𝑎𝑥~(25m) = 21 525 𝑘𝑁·𝑚)
+
+*(NOTA: este ejercicio está planteado para considerar el peso de la viga como una carga puntual aplicada en su centro de masas, no como una distribución continua de carga, ya que en PAU solo se pedirán ejercicios con cargas puntuales)*
+
+------------------------------------------------------------------------
+
+6 (PAU) - El estudio de arquitectura Andalusí está desarrollando el proyecto de un bloque de viviendas en primera línea de playa en Almería. Una de las viviendas del ático dispone de una terraza voladiza de 4 m de longitud que sobresale desde la fachada principal. La terraza se modela como una viga con un extremo empotrado en la fachada y el otro extremo en voladizo.
+
+Teniendo en cuenta el tamaño total de la terraza, se estima que durante una fiesta puede albergar un grupo de personas con un peso total de 8,5 kN. El peso de la losa de hormigón de la terraza es de 16,8 kN.
+
+a.  Dibujar el diagrama de cuerpo libre de la terraza y calcular las reacciones considerando la fuerza peso del grupo de personas como una carga puntual aplicada en el centro. (𝑅~𝐴𝑥~ = 0 𝑘𝑁; 𝑅~𝐴𝑦~ = 25,3 𝑘𝑁; 𝑀~𝐴~ = 50,6 𝑘𝑁𝑚)
+b.  Representar los diagramas de esfuerzos cortantes y momentos flectores resultantes. *(Para 0 𝑚 ≤ 𝑥 ≤ 2 𝑚 V(x) = 25,3 kN y M(x) = 25,3x - 50,6 kN·m; Para 2 𝑚 ≤ 𝑥 ≤ 4 𝑚 V(x) = 0 kN y M(x) = 0 kN·m)*
+c.  Determinar el valor del momento flector máximo que soportará la terraza y en qué posición se encuentra. *(𝑀~𝑚𝑎𝑥~ = 50,6 𝑘𝑁𝑚 en x = 0)*
+:::
+::::
+:::::
+::::::
+::::::::
+
+::: {#packageLicense .cc .cc-by-nc-sa}
+Obra publicada con [Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/){rel="license"}
+:::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::: {#bottomPagination}
+[« Anterior](4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html){.prev} [\| ]{.sep}[Siguiente »](42_ejemplo_2_carga_uniformamente_repartida.html){.next}
+:::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -1,0 +1,57 @@
+::::::::::::::::: {#content}
+[Saltar la navegación](#main){.sr-av}
+
+:::: {#header}
+::: {#headerContent}
+Estructuras
+:::
+::::
+
+- [Estructuras](index.html){.daddy .main-node}
+- [1. Descripción y elementos de estructuras sencillas](1_descripcin_y_elementos_de_estructuras_sencillas.html){.no-ch}
+- [2. Cargas. Tipos de apoyos y uniones](2_cargas_tipos_de_apoyos_y_uniones.html){.no-ch}
+- [3. Cálculos básicos en estructuras](3_clculos_bsicos_en_estructuras.html){.no-ch}
+- [4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.](4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html){.current-page-parent .daddy}
+  - [4.1. Ejemplo 1: carga puntual](41_ejemplo_1_carga_puntual.html){.no-ch}
+  - [4.2. Ejemplo 2: carga uniformamente repartida](42_ejemplo_2_carga_uniformamente_repartida.html){.no-ch}
+  - [4.3. Ejemplo 3: empotramiento con carga uniformemente repartida](43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html){.no-ch}
+  - [[Otros ejemplos](otros_ejemplos.html){.active .no-ch}]{#active}
+- [5. Cálculo de esfuerzos en estructuras de barras articuladas.](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.daddy}
+  - [5.1. Método de los nudos](51_mtodo_de_los_nudos.html){.no-ch}
+  - [5.2. Método de las secciones (Ritter)](52_mtodo_de_las_secciones_ritter.html){.no-ch}
+  - [5.3. Método gráfico de Cremona](53_mtodo_grfico_de_cremona.html){.no-ch}
+
+::: {#topPagination}
+[« Anterior](43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html){.prev} [\| ]{.sep}[Siguiente »](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.next}
+:::
+
+:::::::::::: {#main-wrapper}
+::::::::::: {#main .section}
+::: {#nodeDecoration}
+# Otros ejemplos {#nodeTitle}
+:::
+
+:::::::: {.iDevice .emphasis0}
+::::::: {#ta138_138_2 .block .iDevice_content}
+:::::: {.exe-udlContent .exe-udlContent-engagement}
+::::: {.section .exe-udlContent-block}
+:::: exe-udlContent-content
+::: exe-udlContent-content-main
+Aquí tienes un vídeo donde se explican algunos ejercicios más:
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+
+::: {#packageLicense .cc .cc-by-nc-sa}
+Obra publicada con [Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/){rel="license"}
+:::
+:::::::::::
+::::::::::::
+
+::: {#bottomPagination}
+[« Anterior](43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html){.prev} [\| ]{.sep}[Siguiente »](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.next}
+:::
+:::::::::::::::::

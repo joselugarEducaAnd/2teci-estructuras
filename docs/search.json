@@ -1,0 +1,302 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Unidad 7: Estructuras",
+    "section": "",
+    "text": "Introducción\nEn esta unidad de Tecnología e Ingeniería II, veremos desde los conceptos básicos de cargas y apoyos hasta el cálculo de estructuras articuladas y vigas.",
+    "crumbs": [
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "index.html#contenidos-de-la-unidad",
+    "href": "index.html#contenidos-de-la-unidad",
+    "title": "Unidad 7: Estructuras",
+    "section": "Contenidos de la unidad",
+    "text": "Contenidos de la unidad\nA continuación se detallan las secciones que componen esta unidad:\n\nDescripción y elementos de estructuras sencillas: Una visión general sobre la función de las estructuras.\nCargas. Tipos de apoyos y uniones: Clasificación de las fuerzas externas a las estructuras.\nCálculos básicos en estructuras: Aplicación de los principios fundamentales.\nCálculo de esfuerzos en vigas: Análisis del comportamiento de vigas sometidas a flexión, axil y cortante.\nCálculo de esfuerzos en estructuras de barras articuladas: Resolución de celosías mediante métodos analíticos y gráficos.\n\n\n\n\n\n\n\nNota📚 Material de estudio\n\n\n\nPuedes descargar esta unidad completa en formato PDF para estudiar sin conexión o imprimirla:\nDescargar PDF\n\n\nÚltima actualización: 10/01/2026",
+    "crumbs": [
+      "Introducción"
+    ]
+  },
+  {
+    "objectID": "01_descripcion.html",
+    "href": "01_descripcion.html",
+    "title": "1  Descripción y elementos de estructuras sencillas",
+    "section": "",
+    "text": "1.1 Conceptos básicos sobre las estructuras\nRecordamos algunos conceptos básicos sobre las estructuras, que utilizaremos en esta unidad.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descripción y elementos de estructuras sencillas</span>"
+    ]
+  },
+  {
+    "objectID": "01_descripcion.html#conceptos-básicos-sobre-las-estructuras",
+    "href": "01_descripcion.html#conceptos-básicos-sobre-las-estructuras",
+    "title": "1  Descripción y elementos de estructuras sencillas",
+    "section": "",
+    "text": "WarningDefinición\n\n\n\nLas estructuras son conjuntos de elementos unidos entre sí capaces de soportar las fuerzas que actúan sobre ellas, conservando su forma.\n\n\n\n\nCargas\nLas fuerzas que actúan sobre las estructuras se denominan cargas o acciones.\n\n\nReacciones\nPara mantenerse en equilibrio con las fuerzas que actúan sobre ellas, las estructuras, según el principio físico de acción y reacción, tienen que contraponer otras fuerzas iguales y de sentido contrario. Al conjunto de fuerzas con las que las estructuras reaccionan ante las cargas se las denomina reacciones. Las fuerzas de reacción se ejercen en los puntos por donde las estructuras están sujetas (apoyos), o bien por donde se unen los diferentes elementos de las mismas (uniones).\n\n\nEsfuerzos\nAl aplicar cargas sobre una estructura, aparecen unas tensiones o fuerzas internas en los elementos de la estructtura que se denominan esfuerzos. Los diferentes esfuerzos que puede soportar una estructura son los siguientes:\n\n\n\n\n\n\n\n\n\nEsfuerzo\nEfecto y Descripción\nEsquema\nEjemplos\n\n\n\n\nTracción\nEstirar.Dos fuerzas opuestas tiran del elemento para alargarlo.\n\nCadenas de columpio, cables de grúa.\n\n\nCompresión\nComprimir.Dos fuerzas opuestas aplastan el elemento para acortarlo.\n\nPatas de silla, columnas, pilares.\n\n\nFlexión\nDoblar.Las fuerzas tienden a curvar el elemento.\n\nTablero de mesa, vigas de suelo, estanterías.\n\n\nTorsión\nRetorcer.Las fuerzas giran en sentidos opuestos sobre el eje.\n\nEje de destornillador, llave al girar, grifos.\n\n\nCortante\nCortar/Cizallar.Dos fuerzas paralelas y opuestas muy próximas.\n\nTijeras, guillotina, sujeción de cuadros.\n\n\n\n\n\nCondiciones a cumplir por las estructuras\nA las estructuras se les exige soportar cargas, mantener la forma, proteger partes delicadas, ser ligeras y sobre todo, ser estables.\nPara ello, toda estructura tiene que cumplir las siguientes condiciones:\n\nEstabilidad: Para que la estructura se mantenga erguida y no vuelque, su centro de gravedad tiene que estar dentro de su base y lo más cercano al suelo posible. Para conseguirlo a veces se tiene que recurrir a acciones como ampliar la base, poner tirantes o empotrar su base inferior al suelo.\nResistencia: Tienen que ser capaces de soportar las distintas cargas sin romperse, esto depende de la forma de la estructura y del tipo y de la cantidad de material con que se ha construido.\nRigidez: La deformación de los elementos no puede ser grande.\n\n\n\n\n\n\n\nWarningImportante: Triangulación\n\n\n\nEsto se consigue cuando la forma de las estructuras es adecuada, soldando las uniones para reforzarlas y con triangulaciones, ya que el triángulo es el único polígono indeformable. Es por ello que son las formas más empleadas en las estructuras.\nLas diagonales usadas para triangular se llaman arriostramientos.\n\n\nAún así, toda estructura tiene que tener cierto grado de flexibilidad, ya que tienen que ser capaces de soportar las variaciones debidas a la dilatación y a la contracción de materiales, así como de absorber vibraciones y movimientos sísmicos.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descripción y elementos de estructuras sencillas</span>"
+    ]
+  },
+  {
+    "objectID": "01_descripcion.html#elementos-resistentes-en-edificación",
+    "href": "01_descripcion.html#elementos-resistentes-en-edificación",
+    "title": "1  Descripción y elementos de estructuras sencillas",
+    "section": "1.2 Elementos resistentes en edificación",
+    "text": "1.2 Elementos resistentes en edificación\nLas estructuras de edificación se componen de lo que denominamos elementos resistentes, que se pueden clasificar en:\n\nCimientos o cimentación\n\n\n\nConjunto de elementos estructurales cuya misión es transmitir las cargas de la edificación o de elementos apoyados en éste al suelo, distribuyéndolas de forma que no superen una serie de valores máximos del terreno de apoyo.\nDebido a que la resistencia del suelo es, generalmente, menor que la de los pilares o muros que soportará, el área de contacto entre el suelo y la cimentación será mucho más grande que los elementos soportados (zapatas).\n\n\n\n\n\nCimientos\n\n\n\n\n\n\n\nSoportes\n\n\n\nElementos verticales que soportan fundamentalmente esfuerzos de compresión, aunque también parte de cortante y, sobre todo, en los elementos más esbeltos, pandeo.\n\nPilares: son habitualmente de hormigón armado, normalmente ejecutados “in situ” (encofrado). También pueden ser de acero.\nPie derecho: soporte de madera.\nColumna: soporte de sección circular.\n\n\n\n\n\n\nPilares\n\n\n\n\n\n\n\nMuros de carga o portantes\n\n\n\nSe trata de paredes de una edificación que poseen función estructural, es decir, aquellas que soportan otros elementos estructurales del edificio, como arcos, bóvedas, vigas o viguetas de forjados o de la cubierta.\nSoportan fundamentalmente esfuerzos axiles de compresión. Cuando soportan cargas horizontales (presiones del terreno) se denominan muros de contención.\n\n\n\n\n\nMuros de carga\n\n\n\n\n\n\n\nVigas\n\n\n\nElemento estructural que normalmente se coloca en posición horizontal destinado a soportar esfuerzos principalmente de flexión y de cortante.\nLas vigas que forman parte de un forjado se denominan viguetas. El conjunto vigas-pilares forma lo que denominan pórticos.\n\n\n\n\n\nTipos de vigas\n\n\n\n\n\n\n\nCerchas\n\n\n\nUna cercha es una celosía, una estructura reticular de barras rectas interconectadas en nodos formando triángulos planos (en celosías planas) o pirámides tridimensionales (en celosías espaciales). También se les conoce como armaduras.\nEl interés de este tipo de estructuras es que las barras trabajan predominantemente a compresión y tracción, presentando comparativamente flexiones pequeñas.\n\n\n\n\n\nCercha\n\n\n\n\n\n\n\nForjados\nSe denomina forjado al elemento estructural, horizontal o inclinado (en cubiertas), que soporta su propio peso y las sobrecargas de uso, tabiquería, dinámicas, etc. Transmite cargas verticales y horizontales, aportando rigidez.\nUn tipo muy habitual es el forjado de viguetas y bovedillas, cuya construcción se detalla en el recurso adjunto.\n\n\n\n\n\nTirantes\n\n\n\nSe usan para unir dos elementos de una estructura o una estructura al terreno. Su principal característica es que trabajan siempre a tracción y no soportan ningún otro esfuerzo.\nSe fabrican habitualmente de acero, dada su excelente resistencia a la tracción.\n\n\n\n\n\nTirantes (Mercado del Val)\n\n\n\n\n\n\n\nArcos, bóvedas y cúpulas\n\nArco: Elemento curvo que salva el espacio entre dos pilares. Trabaja predominantemente a compresión, transmitiendo cargas oblicuas (empuje) a los apoyos.\nBóveda: Elemento superficial generado por el movimiento de un arco a lo largo de un eje. Cubre espacios entre muros o pilares trabajando a compresión.\nCúpula: Elemento para cubrir un espacio circular o poligonal mediante arcos rotados respecto a un punto central. Los esfuerzos son de tracción en los paralelos y de compresión en los meridianos.\n\n\n\n\n\n\n\nElementos del arco\n\n\n\n\n\n\n\nElementos de la bóveda\n\n\n\n\n\n\n\nDinteles\n\n\n\nEs el elemento superior que permite crear vanos en los muros para conformar puertas y ventanas. La construcción que utiliza dinteles se llama adintelada.\nA diferencia de los arcos, trabaja fundamentalmente a flexión, por lo que requiere materiales resistentes a la tracción.\n\n\n\n\n\nDintel de piedra (Año 1780)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descripción y elementos de estructuras sencillas</span>"
+    ]
+  },
+  {
+    "objectID": "01_descripcion.html#elementos-resistentes-en-maquinaria",
+    "href": "01_descripcion.html#elementos-resistentes-en-maquinaria",
+    "title": "1  Descripción y elementos de estructuras sencillas",
+    "section": "1.3 Elementos resistentes en maquinaria",
+    "text": "1.3 Elementos resistentes en maquinaria\n\nChasis y Bastidor\n\n\n\nEl chasis es el armazón metálico que soporta los elementos de un vehículo (motor, carrocería).\nEl bastidor es la parte más importante del chasis. Es una estructura compuesta por largueros y travesaños donde se fijan los elementos mecánicos.\nEn los turismos modernos ha sido sustituido por carrocerías monocasco, integrando bastidor y carrocería en una única estructura.\n\n\n\n\n\nChasis rodante\n\n\n\n\n\n\n\nBancada\n\n\n\nEs la estructura de una máquina herramienta, sobre la que se construye ésta.\nSus principales funciones son soportar vibraciones y movimientos, mantener la precisión en el mecanizado de piezas y alojar los mecanismos.\n\n\n\n\n\nBancada",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descripción y elementos de estructuras sencillas</span>"
+    ]
+  },
+  {
+    "objectID": "02_cargas.html",
+    "href": "02_cargas.html",
+    "title": "2  Cargas. Tipos de apoyos y uniones",
+    "section": "",
+    "text": "2.1 Cargas aplicadas y reacciones\nLas fuerzas que actúan sobre la estructura se llaman cargas estructurales y son causantes de esfuerzos, deformaciones y desplazamientos. Todas tienen que ser incluidas en el cálculo estructural.\nPara mantener el equilibrio estático, es necesario que se produzcan reacciones. La viga no está aislada, sino sujeta a otros elementos que generan una reacción opuesta a las cargas.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cargas. Tipos de apoyos y uniones</span>"
+    ]
+  },
+  {
+    "objectID": "02_cargas.html#cargas-aplicadas-y-reacciones",
+    "href": "02_cargas.html#cargas-aplicadas-y-reacciones",
+    "title": "2  Cargas. Tipos de apoyos y uniones",
+    "section": "",
+    "text": "Tipos: Las cargas pueden ser fijas (como el peso propio) o variables (como el viento).\nUnidades: Se miden en newtons (N) en el Sistema Internacional.\nDistribución: Pueden ser puntuales (un punto), distribuidas (sobre una longitud) o momentos (giros en una sección).\n\n\n\n\n\nEsquema de cargas y reacciones",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cargas. Tipos de apoyos y uniones</span>"
+    ]
+  },
+  {
+    "objectID": "02_cargas.html#tipos-de-apoyos-y-restricciones",
+    "href": "02_cargas.html#tipos-de-apoyos-y-restricciones",
+    "title": "2  Cargas. Tipos de apoyos y uniones",
+    "section": "2.2 Tipos de apoyos y restricciones",
+    "text": "2.2 Tipos de apoyos y restricciones\nEl valor de las reacciones depende de las cargas y de las restricciones de la viga. No es lo mismo un apoyo simple que un empotramiento. Las limitaciones de movimiento que introducen los apoyos definen estas restricciones.\nPara el cálculo de vigas identificamos tres tipos principales:\n\n\n\nApoyo Deslizante\nPermite la rotación y el movimiento en una dirección (generalmente horizontal).\n\n\n\nApoyo Deslizante\n\n\n\nReacción (\\(R_y\\)): Aparece solo una fuerza vertical, ya que se impide la traslación vertical.\nMomento: No hay, la rotación está permitida.\n\n\n\nApoyo Fijo (Articulado)\nPermite la rotación pero impide cualquier traslación.\n\n\n\nApoyo Fijo\n\n\n\nReacciones (\\(R_x, R_y\\)): Aparecen fuerzas en ambos ejes, ya que se impide la traslación en cualquier dirección.\nMomento: No hay, la rotación está permitida.\n\n\n\nEmpotramiento\nImpide cualquier movimiento (traslación o rotación).\n\n\n\nEmpotramiento\n\n\n\nReacciones (\\(R_x, R_y\\)): Aparecen fuerzas en ambos ejes.\nMomento (\\(M_z\\)): Aparece un momento de reacción ya que se impide la rotación.\n\n\n\n\n\nResumen de reacciones en apoyos\n\n\n\nTabla resumen de apoyos\n\n\n\n\n2.2.1 Ejemplos reales\nEn el siguiente vídeo puedes ver ejemplos en el mundo real de estos tipos de apoyos:",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Cargas. Tipos de apoyos y uniones</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html",
+    "href": "03_calculos_basicos.html",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "",
+    "text": "3.1 Centro de gravedad\nEl análisis estructural es un proceso importante en ingeniería. Las estructuras deben conseguir que las construcciones se sostengan y perduren en el tiempo, es decir, que tengan estabilidad y resistencia.\nEn el diseño de las estructuras es necesario realizar cálculos para garantizar esa estabilidad y resistencia, que podemos simplificar así:\nAntes de calcular directamente esfuerzos producidos en elementos resistentes, comenzaremos familiarizándonos con algunos conceptos físicos y cálculos sencillos que son de aplicación directa en las estructuras.\nEl concepto del centro de gravedad es fundamental en el diseño de estructuras, en la física, en la ingeniería, y en muchas otras disciplinas que dependen del equilibrio y la estabilidad de los cuerpos.\nEl centro de gravedad de un cuerpo es el punto en el cual se puede considerar que está concentrado todo su peso o masa, en términos de cómo la gravedad actúa sobre él. En otras palabras, es el punto en el que las fuerzas de gravedad que actúan sobre cada una de las partículas que componen el cuerpo se equilibran y suman, permitiendo que el objeto se comporte como si todo su peso estuviera concentrado en ese lugar.\nCaracterísticas del centro de gravedad:\nEn un objeto irregular, como una silla, el centro de gravedad estará en algún punto dependiendo de cómo esté distribuida su masa, que puede no coincidir con su centro geométrico. Para calcular el centro de gravedad en estos casos, hay que descomponer el cuerpo en objetos más pequeños que sí sean homogéneos, y calcular el centro de gravedad así:\nSi tenemos un cuerpo con orificios, podemos considerar estos como objetos de masa negativa, a efectos de calcular el centro de gravedad global.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#centro-de-gravedad",
+    "href": "03_calculos_basicos.html#centro-de-gravedad",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "",
+    "text": "Equilibrio: si un cuerpo se sostiene en su centro de gravedad, este se mantendrá en equilibrio sin inclinarse hacia ningún lado.\nDistribución de masa: la ubicación del centro de gravedad depende de cómo esté distribuida la masa del objeto. En objetos homogéneos (con distribución uniforme de masa), el centro de gravedad suele coincidir con el centro geométrico del objeto.\nPosición del centro de gravedad: El centro de gravedad no siempre está dentro del objeto; puede encontrarse fuera del cuerpo, dependiendo de la forma y distribución de su masa. Por ejemplo, en un aro o un anillo, el centro de gravedad está en el centro del espacio vacío.\n\n\n\n\n\n\n\n\nWarningFórmulas del Centro de Gravedad\n\n\n\n\\[X_{G}=\\frac{\\sum m_{i} \\cdot X_{i}}{M} \\quad ; \\quad Y_{G}=\\frac{\\sum m_{i} \\cdot Y_{i}}{M}\\]\nDonde:\n\n\n\n\n\\(X_G, Y_G\\): coordenadas del centro de gravedad del cuerpo completo.\n\\(m_i\\): masa del objeto “\\(i\\)”.\n\\(X_i, Y_i\\): coordenadas del centro de gravedad del objeto “\\(i\\)”.\n\\(M\\): masa total del cuerpo completo.\n\n\n\n\n\n\n\n\n\n\nImportanteEjemplo de cálculo del centro de gravedad\n\n\n\n\n\nHalla las coordenadas del centro de gravedad de la chapa cuadrada agujereada de la de la figura:\n\n\n\nChapa con orificio\n\n\nLlamamos “\\(L\\)” a la longitud de los lados de la chapa (\\(L = 16 \\text{ cm}\\)) y “\\(r\\)” al radio del orificio (\\(r = 5 \\text{ cm}\\)).\nPodemos calcular fácilmente los centros de gravedad de la chapa sin agujero y del propio agujero.\nPor simetría, la posición de dichos CG es el centro geométrico de cada una de esas figuras:\n\nChapa sin orificio (centro del cuadrado): \\(X_{CH} = L / 2 = 8 \\text{ cm}\\); \\(Y_{CH} = L / 2 = 8 \\text{ cm}\\).\nOrificio (centro del círculo): \\(X_{O} = L - r = 16 - 5 = 11 \\text{ cm}\\); \\(Y_{O} = L / 2 = 8 \\text{ cm}\\).\n\nLa superficie de cada una de esas figuras es la siguiente:\n\nChapa sin orificio: \\(S_{CH} = L \\cdot L = 16 \\cdot 16 = 256 \\text{ cm}^2\\)\nOrificio: \\(S_{O} = -\\pi \\cdot r^2 = -\\pi \\cdot 5^2 = -78,54 \\text{ cm}^2\\)\n\nEl orificio hay que quitárselo a la chapa, por eso hemos calculado su superficie con un signo negativo, para que vaya restando en la expresión final (sería como si lo considerásemos con masa o superficie negativa)\nAsí, combinando las dos figuras, la posición del centro de gravedad global será la siguiente:\n\\[X_{G}=\\frac{\\sum S_{i} \\cdot X_{i}}{S} = \\frac{S_{CH} \\cdot X_{CH} + S_{O} \\cdot X_{O}}{S_{CH} + S_{O}} = \\frac{256 \\cdot 8 - 78,54 \\cdot 11}{256 - 78,54} = 6,67 \\text{ cm}\\]\n\\[Y_{G}=\\frac{\\sum S_{i} \\cdot Y_{i}}{S} = \\frac{S_{CH} \\cdot Y_{CH} + S_{O} \\cdot Y_{O}}{S_{CH} + S_{O}} = \\frac{256 \\cdot 8 - 78,54 \\cdot 8}{256 - 78,54} = 8 \\text{ cm}\\]\n\n\n\n\n3.1.1 Ejercicio propuesto\n1. Dada la pieza siguiente, realizada en alambre de grosor homogéneo, calcula el radio de la forma circular que hará que el centro de masas del sistema esté justo en el punto de unión de la forma recta y la circular. (Solución: R = 22,71 cm)\n\n\n\nEjercicio propuesto 1",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#componentes-vectoriales-de-una-fuerza",
+    "href": "03_calculos_basicos.html#componentes-vectoriales-de-una-fuerza",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "3.2 Componentes vectoriales de una fuerza",
+    "text": "3.2 Componentes vectoriales de una fuerza\nLas fuerzas son magnitudes vectoriales definidos por: Módulo, Punto de aplicación, Dirección y Sentido.\nDada una fuerza \\(F\\) cuya dirección forma un ángulo \\(\\alpha\\) con el eje horizontal (\\(X\\)):\n\n\n\n\n\n\n\n\n\nWarningComponentes rectangulares\n\n\n\n\\[F_{X} = F \\cdot \\cos \\alpha\\] \\[F_{Y} = F \\cdot \\sen \\alpha\\]\nExpresión vectorial: \\[\\vec{F} = F_{X} \\cdot \\vec{i} + F_{Y} \\cdot \\vec{j}\\]\n\n\n\n\n\n\n\n\nWarningCálculo inverso\n\n\n\n\nMódulo: \\(F = \\sqrt{F_{X}^{2} + F_{Y}^{2}}\\)\nDirección: \\(\\tan \\alpha = \\frac{F_Y}{F_X}\\)\n\n\n\n\n\n\n\n\nDescomposición de fuerza\n\n\n\n\n\n\n\n\n\n\n\nImportanteEjemplo resuelto. Descomposición de fuerzas.\n\n\n\n\n\nUna persona tira de una cuerda atada a una piedra con una fuerza de 400 N. Si el ángulo que forma la cuerda con la horizontal es de 40º, calcular:\n\nLa fuerza que tiende a elevar la piedra\nLa fuerza que tiende a arrastrar la piedra\n\nSolución\nEl vector de la fuerza aplicada con un ángulo \\(\\alpha = 40^{\\circ}\\) se descompone en dos vectores de fuerza, uno horizontal \\(F_X\\) y otro vertical \\(F_Y\\).\n\nEl vector de la fuerza vertical que tiende a elevar la piedra será: \\[F_{Y}=F \\cdot \\sen \\alpha =400 \\cdot \\sen 40^{\\circ}=247,12 \\text{ N}\\]\nEl vector de la fuerza horizontal que tiende a arrastrar la piedra será: \\[F_{X}=F \\cdot \\cos \\alpha =400 \\cdot \\cos 40^{\\circ}=306,42 \\text{ N}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#fuerza-resultante",
+    "href": "03_calculos_basicos.html#fuerza-resultante",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "3.3 Fuerza resultante",
+    "text": "3.3 Fuerza resultante\nCuando dos o más fuerzas son concurrentes (actúan sobre el mismo punto), podemos sustituir el conjunto de fuerzas por una sola fuerza resultante cuya acción será equivalente a la del conjunto.\nPara calcular el valor de la fuerza resultante, se descompone cada fuerza en sus componentes \\(F_X\\), \\(F_Y\\), y se suman. Desde el punto de vista vectorial:\n\n\n\n\n\n\nWarningSuma vectorial\n\n\n\n\\[\\vec{F}_{RES}=\\sum_{i=1}^{n}\\vec{F_{i}} =\\vec{F_{1}}+\\vec{F_{2}}+\\cdots +\\vec{F_{n}}\\] \\[\\vec{F}_{RES}=(F_{1X}+F_{2X}+\\cdots +F_{nX}) \\cdot \\vec{i}+(F_{1Y}+F_{2Y}+\\cdots +F_{nY}) \\cdot \\vec{j}\\]\n\n\n\n\n\n\n\n\n\n\nImportanteEjemplo resuelto. Fuerza resultante.\n\n\n\n\n\nTenemos dos fuerzas que se aplican desde un mismo punto, una de valor 100 N y otra de 50 N y cuyas direcciones forman un ángulo entre sí de 60º.\n\nCalcula el módulo del vector de la fuerza resultante.\nCalcula el ángulo que forma la resultante con la primera fuerza.\nRealiza la representación vectorial del sistema.\n\nSolución\nPrimero expresamos vectorialmente las dos fuerzas, suponiendo que la primera fuerza es horizontal (forma 0º con el eje X) y que, por tanto, la segunda fuerza forma 60º con el eje X (porque están a 60º entre sí):\n\\[\\vec{F_{1}}=F_{1X} \\cdot \\vec{i}+F_{1Y} \\cdot\\vec{j}=100 \\cdot \\cos 0^{o} \\cdot\\vec{i}+100 \\cdot \\sen 0^{o} \\cdot\\vec{j}=100 \\cdot\\vec{i}\\] \\[\\vec{F_{2}}=F_{2X} \\cdot \\vec{i}+F_{2Y} \\cdot\\vec{j}=50 \\cdot \\cos 60^{o} \\cdot\\vec{i}+50 \\cdot \\sen 60^{o} \\cdot\\vec{j}=25 \\cdot\\vec{i}+25\\sqrt{3} \\cdot\\vec{j}\\]\nCalculamos la fuerza resultante sumando vectorialmente las fuerzas \\(\\vec{F_{1}}\\) y \\(\\vec{F_{2}}\\):\n\\[\\vec{F}=\\vec{F_{1}}+\\vec{F_{2}}=(100 \\cdot \\vec{i} )+(25 \\cdot \\vec{i}+25\\sqrt{3} \\cdot \\vec{j})=125 \\cdot \\vec{i}+25\\sqrt{3} \\cdot \\vec{j}\\]\n\nMódulo de la fuerza resultante\n\nEl módulo de la fuerza resultante se calcula ya directamente al tener el vector:\n\\[F=|\\vec{F}|=\\sqrt{F_{X}^{2}+F_{Y}^{2}} =\\sqrt{(125^{2}+(25\\sqrt{3})^{2})}=132,29 \\text{ N}\\]\n\nÁngulo de la resultante con la primera fuerza.\n\nComo la primera fuerza la hemos tomado en el eje X, el ángulo de la resultante con la primera fuerza es el ángulo de la resultante con el eje X. Por lo tanto, también lo podemos calcular directamente a partir del vector:\n\\[\\varphi =\\arctan \\left (\\frac{F_{Y}}{F_{X}} \\right )=\\arctan \\left (\\frac{25\\sqrt{3}}{125} \\right )=19,11^{o}\\]\n\nRepresentación vectorial\n\n\n\n\nRepresentación vectorial",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#momento-de-una-fuerza",
+    "href": "03_calculos_basicos.html#momento-de-una-fuerza",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "3.4 Momento de una fuerza",
+    "text": "3.4 Momento de una fuerza\nConsideramos que las fuerzas son concurrentes cuando su punto de aplicación es el centro de gravedad de una estructura, pero, si no lo son, el sistema de fuerzas da lugar a momentos. En este caso, la estructura tiende a girar.\nEsto mismo ocurre cuando tenemos puntos de apoyo. Es decir, el momento de una fuerza provoca el giro del cuerpo sobre el que actúa.\n\n\n\n\n\n\nWarningFórmula del Momento\n\n\n\nEl momento de una fuerza se calcula como el producto vectorial entre la fuerza aplicada y el vector distancia desde el punto de aplicación de la fuerza al eje de giro: \\[\\vec{M}=\\vec{F}\\times \\vec{d}\\]\n\n\n\nEn el Sistema Internacional, el momento se mide en newtons-metro (N·m).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#condiciones-de-equilibrio",
+    "href": "03_calculos_basicos.html#condiciones-de-equilibrio",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "3.5 Condiciones de equilibrio",
+    "text": "3.5 Condiciones de equilibrio\nPara que un sólido se encuentre en equilibrio, deben darse dos condiciones fundamentales:\n\nEl sólido no debe trasladarse en ninguna dirección, por lo que la fuerza resultante de todas las fuerzas que actúen sobre él debe ser nula:\n\\[\\sum \\vec{F_{i}}=0\\]\nEl sólido no debe girar en ningún eje, por lo que el momento resultante de todos los momentos que actúen sobre él debe ser nulo:\n\\[\\sum \\vec{M_{i}}=0\\]\n\nEstas condiciones pueden establecerse para cada uno de los tres ejes principales del espacio (x, y, z), por lo que tendríamos 6 ecuaciones de equilibrio de un sólido (tres con las fuerzas y tres con los momentos).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html",
+    "href": "04_vigas_completo.html",
+    "title": "4  Cálculo de esfuerzos en vigas. Diagramas de esfuerzos",
+    "section": "",
+    "text": "4.1 Criterio de signos (Cargas)\nHemos visto que una viga es un elemento estructural diseñado para soportar fuerzas, por lo que debe estar en equilibrio, esto es, que no se rompa ni se mueva por las fuerzas y que no gire por los momentos que producen las fuerzas.\nDado que consideramos que la viga es bidimensional, para que una viga esté en equilibrio se tiene que cumplir:\nPara realizar los cálculos en problemas de vigas, tomaremos el siguiente criterio para los signos de las cargas externas:",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#ejemplo-1-carga-puntual",
+    "href": "04_vigas_completo.html#ejemplo-1-carga-puntual",
+    "title": "4  Cálculo de esfuerzos en vigas",
+    "section": "4.6 Ejemplo 1: carga puntual",
+    "text": "4.6 Ejemplo 1: carga puntual\nDesarrollo del ejemplo…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#ejemplo-2-carga-uniformemente-repartida",
+    "href": "04_vigas_completo.html#ejemplo-2-carga-uniformemente-repartida",
+    "title": "4  Cálculo de esfuerzos en vigas",
+    "section": "4.7 Ejemplo 2: carga uniformemente repartida",
+    "text": "4.7 Ejemplo 2: carga uniformemente repartida\nDesarrollo del ejemplo…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#ejemplo-3-empotramiento-con-carga-uniformemente-repartida",
+    "href": "04_vigas_completo.html#ejemplo-3-empotramiento-con-carga-uniformemente-repartida",
+    "title": "4  Cálculo de esfuerzos en vigas",
+    "section": "4.8 Ejemplo 3: empotramiento con carga uniformemente repartida",
+    "text": "4.8 Ejemplo 3: empotramiento con carga uniformemente repartida\nDesarrollo del ejemplo…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#otros-ejemplos",
+    "href": "04_vigas_completo.html#otros-ejemplos",
+    "title": "4  Cálculo de esfuerzos en vigas",
+    "section": "4.9 Otros ejemplos",
+    "text": "4.9 Otros ejemplos\nMás casos prácticos…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas</span>"
+    ]
+  },
+  {
+    "objectID": "05_barras_completo.html",
+    "href": "05_barras_completo.html",
+    "title": "5  Estructuras de barras articuladas",
+    "section": "",
+    "text": "5.1 Cálculo de esfuerzos en estructuras de barras articuladas\nIntroducción a las cerchas y barras…",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estructuras de barras articuladas</span>"
+    ]
+  },
+  {
+    "objectID": "05_barras_completo.html#método-de-los-nudos",
+    "href": "05_barras_completo.html#método-de-los-nudos",
+    "title": "5  Estructuras de barras articuladas",
+    "section": "5.2 Método de los nudos",
+    "text": "5.2 Método de los nudos\nExplicación del método…",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estructuras de barras articuladas</span>"
+    ]
+  },
+  {
+    "objectID": "05_barras_completo.html#método-de-las-secciones-ritter",
+    "href": "05_barras_completo.html#método-de-las-secciones-ritter",
+    "title": "5  Estructuras de barras articuladas",
+    "section": "5.3 Método de las secciones (Ritter)",
+    "text": "5.3 Método de las secciones (Ritter)\nExplicación del método…",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estructuras de barras articuladas</span>"
+    ]
+  },
+  {
+    "objectID": "05_barras_completo.html#método-gráfico-de-cremona",
+    "href": "05_barras_completo.html#método-gráfico-de-cremona",
+    "title": "5  Estructuras de barras articuladas",
+    "section": "5.4 Método gráfico de Cremona",
+    "text": "5.4 Método gráfico de Cremona\nExplicación del método…",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Estructuras de barras articuladas</span>"
+    ]
+  },
+  {
+    "objectID": "03_calculos_basicos.html#ejercicios",
+    "href": "03_calculos_basicos.html#ejercicios",
+    "title": "3  Cálculos básicos en estructuras",
+    "section": "3.6 Ejercicios",
+    "text": "3.6 Ejercicios\n\n\n\n\n\n\nImportanteEjercicios propuestos\n\n\n\n1. Una persona carga en un hombro una barra de madera de 2 m con un cubo en cada extremo. La carga de uno de los cubos es tres veces la del otro (F).\n\nCalcula el módulo vector de la fuerza resultante. (Solución: \\(F_R = 4F \\text{ N}\\))\nCalcula el punto de apoyo de la barra para que la carga esté equilibrada. (Solución: \\(x = 1,5 \\text{ m}\\) ; \\(y = 0,5 \\text{ m}\\))\nRealiza la representación vectorial del sistema.\n\n\n2. Una puerta de 400 N de peso y 2 m de alto por 1 m de ancho se soporta en dos bisagras que se sitúan a 1,5 m una de otra y la misma distancia de los extremos superior e inferior de la puerta.\n\nRealiza la representación vectorial del sistema de fuerzas.\nCalcula el valor de las fuerzas que se ejercen en cada bisagra. (Solución: bisagra superior: \\(F_R = 421,23 \\text{ N}\\) ; bisagra inferior: \\(R = F_X = 133,33 \\text{ N}\\))\n\n\n3 (PAU). En el sistema en equilibrio que se muestra en la figura adjunta, la viga uniforme de longitud L pesa 0,60 kN y está sujeta a un apoyo articulado fijo en el punto A y a una cuerda tensora en el punto B. En el otro extremo, la viga sujeta un peso de 0,80 kN.\n\n\n\nEjercicio PAU 3\n\n\nSe pide:\n\nDibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.\nCalcular la tensión en la cuerda tensora y las componentes de la fuerza de reacción que ejerce el apoyo articulado fijo sobre la viga. (Sol: \\(F_T = 2281,7 \\text{ N}\\); \\(F_{Rx} = 1747,9 \\text{ N}\\); \\(F_{Ry} = -66,6 \\text{ N}\\))\n\n\n4 (PAU). Un asta de peso 0,40 N y densidad uniforme está suspendida como se muestra en la figura. En su extremo libre sujeta un peso de 2 kN.\n\n\n\nEjercicio PAU 4\n\n\nSe pide:\n\nDibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.\nCalcular la tensión en la cuerda y la fuerza que ejerce el pivote en P sobre el asta (Sol: \\(F_T = 2,46 \\text{ kN}\\); \\(F_R = 3,44 \\text{ kN}\\); \\(\\theta = 44º\\))\n\n\n5 (PAU). Para colgar un cartel en la fachada de un edificio, se usa una barra horizontal con un extremo fijo en la pared a cierta altura. El otro extremo de la barra se sujeta con un cable tensor que se fija a la pared 3,2 m por encima del apoyo fijo de la barra.\nLa barra mide 2,8 m de largo y su masa es despreciable. El cartel es cuadrado, de 1,9 m de lado y 52,3 kg. Cuelga del punto central de su lado superior mediante un cable fijado a la barra, de modo que el extremo derecho del cartel queda alineado con el extremo derecho de la barra.\nSe pide:\n\nDibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.\nCalcular la tensión del cable de soporte. (Sol: \\(F_T = 450 \\text{ N}\\))\nCalcular las componentes horizontal y vertical de la reacción ejercida por la pared. (Sol: \\(F_{Rx} = 296 \\text{ N}\\); \\(F_{Ry} = 174 \\text{ N}\\))\n\n\n6 (PAU). Una grúa fija tiene una masa de 1 000 kg y se usa para levantar un contenedor de 2 400 kg. La grúa se mantiene en su lugar por medio de un perno en A y un balancín en B. El perno es un tipo de anclaje fijo que permite rotaciones de la grúa, pero no traslaciones, y un balancín es un apoyo móvil tipo rodillo que permite rotaciones y traslaciones. El centro de gravedad de la grúa está ubicado en G de acuerdo con el siguiente dibujo:\n\n\n\nEjercicio PAU 6\n\n\nSe pide:\n\nDibujar el diagrama del sólido libre.\nCalcular la fuerza de reacción en los apoyos A y B. (Sol: \\(A_x = 107,1 \\text{ kN}\\) izqda; \\(A_y = 33,3 \\text{ kN}\\) arriba; \\(B_x = 107,1 \\text{ kN}\\) dcha)\n\n\n7 (PAU). Un tractor como el de la figura tiene una masa de 2 100 lb y se utiliza para levantar 900 lb de grava en su pala delantera. El tractor se apoya en las ruedas traseras y delanteras, que están separadas 60 in. El centro de gravedad del tractor se sitúa 20 in por delante de las ruedas traseras, y durante el transporte el centro de gravedad de la pala cargada se encuentra 50 in por delante de las ruedas delanteras.\n\n\n\nEjercicio PAU 7\n\n\nSe pide:\n\nDibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.\nCalcular las reacciones en ruedas traseras (apoyo A) y en las delanteras (apoyo B). (\\(A_y = 1,45 \\text{ kN}\\); \\(B_y = 5,23 \\text{ kN}\\))\n\nConsiderar 1 lb = 0,454 kg y 1 in = 2,54 cm.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Cálculos básicos en estructuras</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#cálculo-de-esfuerzos-en-vigas.-diagramas-de-esfuerzos",
+    "href": "04_vigas_completo.html#cálculo-de-esfuerzos-en-vigas.-diagramas-de-esfuerzos",
+    "title": "4  Cálculo de esfuerzos en vigas",
+    "section": "",
+    "text": "WarningEcuaciones de Equilibrio\n\n\n\n\nQue la suma de fuerzas en el eje X sea 0 (no se mueve horizontalmente).\nQue la suma de fuerzas en el eje Y sea 0 (no se mueve verticalmente).\nQue la suma de los momentos que producen todas las fuerzas sea 0 (no gira).",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#criterio-de-signos-cargas",
+    "href": "04_vigas_completo.html#criterio-de-signos-cargas",
+    "title": "4  Cálculo de esfuerzos en vigas. Diagramas de esfuerzos",
+    "section": "",
+    "text": "Fuerzas horizontales: positivas hacia la derecha.\nFuerzas verticales: positivas hacia arriba.\nMomentos: positivos si provocan giro antihorario.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#viga-isostática",
+    "href": "04_vigas_completo.html#viga-isostática",
+    "title": "4  Cálculo de esfuerzos en vigas. Diagramas de esfuerzos",
+    "section": "4.2 Viga isostática",
+    "text": "4.2 Viga isostática\nUna viga será isostática si es posible realizar su análisis estático aplicando las ecuaciones de sumatorio de fuerzas y momentos.\nComo solo vamos a hacer análisis en el plano, siempre tendremos tres ecuaciones como hemos visto antes (\\(\\sum F_{x}=0; \\sum F_{y}=0; \\sum M_{z}=0\\)). Por lo tanto, para resolver el sistema de ecuaciones, el número total de reacciones (incógnitas) en la viga debe ser 3, coincidente con el número de ecuaciones estáticas disponibles.\n\nSi el número de reacciones es menor a 3, la viga será un mecanismo (se moverá).\nSi el número de reacciones es superior a 3, se tratará de una viga hiperestática. El grado de hiperestaticidad será mayor conforme aumente el número de reacciones redundantes. Este tipo de vigas no puede calcularse directamente, debiendo utilizar pasos adicionales para su resolución.\n\n\n\n\nVigas isostáticas e hiperestáticas\n\n\nNosotros nos centraremos en el cálculo de vigas isostáticas en este curso.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#tipos-de-esfuerzos-en-una-viga",
+    "href": "04_vigas_completo.html#tipos-de-esfuerzos-en-una-viga",
+    "title": "4  Cálculo de esfuerzos en vigas. Diagramas de esfuerzos",
+    "section": "4.3 Tipos de esfuerzos en una viga",
+    "text": "4.3 Tipos de esfuerzos en una viga\nLas cargas y reacciones producen los siguientes esfuerzos en una viga (ignorando la torsión que rara vez ocurre y que no tendremos nunca en cuenta):\n\nEsfuerzo axil (N): genera tensiones normales, según la dirección del eje longitudinal de la viga. Es producido por la suma de todas las cargas y reacciones paralelas al eje longitudinal de la viga. El esfuerzo puede ser de tracción (tiende a estirar la viga) o de compresión (tiende a aplastarla).\nEsfuerzo cortante (V): genera tensiones tangenciales en la viga. Es producido por aquellas cargas y reacciones aplicadas en dirección perpendicular al eje longitudinal de la viga.\nMomento flector (M): normalmente es el esfuerzo más determinante y genera tensiones normales en la viga (aparecen axiles de tracción en la parte externa del giro y de compresión en la parte interna). Es producida por aquellas cargas y reacciones perpendiculares al eje longitudinal de la viga, fuerzas paralelas al eje pero descentradas y momentos de giro aplicados.\n\n\n4.3.1 Criterio de signos para los esfuerzos internos\nPara poder obtener las leyes de esfuerzo, es necesario definir un criterio de signos cuando estemos considerando esfuerzos en una sección “\\(x\\)” de la viga:\n\n\n\nEsfuerzo Axil (N)\nSe toma como criterio positivo el esfuerzo de tracción, es decir, aquellas cargas que tienen a incrementar la longitud de la barra (la compresión es negativa).\nA nivel de cálculo: fuerzas horizontales a la izquierda de la sección dirigidas hacia la izquierda.\n\n\n\nCriterio Axil\n\n\n\n\nEsfuerzo Cortante (V)\nAquellas fuerzas situadas a la izquierda de la sección “\\(x\\)” con dirección perpendicular al eje de la viga y hacia arriba generarán un cortante positivo.\n\n\n\nCriterio Cortante\n\n\n\n\nMomento Flector (M)\nSe tomará como criterio de momento positivo el sentido horario producido por las cargas situadas a la izquierda de la sección “\\(x\\)”.\n\n\n\nCriterio Momento",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span>"
+    ]
+  },
+  {
+    "objectID": "04_vigas_completo.html#diagramas-de-esfuerzos",
+    "href": "04_vigas_completo.html#diagramas-de-esfuerzos",
+    "title": "4  Cálculo de esfuerzos en vigas. Diagramas de esfuerzos",
+    "section": "4.4 Diagramas de esfuerzos",
+    "text": "4.4 Diagramas de esfuerzos\nPara estudiar los esfuerzos de una viga, se representan mediante tres diagramas:\n\nDiagrama de esfuerzo axil (N) \\(\\rightarrow\\) muestra si la barra está en tracción o compresión.\nDiagrama de esfuerzo cortante (V) \\(\\rightarrow\\) muestra las fuerzas internas verticales.\nDiagrama de momento flector (M) \\(\\rightarrow\\) muestra los momentos internos que tienden a doblar la viga.\n\nPara obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:\n\n4.4.1 1. Determinar las reacciones en los apoyos\nAntes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio:\n\\[\\sum F_{x}=0 \\quad ; \\quad \\sum F_{y}=0 \\quad ; \\quad \\sum M_{z}=0\\]\nDe ahí se obtienen las reacciones verticales, horizontales y de giro, si las hay. Como estudiaremos siempre vigas isostáticas, habrá exactamente 3 reacciones para calcular.\n\n\n4.4.2 2. “Cortar” la viga mentalmente\nSe hace un corte imaginario en un punto cualquiera de la viga, a una distancia “\\(x\\)” del extremo izquierdo, para analizar una de las partes.\nSobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:\n\n\\(N(x)\\): fuerza horizontal interna (axil).\n\\(V(x)\\): fuerza vertical interna (cortante).\n\\(M(x)\\): momento interno (flector).\n\nY se vuelven a aplicar las ecuaciones de equilibrio a esa porción.\n\n\n4.4.3 3. Expresar cada esfuerzo en función de la posición x\nAl mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.\nPor ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.\n\n\n4.4.4 4. Dibujar los diagramas\nCon los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):\n\n\n\n\n\n\n\n\nDiagrama\nEje vertical representa…\nForma típica\n\n\n\n\nN(x)\nEsfuerzo axil\nConstante (si no hay cargas horizontales)\n\n\nV(x)\nEsfuerzo cortante\nSegmentos horizontales o con saltos\n\n\nM(x)\nMomento flector\nLíneas rectas o curvas suaves (triangular o parabólica)\n\n\n\nTodo esto lo entenderás mejor con los ejemplos resueltos de los próximos subapartados.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span>"
+    ]
+  }
+]

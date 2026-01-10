@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_effects.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>1. Descripción y elementos de estructuras sencillas | Estructuras </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Luis García Jiménez" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_effects.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/empheq']},
+  tex: {
+    packages: {'[+]': ['empheq']},
+    tags: "ams",
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script">
+</script>
+
+<script type="text/javascript" async
+     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script></head>
+<body class="exe-web-site exe-auto-math" id="exe-node-7"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Estructuras</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Estructuras</a></li>
+   <li id="active"><a href="1_descripcin_y_elementos_de_estructuras_sencillas.html" class="active no-ch">1. Descripción y elementos de estructuras sencillas</a></li>
+   <li><a href="2_cargas_tipos_de_apoyos_y_uniones.html" class="no-ch">2. Cargas. Tipos de apoyos y uniones</a></li>
+   <li><a href="3_clculos_bsicos_en_estructuras.html" class="no-ch">3. Cálculos básicos en estructuras</a></li>
+   <li><a href="4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html" class="daddy">4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.</a>
+   <ul class="other-section">
+      <li><a href="41_ejemplo_1_carga_puntual.html" class="no-ch">4.1. Ejemplo 1: carga puntual</a></li>
+      <li><a href="42_ejemplo_2_carga_uniformamente_repartida.html" class="no-ch">4.2. Ejemplo 2: carga uniformamente repartida</a></li>
+      <li><a href="43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html" class="no-ch">4.3. Ejemplo 3: empotramiento con carga uniformemente repartida</a></li>
+      <li><a href="otros_ejemplos.html" class="no-ch">Otros ejemplos</a></li>
+   </ul>
+   </li>
+   <li><a href="5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html" class="daddy">5. Cálculo de esfuerzos en estructuras de barras articuladas.</a>
+   <ul class="other-section">
+      <li><a href="51_mtodo_de_los_nudos.html" class="no-ch">5.1. Método de los nudos</a></li>
+      <li><a href="52_mtodo_de_las_secciones_ritter.html" class="no-ch">5.2. Método de las secciones (Ritter)</a></li>
+      <li><a href="53_mtodo_grfico_de_cremona.html" class="no-ch">5.3. Método gráfico de Cremona</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2_cargas_tipos_de_apoyos_y_uniones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">1. Descripción y elementos de estructuras sencillas</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id111">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Conceptos básicos sobre las estructuras</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta111_120_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><table border="1" style="width: 80%; border-style: none; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="width: 100%; background-color: #ffe3c2; border-color: #db6600; border-style: solid; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; box-shadow: 5px 5px 5px gray; padding: 5px;">Las estructuras son conjuntos de elementos unidos entre sí capaces de soportar las fuerzas que actúan sobre ellas, conservando su forma.</td>
+</tr>
+</tbody>
+</table>
+<p>Recordamos algunos conceptos básicos sobre las estructuras, que utilizaremos en esta unidad.</p>
+<h1><span style="color: #008000;">Cargas</span></h1>
+<p>Las fuerzas que actúan sobre las estructuras se denominan <span style="color: #008000;"><strong>cargas</strong></span> o acciones.</p>
+<h1><span style="color: #008000;">Reacciones</span></h1>
+<p>Para mantenerse en equilibrio con las fuerzas que actúan sobre ellas, las estructuras, según el principio físico de acción y reacción, tienen que contraponer otras fuerzas iguales y de sentido contrario. Al conjunto de fuerzas con las que las estructuras reaccionan ante las cargas se las denomina <span style="color: #008000;"><strong>reacciones</strong></span>. Las fuerzas de reacción se ejercen en los puntos por donde las estructuras están sujetas (<span style="color: #008000;"><strong>apoyos</strong></span>), o bien por donde se unen los diferentes elementos de las mismas (<span style="color: #008000;"><strong>uniones</strong></span>).&nbsp;</p>
+<h1><span style="color: #008000;">Esfuerzos</span></h1>
+<p>Al aplicar cargas sobre una estructura, aparecen unas tensiones o fuerzas internas en los elementos de la estructtura que se denominan <span style="color: #008000;"><strong>esfuerzos</strong></span>. Los diferentes esfuerzos que puede soportar una estructura son los siguientes:</p>
+<div class="exe-fx exe-tabs">
+<h2>Axil de tracción</h2>
+<p>El esfuerzo de tracción tiende a <span style="color: #008000;"><strong>estirar</strong></span> la estructura:</p>
+<p><img src="Esfuerzo-traccion.png" width="299" height="73" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Ejemplos de elementos que soportan este esfuerzo son: cadenas de un columpio, cable de una grúa, etc.</p>
+<h2>Axil de compresión</h2>
+<p>El esfuerzo de compresión tiende a <span style="color: #008000;"><strong>comprimir</strong></span> la estructura:</p>
+<p><img src="Esfuerzo-compresion.png" width="300" height="91" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Ejemplos de elementos que soportan este esfuerzo son: patas de una silla, columnas de un edificio, etc.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/AI_LQnkxIe0"></iframe></p>
+<h2>Flector</h2>
+<p>El esfuerzo flector realiza una flexión de la estructura: tiende a <span style="color: #008000;"><strong>doblarla</strong></span>:</p>
+<p><img src="Esfuerzo-flexion.png" width="300" height="175" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Ejemplos de elementos que soportan este esfuerzo son: tablero de una silla, suelos de edificios, brazo de una grúa,etc.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/BPWnzjQR2Dg"></iframe></p>
+<h2>Torsor</h2>
+<p>El esfuerzo torsor provoca la torsión. Es decir, tiende a <span style="color: #008000;"><strong>retorcer</strong></span> la estructura:</p>
+<p><img src="Esfuerzo-torsion.png" width="299" height="105" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Ejemplos de elementos que soportan este esfuerzo son: eje de un destornillador, llave al girar, eje de un grifo, etc.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/SCgqctdD6Rg"></iframe></p>
+<h2>Cortante</h2>
+<p>El esfuerzo cortante tiende a provocar el <span style="color: #008000;"><strong>corte</strong></span> o <span style="color: #008000;"><strong>cizalla</strong></span> de&nbsp;la estructura:</p>
+<p><img src="Esfuerzo-cortante.png" width="300" height="220" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Ejemplos de elementos que soportan este esfuerzo son: papel cortado con tijeras, escarpia&nbsp;que soporta un cuadro, etc.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/-I7wWrBjK7c"></iframe></p>
+</div>
+<p><img src="rascacielos.jpg" width="600" height="600" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h1><span style="color: #008000;">Condiciones a cumplir por las estructuras</span></h1>
+<p>A las estructuras se les exige <span style="color: #008000;"><strong>soportar cargas</strong></span>, <span style="color: #008000;"><strong>mantener la forma</strong></span>, <span style="color: #008000;"><strong>proteger</strong></span> partes delicadas, ser <span style="color: #008000;"><strong>ligeras</strong></span> y sobre todo, ser <span style="color: #008000;"><strong>estables</strong></span>. Para ello, toda estructura tiene que cumplir las siguientes <span style="color: #008000;"><strong>condiciones</strong></span>:</p>
+<ul>
+<li><span style="color: #008000;"><strong>Estabilidad.</strong> </span>Para que la estructura se mantenga erguida y no vuelque, <span style="color: #008000;"><strong>su centro de gravedad tiene que estar dentro de su base</strong></span> y lo más <span style="color: #008000;"><strong>cercano al suelo</strong></span> posible. Para conseguirlo a veces se tiene que recurrir a acciones como ampliar la base, poner tirantes o empotrar su base inferior al suelo.</li>
+<li><span style="color: #008000;"><strong>Resistencia.</strong></span> Tienen que ser capaces de <span style="color: #008000;"><strong>soportar las distintas cargas sin romperse</strong></span>, esto depende de la forma de la estructura y del tipo y de la cantidad de material con que se ha construido, ya que todos los materiales tienen una tensión de rotura determinada, que es la máxima fuerza por unidad de superficie que aguantan sin romperse.</li>
+<li><span style="color: #008000;"><strong>Rigidez.</strong></span> La <span style="color: #008000;"><strong>deformación</strong></span> de los elementos no puede ser grande. Esto se consigue cuando la forma de las estructuras es adecuada, soldando las uniones para reforzarlas y con triangulaciones, ya que el triángulo es el único polígono indeformable. Es por ello que son las formas más empleadas en las estructuras. Las diagonales usadas para triangular se llaman <span style="color: #008000;"><strong>arriostramientos</strong></span>. Aún así, toda estructura tiene que tener cierto grado de flexibilidad, ya que tienen que ser capaces de soportar las variaciones debidas a la dilatación y a la contracción de materiales, así como de absorber vibraciones y movimientos sísmicos.</li>
+</ul></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id112">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Elementos resistentes en edificación</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta112_121_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Las estructuras de edificación se componen de lo que denominamos elementos resistentes, que se pueden clasificar en:</p>
+<div class="exe-fx exe-paginated">
+<h2>Cimientos o cimentación</h2>
+<p>Conjunto de elementos estructurales cuya misión es <span style="color: #008000;"><strong>transmitir las cargas</strong></span> de la edificación o de elementos apoyados en éste <span style="color: #008000;"><strong>al suelo</strong></span>, distribuyéndolas de forma que no superen una serie de valores máximos del terreno de apoyo.</p>
+<p>Debido a que la resistencia del suelo es, generalmente, menor que la de los pilares o muros que soportará, el área de contacto entre el suelo y la cimentación será mucho más grande que los elementos soportados. Por ejemplo, un tipo de cimentación muy utilizado son las <span style="color: #008000;"><strong>zapatas</strong></span>, que son unos bloques con mucha mayor sección en las bases de los pilares.</p>
+<p><img src="cimientos.jpeg" width="800" height="800" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Soportes</h2>
+<p>Elementos <span style="color: #008000;"><strong>verticales</strong></span> que soportan fundamentalmente esfuerzos de <span style="color: #008000;"><strong>compresión</strong></span>, aunque también parte de cortante y, sobre todo, en los elementos más esbeltos, <span style="color: #008000;"><strong>pandeo</strong></span>. Los tipos de soportes más usados son:</p>
+<ul>
+<li><span style="color: #008000;"><strong>Pilares:</strong></span> son habitualmente de hormigón armado, normalmente ejecutados “in situ”, vertiendo el hormigón en un molde denominado <span style="color: #008000;"><strong>encofrado</strong></span>. También pueden ser de acero.</li>
+<li><span style="color: #008000;"><strong>Pie derecho:</strong> </span>es como se denomina a los soportes cuando son de <span style="color: #008000;"><strong>madera</strong></span>.</li>
+<li><span style="color: #008000;"><strong>Columna:</strong></span> es cualquier soporte de <span style="color: #008000;"><strong>sección circular.</strong></span></li>
+</ul>
+<figure class="exe-figure exe-image position-center" style="width: 533px;"><img src="pilares-arkangel.jpg" alt="" width="533" height="400" hspace="auto" style="display: block; margin-left: auto; margin-right: auto;">
+<figcaption class="figcaption"><a href=" " target="_blank" class="author" rel="noopener"> </a></figcaption>
+</figure>
+<h2>Muros de carga o portantes.</h2>
+<p>Se trata de <span style="color: #008000;"><strong>paredes</strong></span> de una edificación que poseen función estructural, es decir, aquellas que <span style="color: #008000;"><strong>soportan otros elementos</strong></span> estructurales del edificio, como arcos, bóvedas, vigas o viguetas de forjados o de la cubierta. Soportan fundamentalmente esfuerzos <span style="color: #008000;"><strong>axiles de compresión.</strong></span></p>
+<p>Cuando los muros soportan <span style="color: #008000;"><strong>cargas horizontales</strong></span>, como las presiones del terreno contiguo, se denominan <span style="color: #008000;"><strong>muros de contención</strong></span>. En este caso, soportan esfuerzos flectores y cortantes.</p>
+<p><img src="Cargadero_Malla_Harria_06.jpg" width="870" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Vigas</h2>
+<p>Elemento estructural que normalmente se coloca en <span style="color: #008000;"><strong>posición horizontal</strong></span> (aunque pueden ser también inclinadas) que se apoya sobre los pilares, destinado a soportar esfuerzos principalmente de <span style="color: #008000;"><strong>flexión</strong></span> y de <span style="color: #008000;"><strong>cortante</strong></span>.</p>
+<p>Las vigas pueden ser de <span style="color: #008000;"><strong>acero</strong></span>, de <span style="color: #008000;"><strong>madera</strong></span> o de <span style="color: #008000;"><strong>hormigón armado o prefabricado.</strong></span>&nbsp;</p>
+<p>Hay un tipo de vigas que no se apoyan directamente en los pilares sino en otras vigas más grandes y que forman parte de la superficie de un forjado. Estas vigas se denominan <span style="color: #008000;"><strong>viguetas</strong></span>.</p>
+<p>El conjunto vigas-pilares forma lo que denominan <span style="color: #008000;"><strong>pórticos</strong></span>.</p>
+<p><img src="diferentestiposdevigas_ocwualicante.jpg" width="1027" height="400"></p>
+<h2>Cerchas</h2>
+<p>Una cercha es una <span style="color: #008000;"><strong>celosía</strong></span>, una <span style="color: #008000;"><strong>estructura reticular de barras rectas</strong></span> interconectadas en nodos <span style="color: #008000;"><strong>formando triángulos planos</strong> </span>(en celosías planas) <span style="color: #008000;"><strong>o pirámides tridimensionales</strong></span> (en celosías espaciales). También se les conoce como armaduras.</p>
+<p>El interés de este tipo de estructuras es que las barras trabajan predominantemente a <span style="color: #008000;"><strong>compresión</strong></span> y <span style="color: #008000;"><strong>tracción</strong></span>, presentando comparativamente flexiones pequeñas.</p>
+<p><img src="Cerchas_majuelo.png" width="574" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Forjados</h2>
+<p>Se denomina forjado <span style="color: #008000;"><strong>al elemento estructural, horizontal o inclinado</strong> </span>(en cubiertas), que <span style="color: #008000;"><strong>soporta su propio peso y las sobrecargas de uso</strong></span>, tabiquería, dinámicas, etc. Dichas cargas se transmiten al terreno mediante otros elementos de la estructura como vigas, pilares, muros y cimentación.</p>
+<p>Forma parte de la estructura horizontal de las diferentes plantas de un edificio, siendo capaz de solidarizar horizontalmente los diversos elementos estructurales, permitiendo no solo transmitir cargas verticales, sino también horizontales. Ello contribuye a aportar rigidez en ese plano horizontal.</p>
+<p>Un tipo muy habitual de forjado es el formado por viguetas y bovedillas. En este vídeo tienes una animación de cómo se construye este tipo de forjado:</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/52orJqSKP30"></iframe></p>
+<h2>Tirantes</h2>
+<p>Se usan para unir dos elementos de una estructura o una estructura al terreno. Su principal característica es que trabajan <span style="color: #008000;"><strong>siempre a tracción</strong></span>. y no soportan ningún otro esfuerzo que no sea el axil de tracción.</p>
+<p>Se fabrican habitualmente de acero, dada su excelente resistencia a la tracción.</p>
+<p><img src="Interior_de_la_cubierta_del_Mercado_del_Val_(Valladolid).jpg" width="533" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h2>Arcos, bóvedas y cúpulas</h2>
+<h3><span style="color: #008000;"><strong>Arco</strong></span></h3>
+<p>Es un elemento estructural de directriz en forma curvada, que salva el espacio abierto entre dos pilares o muros transmitiendo toda la carga que soporta a los apoyos, mediante una fuerza oblicua que se denomina empuje. Normalmente, está formado por piezas denominadas dovelas.</p>
+<p>Se diseña para que el material trabaje predominantemente a <span style="color: #008000;"><strong>compresión</strong></span>, lo que permite cubrir distancias importantes con materiales pétreos (que trabajan muy bien a compresión, pero no tanto a a flexión)</p>
+<p><img src="elementosarco_wikimedia.png" width="489" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h3><span style="color: #008000;"><strong>Bóveda</strong></span></h3>
+<p>Elemento estructural <span style="color: #008000;"><strong>superficial</strong></span>, generalmente elaborado en mampostería o fábrica, en el que sus piezas y componentes trabajan a <span style="color: #008000;"><strong>compresión</strong></span>.</p>
+<p>Las bóvedas poseen una forma geométrica generada por el <span style="color: #008000;"><strong>movimiento de un arco a lo largo de un eje.</strong> </span>Por regla general, este elemento constructivo sirve para cubrir el espacio comprendido entre dos muros o una serie de pilares alineados.</p>
+<p><img src="elementosboveda_propio.png" width="650" height="399" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<h3><span style="color: #008000;"><strong>Cúpula</strong></span></h3>
+<p>La cúpula es un elemento estructural que se utiliza para <span style="color: #008000;"><strong>cubrir un espacio</strong></span> de planta circular, cuadrada, poligonal o elíptica, mediante arcos de perfil semicircular, parabólico u ovoidal, rotados <span style="color: #008000;"><strong>respecto de un punto central de simetría.</strong></span></p>
+<p>Los esfuerzos predominantes son de <span style="color: #008000;"><strong>tracción</strong></span> en el sentido de los <span style="color: #008000;"><strong>paralelos</strong></span> y de <span style="color: #008000;"><strong>compresión</strong></span> en el sentido de los <span style="color: #008000;"><strong>meridianos</strong></span>. Estructuralmente funcionan como una lámina de revolución.</p>
+<p>En este vídeo puedes ver con más detalle estos tres elementos resistentes:</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/3AE_5Zc3KDw"></iframe></p>
+<h2>Dinteles</h2>
+<p>Es el <span style="color: #008000;"><strong>elemento superior que permite crear vanos en los muros</strong></span> para conformar puertas, ventanas o pórticos. Por extensión, el tipo de construcción que utiliza dinteles para cubrir los espacios en los edificios se llama construcción <span style="color: #008000;"><strong>adintelada</strong></span>.</p>
+<p>Es un tipo de estructura masiva. No hay que confundir los dinteles con las vigas.</p>
+<p><img src="090920_1211_6291_SLL_Curiel_Dintel_Ano_1780_T91.jpg" width="909" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id113">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Elementos resistentes en maquinaria</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta113_122_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><div class="exe-fx exe-paginated">
+<h2>Chasis y bastidor</h2>
+<p>El <span style="color: #008000;"><strong>chasis</strong></span> es el <span style="color: #008000;"><strong>armazón metálico</strong></span> que sirve de soporte para los elementos de un vehículo (motor, carrocería, etc.). Se trata de la principal estructura de soporte del vehículo.</p>
+<p>El <a href="#t678b6d6b-b3d4-a669-5c6f-711064ee415a" id="link678b6d6b-b3d4-a669-5c6f-711064ee415a" title="Bastidor | bastidor" class="exe-tooltip definition-tt titled-tt"><span style="color: #008000;"><strong>bastidor</strong></span></a> es la parte más importante del chasis.&nbsp;A partir de la década de 1950, el empleo del bastidor se ha limitado principalmente a los vehículos todo-terreno, camiones, camionetas grandes y algunas camionetas livianas, y se ha sustituido en la mayoría de los automóviles por <span style="color: #008000;"><strong>carrocerías monocasco</strong></span>, en las que bastidor y carrocería quedan integrados en un única estructura (generalmente de acero), de la que no pueden separarse.</p>
+<p><img src="Chassisroulant.JPG" width="533" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>La función principal del chasis es absorber las cargas mientras mantiene cada elemento en su lugar. Para ello, debe tener buena&nbsp;resistencia a la fatiga, alta rigidez y ligereza.</p>
+<h2>Bancada</h2>
+<p>Es la estructura de una máquina herramienta, sobre la que se construye ésta. Sus principales funciones son soportar vibraciones y movimientos, mantener la precisión en el mecanizado de piezas y alojar los mecanismos.</p>
+<p><img src="bancada.png" width="457" height="400" style="display: block; margin-left: auto; margin-right: auto;"></p>
+</div>
+<div id="t678b6d6b-b3d4-a669-5c6f-711064ee415a" class="exe-tooltip-text">
+<p>Es una estructura compuesta por largueros (vigas longitudinales) y travesaños (vigas transversales) a la que de una forma u otra se deben fijar todos los elementos y grupos mecánicos que conforman un automóvil, como el motor, los grupos de transmisiones, los ejes de carrocerías, etc.</p>
+</div></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-nc-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="index.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="2_cargas_tipos_de_apoyos_y_uniones.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_style_js.js"></script></body></html>

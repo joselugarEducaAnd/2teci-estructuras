@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos. | Estructuras </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Luis García Jiménez" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/empheq']},
+  tex: {
+    packages: {'[+]': ['empheq']},
+    tags: "ams",
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script">
+</script>
+
+<script type="text/javascript" async
+     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script></head>
+<body class="exe-web-site exe-auto-math" id="exe-node-22"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Estructuras</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Estructuras</a></li>
+   <li><a href="1_descripcin_y_elementos_de_estructuras_sencillas.html" class="no-ch">1. Descripción y elementos de estructuras sencillas</a></li>
+   <li><a href="2_cargas_tipos_de_apoyos_y_uniones.html" class="no-ch">2. Cargas. Tipos de apoyos y uniones</a></li>
+   <li><a href="3_clculos_bsicos_en_estructuras.html" class="no-ch">3. Cálculos básicos en estructuras</a></li>
+   <li id="active"><a href="4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html" class="active daddy">4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.</a>
+   <ul>
+      <li><a href="41_ejemplo_1_carga_puntual.html" class="no-ch">4.1. Ejemplo 1: carga puntual</a></li>
+      <li><a href="42_ejemplo_2_carga_uniformamente_repartida.html" class="no-ch">4.2. Ejemplo 2: carga uniformamente repartida</a></li>
+      <li><a href="43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html" class="no-ch">4.3. Ejemplo 3: empotramiento con carga uniformemente repartida</a></li>
+      <li><a href="otros_ejemplos.html" class="no-ch">Otros ejemplos</a></li>
+   </ul>
+   </li>
+   <li><a href="5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html" class="daddy">5. Cálculo de esfuerzos en estructuras de barras articuladas.</a>
+   <ul class="other-section">
+      <li><a href="51_mtodo_de_los_nudos.html" class="no-ch">5.1. Método de los nudos</a></li>
+      <li><a href="52_mtodo_de_las_secciones_ritter.html" class="no-ch">5.2. Método de las secciones (Ritter)</a></li>
+      <li><a href="53_mtodo_grfico_de_cremona.html" class="no-ch">5.3. Método gráfico de Cremona</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="3_clculos_bsicos_en_estructuras.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_ejemplo_1_carga_puntual.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice" id="id123">
+<div class="iDevice emphasis0" >
+<div id="ta123_129_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Hemos visto que una viga es un elemento estructural diseñado para soportar fuerzas, por lo que <span style="color: #008000;"><strong>debe estar en equilibrio,</strong></span> esto es, que no se rompa ni se mueva por las fuerzas y que no gire por los momentos que producen las fuerzas.</p>
+<p>Dado que consideramos que la viga es bidimensional, <span style="color: #008000;"><strong>para que una viga esté en equilibrio se tiene que cumplir:</strong></span></p>
+<ul>
+<li>Que la suma de fuerzas en el eje X sea 0 (no se mueve horizontalmente)</li>
+<li>Que la suma de fuerzas en el eje Y sea 0 (no se mueve verticalmente)</li>
+<li>Que la suma de los momentos que producen todas las fuerzas sea 0 (no gira)</li>
+</ul>
+<h2><span style="color: #008000;">Criterio de signos</span></h2>
+<p>Para realizar los cálculos en problemas de vigas, tomaremos el siguiente criterio para los signos:</p>
+<ul>
+<li>Fuerzas <span style="color: #008000;"><strong>horizontales</strong></span>: positivas hacia la <span style="color: #008000;"><strong>derecha</strong></span></li>
+<li>Fuerzas <span style="color: #008000;"><strong>verticales</strong></span>: positivas hacia <span style="color: #008000;"><strong>arriba</strong></span></li>
+<li><span style="color: #008000;"><strong>Momentos</strong></span>: positivos si provocan <span style="color: #008000;"><strong>giro</strong></span> <span style="color: #008000;"><strong>antihorario&nbsp;</strong></span></li>
+</ul></div></div></section></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id124">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Viga isostática</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta124_130_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Una viga será isostática si es posible realizar su análisis estático aplicando las ecuaciones de sumatorio de fuerzas y momentos.</p>
+<p>Como solo vamos a hacer análisis en el plano, siempre tendremos tres ecuaciones como hemos visto antes (\(\sum_{}^{}F_{x}=0;\sum_{}^{}F_{y}=0;\sum_{}^{}M_{z}=0\). Por lo tanto, para resolver el sistema de ecuaciones, <span style="color: #008000;"><strong>el número total de reacciones (incógnitas) en la viga debe ser 3,</strong></span> coincidente con el número de ecuaciones estáticas disponibles.</p>
+<p>Si el número de reacciones es menor a 3, la viga será un <span style="color: #008000;"><strong>mecanismo</strong></span> (se moverá) y si el número de reacciones es superior a 3, se tratará de una <span style="color: #008000;"><strong>viga hiperestática.</strong></span> El grado de hiperestaticidad será mayor conforme aumente el número de reacciones redundantes. Este tipo de vigas no puede calcularse directamente, debiendo utilizar pasos adicionales para su resolución.&nbsp;</p>
+<p><img src="vigas_iso_e_hiper.png" alt="" width="999" height="620" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Nosotros nos centraremos en el cálculo de vigas isostáticas en este curso.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id125">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Tipos de esfuerzos en una viga</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta125_131_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Las cargas y reacciones producen los siguientes esfuerzos en una viga (ignorando la torsión que rara vez ocurre y que no tendremos nunca en cuenta):</p>
+<ul>
+<li><span style="color: #008000;"><strong>Esfuerzo axil (N):</strong> </span>genera tensiones normales, <span style="color: #008000;"><strong>según la dirección del eje longitudinal de la viga.</strong></span> Es producido por la suma de todas las cargas y reacciones paralelas al eje longitudinal de la viga. El esfuerzo puede ser de tracción (tiende a estirar la viga) o de compresión (tiende a aplastarla).</li>
+<li><span style="color: #008000;"><strong>Esfuerzo cortante (V):</strong></span>&nbsp;genera tensiones <span style="color: #008000;"><strong>tangenciales en la viga.</strong></span> Es producido por aquellas cargas y reacciones aplicadas en dirección perpendicular al eje longitudinal de la viga.</li>
+<li><span style="color: #008000;"><strong>Momento flector (M):</strong> </span>normalmente es el esfuerzo más determinante y genera tensiones normales en la viga (aparecen axiles de tracción en la parte externa del giro y de compresión en la parte interna). Es producida por aquellas cargas y reacciones perpendiculares al eje longitudinal de la viga, fuerzas paralelas al eje pero descentradas y momentos de giro aplicados.</li>
+</ul>
+<p>Para poder obtener las leyes de esfuerzo, es necesario definir un <span style="color: #008000;"><strong>criterio de signos para los&nbsp;</strong>esfuerzos </span>cuando estemos considerando esfuerzos en una sección "x" de la viga:</p>
+<ul>
+<li><span style="color: #008000;"><strong>Esfuerzo axil, N:</strong></span> se toma como criterio <span style="color: #008000;"><strong>positivo el esfuerzo de tracción</strong></span>, es decir, aquellas cargas que tienen a incrementar la longitud de la barra. Por lo tanto, <span style="color: #008000;"><strong>la compresión es negativa.</strong></span> A nivel del procedimiento de análisis se traduce en definir como criterio positivo todas aquellas fuerzas en dirección paralela al eje de la viga que, situadas a la izquierda de la sección x, están dirigidas hacia la <span style="color: #008000;"><strong>izquierda</strong></span>.</li>
+<li><img src="criterioaxil-01.png" width="200" height="149" style="display: block; margin-left: auto; margin-right: auto;"><span style="color: #008000;"><strong>Esfuerzo cortante, V:</strong></span> aquellas fuerzas situadas a la izquierda de la sección x con dirección perpendicular al eje de la viga y hacia <span style="color: #008000;"><strong>arriba</strong></span> generarán un cortante positivo.</li>
+<li><img src="criteriocortante-01.png" width="201" height="148" style="display: block; margin-left: auto; margin-right: auto;"><span style="color: #008000;"><strong>Momento flector, M:</strong></span> se tomará como criterio de momento positivo, el <span style="color: #008000;"><strong>sentido horario</strong></span> producido por las cargas situadas a la izquierda de la sección x.</li>
+</ul>
+<p><img src="criteriomomento-01.png" width="200" height="151" style="display: block; margin-left: auto; margin-right: auto;"></p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id126">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Diagramas de esfuerzos</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta126_132_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para estudiar los esfuerzos de una viga, se representan mediante tres diagramas:</p>
+<p>Diagrama de esfuerzo axil (N) → muestra si la barra está en tracción o compresión.<br>Diagrama de esfuerzo cortante (V) → muestra las fuerzas internas verticales.<br>Diagrama de momento flector (M) → muestra los momentos internos que tienden a doblar la viga</p>
+<p>Para obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:</p>
+<h1><span style="color: #008000;">1. Determinar las reacciones en los apoyos</span></h1>
+<p>Antes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio: \(\sum_{}^{}F_{x}=0;\sum_{}^{}F_{y}=0;\sum_{}^{}M_{z}=0\)</p>
+<p>De ahí se obtienen las reacciones verticales, horizontales y de giro, si las hay. Como estudiaremos siempre vigas isostáticas, habrá exactamente 3 reacciones para calcular.</p>
+<h1><br><span style="color: #008000;">2. “Cortar” la viga mentalmente</span></h1>
+<p>Se hace un corte imaginario en un punto cualquiera de la viga, a una distancia "x" del extremo izquierdo, para analizar una de las partes.</p>
+<p>Sobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:</p>
+<ul>
+<li>N(x): fuerza horizontal interna (axil)</li>
+<li>V(x): fuerza vertical interna (cortante)</li>
+<li>M(x): momento interno (flector)</li>
+</ul>
+<p>Y <span style="color: #008000;"><strong>se vuelven a aplicar las ecuaciones de equilibrio a esa porción.</strong></span></p>
+<h1><span style="color: #008000;">3. Expresar cada esfuerzo en función de la posición x</span></h1>
+<p>Al mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.</p>
+<p>Por ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.</p>
+<h1><br><span style="color: #008000;">4. Dibujar los diagramas</span></h1>
+<p>Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):</p>
+<table class="exe-table">
+<thead>
+<tr>
+<th>
+<p class="p1"><strong>Diagrama</strong></p>
+</th>
+<th>
+<p class="p1"><strong>Eje vertical representa…</strong></p>
+</th>
+<th>
+<p class="p1"><strong>Forma típica</strong></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="p1"><b>N(x)</b></p>
+</td>
+<td>
+<p class="p1">Esfuerzo axil</p>
+</td>
+<td>
+<p class="p1">Constante (si no hay cargas horizontales)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="p1"><b>V(x)</b></p>
+</td>
+<td>
+<p class="p1">Esfuerzo cortante</p>
+</td>
+<td>
+<p class="p1">Segmentos horizontales o con saltos</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="p1"><b>M(x)</b></p>
+</td>
+<td>
+<p class="p1">Momento flector</p>
+</td>
+<td>
+<p class="p1">Líneas rectas o curvas suaves (triangular o parabólica)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Todo esto lo entenderás mejor con los ejemplos resueltos de los próximos subapartados.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-nc-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="3_clculos_bsicos_en_estructuras.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="41_ejemplo_1_carga_puntual.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_style_js.js"></script></body></html>

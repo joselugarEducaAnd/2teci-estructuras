@@ -1,0 +1,73 @@
+# Cargas. Tipos de apoyos y uniones
+
+## Cargas aplicadas y reacciones
+
+Las **fuerzas** que actúan sobre la estructura se llaman **cargas estructurales** y son causantes de **esfuerzos**, **deformaciones** y **desplazamientos**. Todas tienen que ser incluidas en el cálculo estructural.
+
+* **Tipos:** Las cargas pueden ser **fijas** (como el peso propio) o **variables** (como el viento).
+* **Unidades:** Se miden en **newtons (N)** en el Sistema Internacional.
+* **Distribución:** Pueden ser **puntuales** (un punto), **distribuidas** (sobre una longitud) o **momentos** (giros en una sección).
+
+Para mantener el equilibrio estático, es necesario que se produzcan **reacciones**. La viga no está aislada, sino sujeta a otros elementos que generan una reacción opuesta a las cargas.
+
+![Esquema de cargas y reacciones](media/cargas-01.png){width=60% fig-align="center"}
+
+## Tipos de apoyos y restricciones
+
+El valor de las reacciones depende de las cargas y de las **restricciones** de la viga. No es lo mismo un apoyo simple que un empotramiento. Las **limitaciones de movimiento** que introducen los **apoyos** definen estas restricciones.
+
+Para el cálculo de vigas identificamos tres tipos principales:
+
+:::: {layout="[33, 33, 33]" valign="top"}
+
+::: {}
+### Apoyo Deslizante {-}
+Permite la rotación y el movimiento en una dirección (generalmente horizontal).
+
+![Apoyo Deslizante](media/apDeslizante.png)
+
+* **Reacción ($R_y$):** Aparece solo una fuerza vertical, ya que se **impide la traslación vertical**.
+* **Momento:** No hay, la rotación está permitida.
+:::
+
+::: {}
+### Apoyo Fijo (Articulado) {-}
+Permite la rotación pero impide cualquier traslación.
+
+![Apoyo Fijo](media/apFijo.png)
+
+* **Reacciones ($R_x, R_y$):** Aparecen fuerzas en ambos ejes, ya que se **impide la traslación en cualquier dirección**.
+* **Momento:** No hay, la rotación está permitida.
+:::
+
+::: {}
+### Empotramiento {-}
+Impide cualquier movimiento (traslación o rotación).
+
+![Empotramiento](media/apEmpot.png)
+
+* **Reacciones ($R_x, R_y$):** Aparecen fuerzas en ambos ejes.
+* **Momento ($M_z$):** Aparece un momento de reacción ya que se **impide la rotación**.
+:::
+
+::::
+
+### Resumen de reacciones en apoyos {-}
+
+![Tabla resumen de apoyos](media/apoyos-01.png){width=100%}
+
+### Ejemplos reales
+
+En el siguiente vídeo puedes ver ejemplos en el mundo real de estos tipos de apoyos:
+
+::: {.content-visible when-format="html"}
+{{< video https://youtu.be/WlriFqiVHNE >}}
+:::
+
+::: {.content-visible when-format="pdf"}
+[![Ver vídeo: Tipos de apoyos](https://img.youtube.com/vi/WlriFqiVHNE/sddefault.jpg){width=60% fig-align="center"}](https://youtu.be/WlriFqiVHNE)
+
+[*(Click para ver vídeo)*](https://youtu.be/WlriFqiVHNE)
+:::
+
+

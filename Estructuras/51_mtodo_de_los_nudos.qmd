@@ -1,0 +1,110 @@
+:::::::::::::::::::: {#content}
+[Saltar la navegación](#main){.sr-av}
+
+:::: {#header}
+::: {#headerContent}
+Estructuras
+:::
+::::
+
+- [Estructuras](index.html){.daddy .main-node}
+- [1. Descripción y elementos de estructuras sencillas](1_descripcin_y_elementos_de_estructuras_sencillas.html){.no-ch}
+- [2. Cargas. Tipos de apoyos y uniones](2_cargas_tipos_de_apoyos_y_uniones.html){.no-ch}
+- [3. Cálculos básicos en estructuras](3_clculos_bsicos_en_estructuras.html){.no-ch}
+- [4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.](4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html){.daddy}
+  - [4.1. Ejemplo 1: carga puntual](41_ejemplo_1_carga_puntual.html){.no-ch}
+  - [4.2. Ejemplo 2: carga uniformamente repartida](42_ejemplo_2_carga_uniformamente_repartida.html){.no-ch}
+  - [4.3. Ejemplo 3: empotramiento con carga uniformemente repartida](43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html){.no-ch}
+  - [Otros ejemplos](otros_ejemplos.html){.no-ch}
+- [5. Cálculo de esfuerzos en estructuras de barras articuladas.](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.current-page-parent .daddy}
+  - [[5.1. Método de los nudos](51_mtodo_de_los_nudos.html){.active .no-ch}]{#active}
+  - [5.2. Método de las secciones (Ritter)](52_mtodo_de_las_secciones_ritter.html){.no-ch}
+  - [5.3. Método gráfico de Cremona](53_mtodo_grfico_de_cremona.html){.no-ch}
+
+::: {#topPagination}
+[« Anterior](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.prev} [\| ]{.sep}[Siguiente »](52_mtodo_de_las_secciones_ritter.html){.next}
+:::
+
+::::::::::::::: {#main-wrapper}
+:::::::::::::: {#main .section}
+::: {#nodeDecoration}
+# 5.1. Método de los nudos {#nodeTitle}
+:::
+
+::::::::::: {.iDevice .emphasis1}
+::: {.iDevice_header .iDevice_header_noIcon}
+# Método de los nudos {#método-de-los-nudos .iDeviceTitle}
+:::
+
+::::::::: iDevice_inner
+:::::::: iDevice_content_wrapper
+::::::: {#ta147_146_2 .block .iDevice_content}
+:::::: {.exe-udlContent .exe-udlContent-representation}
+::::: {.section .exe-udlContent-block}
+:::: exe-udlContent-content
+::: exe-udlContent-content-main
+Cuando una estructura articulada es [**isostática**]{style="color: #008000;"}, puede analizarse por medio del [**método de los nudos.**]{style="color: #008000;"} Al estar la estructura en equilibrio, supondremos en equilibrio todas sus barras y nudos, y obtendremos [**ecuaciones de equilibrio estático para cada barra y cada nudo**]{style="color: #008000;"}.
+
+Para utilizar este método seguimos los siguientes pasos: 
+
+1.  Calculamos las [**reacciones en los apoyos**]{style="color: #008000;"} mediante las ecuaciones de equilibrio de toda la estructura.
+2.  Obtenemos la [**ecuación de equilibrio para cada nudo**]{style="color: #008000;"} para calcular la [**fuerza que ejerce cada barra sobre el nudo**]{style="color: #008000;"}.
+3.  La [**fuerza que ejerce el nudo sobre la barra será igual y de sentido contrario.**]{style="color: #008000;"}
+4.  Con esto sabremos si las fuerzas son de [**tracción**]{style="color: #008000;"} o de [**compresión**]{style="color: #008000;"}.
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ## [Ejemplo resuelto]{style="color: #0000ff;"}                                                                                                                                                                                                                                                                                                                      |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| En la figura se representa una estructura de barras donde A es un apoyo articulado y B es un apoyo libre.\                                                                                                                                                                                                                                                          |
+|       a) Calcula el valor de las reacciones.\                                                                                                                                                                                                                                                                                                                       |
+|       b) Empleando el método de los nudos, calcula las tensiones de cada barra.                                                                                                                                                                                                                                                                                     |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| ![](ejemploNudos1-1.png){width="365" height="262" style="display: block; margin-left: auto; margin-right: auto;"}                                                                                                                                                                                                                                                   |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| [**Comprobamos la isostaticidad:**]{style="color: #008000;"}                                                                                                                                                                                                                                                                                                        |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| Se trata de una estructura isostática exteriormente, ya que hay igual número de incógnitas (R~AX~, R~AY~, R~BX~) que de ecuaciones (\\(\\sum F_x = 0;\\ \\sum F_y = 0;\\ \\sum M = 0\\)), y también es isostática interiormente, ya que el número de barras \\( b = 5 = 2n-3 \\) (siendo n el número de nudos: n = 4).                                              |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| [**Construimos el diagrama de fuerzas:**]{style="color: #008000;"}                                                                                                                                                                                                                                                                                                  |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| ![](ejemploNudos1-2.png){width="262" height="255" style="display: block; margin-left: auto; margin-right: auto;"}                                                                                                                                                                                                                                                   |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| [**Calculamos el valor de las reacciones en los nudos A y B:**]{style="color: #008000;"}                                                                                                                                                                                                                                                                            |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| \\\[\\begin{align} \\sum F_x &= 0 \\Rightarrow R\_{Ax} + R\_{Bx} - 200 = 0 \\\\\[4pt\] \\sum F_y &= 0 \\Rightarrow R\_{Ay} - 400 = 0 \\Rightarrow R\_{Ay} = 400\\,\\text{N} \\\\\[4pt\] \\sum M_A &= 0 \\Rightarrow R\_{Bx}\\cdot 1 - 200\\cdot 1 - 400\\cdot 1 = 0 \\Rightarrow R\_{Bx} = 600\\,\\text{N} \\Rightarrow R\_{Ax} = -400\\,\\text{N} \\end{align}\\\] |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| Las [**tensiones de cada barra,** ]{style="color: #008000;"}calculadas por el método de los nudos, serán:                                                                                                                                                                                                                                                           |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| #### [Nudo B]{style="color: #008000;"} {#nudo-b style="text-align: left;"}                                                                                                                                                                                                                                                                                          |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| ![](ejemploNudos1-3.png){width="246" height="142" style="display: block; margin-left: auto; margin-right: auto;"}\\\[\\begin{align} \\sum F_x &= 0 \\Rightarrow R\_{Bx} - T\_{BD} = 0 \\Rightarrow T\_{BD} = 600\\,\\text{N}\\ (\\text{compresión}) \\\\\[6pt\] \\sum F_y &= 0 \\Rightarrow T\_{AB} = 0\\,\\text{N} \\end{align}\\\]                                |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| #### [Nudo C]{style="color: #008000;"} {#nudo-c style="text-align: left;"}                                                                                                                                                                                                                                                                                          |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| ![](ejemploNudos1-4.png){width="223" height="190" style="display: block; margin-left: auto; margin-right: auto;"}\\\[\\begin{align} \\sum F_x &= 0 \\Rightarrow T\_{AC} = 0\\,\\text{N} \\\\\[6pt\] \\sum F_y &= 0 \\Rightarrow -F_C + T\_{CD} = 0 \\Rightarrow T\_{CD} = 400\\,\\text{N}\\ (\\text{compresión}) \\end{align}\\\]                                   |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| #### [Nudo D]{style="color: #008000;"} {#nudo-d style="text-align: left;"}                                                                                                                                                                                                                                                                                          |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| ![](ejemploNudos1-5.png){width="244" height="157" style="display: block; margin-left: auto; margin-right: auto;"}                                                                                                                                                                                                                                                   |
+|                                                                                                                                                                                                                                                                                                                                                                     |
+| \\\[ \\sum F_y = 0 \\Rightarrow T\_{AD}\\cos\\theta - T\_{CD} = 0 \\Rightarrow T\_{AD} = \\frac{T\_{CD}}{\\cos\\theta} = \\frac{400}{\\cos 45\^\\circ} = 565{,}68\\,\\text{N}\\ (\\text{tracción}) \\\]                                                                                                                                                             |
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+:::
+::::
+:::::
+::::::
+:::::::
+::::::::
+:::::::::
+:::::::::::
+
+::: {#packageLicense .cc .cc-by-nc-sa}
+Obra publicada con [Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/){rel="license"}
+:::
+::::::::::::::
+:::::::::::::::
+
+::: {#bottomPagination}
+[« Anterior](5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html){.prev} [\| ]{.sep}[Siguiente »](52_mtodo_de_las_secciones_ritter.html){.next}
+:::
+::::::::::::::::::::

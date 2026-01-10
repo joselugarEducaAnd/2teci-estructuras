@@ -1,0 +1,125 @@
+## Cálculo de esfuerzos en vigas. Diagramas de esfuerzos
+
+Hemos visto que una viga es un elemento estructural diseñado para soportar fuerzas, por lo que **debe estar en equilibrio,** esto es, que no se rompa ni se mueva por las fuerzas y que no gire por los momentos que producen las fuerzas.
+
+
+
+[Image of free body diagram beam]
+
+
+Dado que consideramos que la viga es bidimensional, **para que una viga esté en equilibrio se tiene que cumplir:**
+
+::: {.callout-warning icon="false" style="width: 70%; margin: auto;"}
+## Ecuaciones de Equilibrio
+* Que la suma de fuerzas en el eje X sea 0 (no se mueve horizontalmente).
+* Que la suma de fuerzas en el eje Y sea 0 (no se mueve verticalmente).
+* Que la suma de los momentos que producen todas las fuerzas sea 0 (no gira).
+:::
+
+## Criterio de signos (Cargas)
+
+Para realizar los cálculos en problemas de vigas, tomaremos el siguiente criterio para los signos de las **cargas externas**:
+
+* Fuerzas **horizontales**: positivas hacia la **derecha**.
+* Fuerzas **verticales**: positivas hacia **arriba**.
+* **Momentos**: positivos si provocan **giro antihorario**.
+
+## Viga isostática
+
+Una viga será isostática si es posible realizar su análisis estático aplicando las ecuaciones de sumatorio de fuerzas y momentos.
+
+Como solo vamos a hacer análisis en el plano, siempre tendremos tres ecuaciones como hemos visto antes ($\sum F_{x}=0; \sum F_{y}=0; \sum M_{z}=0$). Por lo tanto, para resolver el sistema de ecuaciones, **el número total de reacciones (incógnitas) en la viga debe ser 3,** coincidente con el número de ecuaciones estáticas disponibles.
+
+* Si el número de reacciones es **menor a 3**, la viga será un **mecanismo** (se moverá).
+* Si el número de reacciones es **superior a 3**, se tratará de una **viga hiperestática.** El grado de hiperestaticidad será mayor conforme aumente el número de reacciones redundantes. Este tipo de vigas no puede calcularse directamente, debiendo utilizar pasos adicionales para su resolución.
+
+![Vigas isostáticas e hiperestáticas](media/vigas_iso_e_hiper.png){width=80% fig-align="center"}
+
+Nosotros nos centraremos en el cálculo de vigas isostáticas en este curso.
+
+## Tipos de esfuerzos en una viga
+
+Las cargas y reacciones producen los siguientes esfuerzos en una viga (ignorando la torsión que rara vez ocurre y que no tendremos nunca en cuenta):
+
+* **Esfuerzo axil (N):** genera tensiones normales, **según la dirección del eje longitudinal de la viga.** Es producido por la suma de todas las cargas y reacciones paralelas al eje longitudinal de la viga. El esfuerzo puede ser de tracción (tiende a estirar la viga) o de compresión (tiende a aplastarla).
+* **Esfuerzo cortante (V):** genera tensiones **tangenciales en la viga.** Es producido por aquellas cargas y reacciones aplicadas en dirección perpendicular al eje longitudinal de la viga.
+* **Momento flector (M):** normalmente es el esfuerzo más determinante y genera tensiones normales en la viga (aparecen axiles de tracción en la parte externa del giro y de compresión en la parte interna). Es producida por aquellas cargas y reacciones perpendiculares al eje longitudinal de la viga, fuerzas paralelas al eje pero descentradas y momentos de giro aplicados.
+
+### Criterio de signos para los esfuerzos internos
+
+Para poder obtener las leyes de esfuerzo, es necesario definir un **criterio de signos** cuando estemos considerando esfuerzos en una sección "$x$" de la viga:
+
+:::: {layout="[33, 33, 33]" valign="top"}
+
+::: {}
+#### Esfuerzo Axil (N)
+Se toma como criterio **positivo el esfuerzo de tracción**, es decir, aquellas cargas que tienen a incrementar la longitud de la barra (**la compresión es negativa**).
+
+A nivel de cálculo: fuerzas horizontales a la izquierda de la sección dirigidas hacia la **izquierda**.
+
+![Criterio Axil](media/criterioaxil-01.png)
+:::
+
+::: {}
+#### Esfuerzo Cortante (V)
+Aquellas fuerzas situadas a la izquierda de la sección "$x$" con dirección perpendicular al eje de la viga y hacia **arriba** generarán un cortante positivo.
+
+![Criterio Cortante](media/criteriocortante-01.png)
+:::
+
+::: {}
+#### Momento Flector (M)
+Se tomará como criterio de momento positivo el **sentido horario** producido por las cargas situadas a la izquierda de la sección "$x$".
+
+![Criterio Momento](media/criteriomomento-01.png)
+:::
+
+::::
+
+## Diagramas de esfuerzos
+
+Para estudiar los esfuerzos de una viga, se representan mediante tres diagramas:
+
+* Diagrama de esfuerzo axil (N) $\rightarrow$ muestra si la barra está en tracción o compresión.
+* Diagrama de esfuerzo cortante (V) $\rightarrow$ muestra las fuerzas internas verticales.
+* Diagrama de momento flector (M) $\rightarrow$ muestra los momentos internos que tienden a doblar la viga.
+
+Para obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:
+
+### 1. Determinar las reacciones en los apoyos
+
+Antes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio:
+
+$$\sum F_{x}=0 \quad ; \quad \sum F_{y}=0 \quad ; \quad \sum M_{z}=0$$
+
+De ahí se obtienen las reacciones verticales, horizontales y de giro, si las hay. Como estudiaremos siempre vigas isostáticas, habrá exactamente 3 reacciones para calcular.
+
+### 2. "Cortar" la viga mentalmente
+
+Se hace un corte imaginario en un punto cualquiera de la viga, a una distancia "$x$" del extremo izquierdo, para analizar una de las partes.
+
+Sobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:
+
+* $N(x)$: fuerza horizontal interna (axil).
+* $V(x)$: fuerza vertical interna (cortante).
+* $M(x)$: momento interno (flector).
+
+Y **se vuelven a aplicar las ecuaciones de equilibrio a esa porción.**
+
+### 3. Expresar cada esfuerzo en función de la posición x
+
+Al mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.
+
+Por ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.
+
+### 4. Dibujar los diagramas
+
+Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):
+
+| Diagrama | Eje vertical representa... | Forma típica |
+| :--- | :--- | :--- |
+| **N(x)** | Esfuerzo axil | Constante (si no hay cargas horizontales) |
+| **V(x)** | Esfuerzo cortante | Segmentos horizontales o con saltos |
+| **M(x)** | Momento flector | Líneas rectas o curvas suaves (triangular o parabólica) |
+
+Todo esto lo entenderás mejor con los ejemplos resueltos de los próximos subapartados.

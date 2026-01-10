@@ -1,0 +1,34 @@
+---
+date: last-modified        # Captura la fecha real de la última vez que guardaste el archivo
+date-format: "DD/MM/YYYY"  # Define el formato español
+---
+
+# Introducción {.unnumbered}
+
+En esta unidad de **Tecnología e Ingeniería II**,  veremos desde los conceptos básicos de cargas y apoyos hasta el cálculo de estructuras articuladas y vigas.
+
+## Contenidos de la unidad
+
+A continuación se detallan las secciones que componen esta unidad:
+
+1. **Descripción y elementos de estructuras sencillas**: Una visión general sobre la función de las estructuras.
+2. **Cargas. Tipos de apoyos y uniones**: Clasificación de las fuerzas externas a las estructuras.
+3. **Cálculos básicos en estructuras**: Aplicación de los principios fundamentales.
+4. **Cálculo de esfuerzos en vigas**: Análisis del comportamiento de vigas sometidas a flexión, axil y cortante.
+5. **Cálculo de esfuerzos en estructuras de barras articuladas**: Resolución de celosías mediante métodos analíticos y gráficos.
+
+::: {.content-visible when-format="html"}
+
+::: {.callout-note appearance="simple"}
+## 📚 Material de estudio
+Puedes descargar esta unidad completa en formato PDF para estudiar sin conexión o imprimirla:
+
+
+
+[Descargar PDF](Unidad_7_Estructuras.pdf){.btn .btn-primary .btn-lg role="button"}
+:::
+
+:::
+
+
+*Última actualización: {{< meta date >}}*

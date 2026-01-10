@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>5.2. Método de las secciones (Ritter) | Estructuras </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Luis García Jiménez" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/empheq']},
+  tex: {
+    packages: {'[+]': ['empheq']},
+    tags: "ams",
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script">
+</script>
+
+<script type="text/javascript" async
+     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+     </script></head>
+<body class="exe-web-site exe-auto-math" id="exe-node-29"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Estructuras</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Estructuras</a></li>
+   <li><a href="1_descripcin_y_elementos_de_estructuras_sencillas.html" class="no-ch">1. Descripción y elementos de estructuras sencillas</a></li>
+   <li><a href="2_cargas_tipos_de_apoyos_y_uniones.html" class="no-ch">2. Cargas. Tipos de apoyos y uniones</a></li>
+   <li><a href="3_clculos_bsicos_en_estructuras.html" class="no-ch">3. Cálculos básicos en estructuras</a></li>
+   <li><a href="4_clculo_de_esfuerzos_en_vigas_diagramas_de_esfuerzos.html" class="daddy">4. Cálculo de esfuerzos en vigas. Diagramas de esfuerzos.</a>
+   <ul class="other-section">
+      <li><a href="41_ejemplo_1_carga_puntual.html" class="no-ch">4.1. Ejemplo 1: carga puntual</a></li>
+      <li><a href="42_ejemplo_2_carga_uniformamente_repartida.html" class="no-ch">4.2. Ejemplo 2: carga uniformamente repartida</a></li>
+      <li><a href="43_ejemplo_3_empotramiento_con_carga_uniformemente_repartida.html" class="no-ch">4.3. Ejemplo 3: empotramiento con carga uniformemente repartida</a></li>
+      <li><a href="otros_ejemplos.html" class="no-ch">Otros ejemplos</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="5_clculo_de_esfuerzos_en_estructuras_de_barras_articuladas.html" class="current-page-parent daddy">5. Cálculo de esfuerzos en estructuras de barras articuladas.</a>
+   <ul>
+      <li><a href="51_mtodo_de_los_nudos.html" class="no-ch">5.1. Método de los nudos</a></li>
+      <li id="active"><a href="52_mtodo_de_las_secciones_ritter.html" class="active no-ch">5.2. Método de las secciones (Ritter)</a></li>
+      <li><a href="53_mtodo_grfico_de_cremona.html" class="no-ch">5.3. Método gráfico de Cremona</a></li>
+   </ul>
+   </li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="51_mtodo_de_los_nudos.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="53_mtodo_grfico_de_cremona.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">5.2. Método de las secciones (Ritter)</h1></header>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id145">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">Método de las secciones (Ritter)</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta145_147_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-representation"><section class="exe-udlContent-block"><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Se utiliza cuando queremos estudiar <span style="color: #008000;"><strong>una barra en concreto</strong></span> y no la totalidad de la estructura.</p>
+<p>Consiste en lo siguiente:</p>
+<ol>
+<li><span style="color: #008000;"><strong>Cortamos</strong></span> la estructura por una sección que <span style="color: #008000;"><strong>intersecte tres barras</strong></span>.</li>
+<li>Eliminamos una de las dos partes en las que ha quedado dividida la estructura.</li>
+<li>Aplicamos en la otra parte <span style="color: #008000;"><strong>las tres ecuaciones de equilibrio</strong></span>.</li>
+</ol>
+<table border="0" style="width: 100%;">
+<tbody>
+<tr>
+<td style="border: 3px solid blue; border-radius: 10px; border-collapse: collapse; height: 10px; padding: 10px;">
+<h2><span style="color: #0000ff;">Ejemplo resuelto</span></h2>
+<p><span style="font-size: 16.8px;">Empleando el método de las secciones, o de Ritter, calcula las tensiones de las barras CE, ED y DF de la siguiente estructura de barras, donde A es un apoyo libre y G es un apoyo articulado.</span></p>
+<p><img src="ejemploRitter1-1.png" alt="" width="488" height="277" style="display: block; margin-left: auto; margin-right: auto;"><span style="font-size: 16.8px;"></span></p>
+<p><span style="color: #008000;"><strong>Comprobamos la isostaticidad:</strong></span></p>
+<p>Se trata de una estructura isostática exteriormente, ya que hay igual número de incógnitas (R<sub>Ay</sub>, R<sub>Gx</sub>, R<sub>Gy</sub>) que de ecuaciones (\(\sum F_x = 0;\ \sum F_y = 0;\ \sum M = 0\)), y también es isostática interiormente, ya que el número de barras \( b = 11 = 2n-3 \) (siendo n el número de nudos: n = 7).<span style="font-size: 16.8px;"></span></p>
+<p><span style="font-size: 16.8px;">Calculamos primero las <span style="color: #008000;"><strong>reacciones</strong></span> con las ecuaciones de equilibrio de la estructura:</span></p>
+<p><img src="ejemploRitter1-2.png" alt="" width="524" height="291" style="display: block; margin-left: auto; margin-right: auto;"><span style="font-size: 16.8px;">Con la suma de momentos en G podemos calcular directamente la reacción <span style="color: #008000;"><strong>R<sub>Ay</sub></strong></span>:</span></p>
+<p style="text-align: center;"><span style="font-size: 16.8px;">\[ \sum M_G = 0 \Rightarrow R_{Ay}\cdot 4{,}5 - 400\cdot 3 - 200\cdot 1{,}5 = 0 \Rightarrow R_{Ay} = 333{,}33\,\text{N} \]</span></p>
+<p><span style="font-size: 16.8px;">Con la suma de fuerzas verticales calculamos la reacción <span style="color: #008000;"><strong>R<sub>Gy</sub></strong></span>:</span></p>
+<p style="text-align: center;"><span style="font-size: 16.8px;">\[ \sum F_y = 0 \Rightarrow R_{Gy} = 600 - 333{,}33 = 266{,}66\,\text{N} \]</span></p>
+<p><span style="font-size: 16.8px;">Por último, la última reación, <span style="color: #008000;"><strong>R<sub>Gx</sub></strong></span>, es claramente nula al ser la única fuerza horizontal:</span></p>
+<p style="text-align: center;"><span style="font-size: 16.8px;">\[ \sum F_x = 0 \Rightarrow R_{Gx} = 0\,\text{N} \]</span></p>
+<p><span style="font-size: 16.8px;">A continuación realizamos la sección de la estructura por tres barras, tal y como se ve en la imagen:</span></p>
+<p><img src="ejemploRitter1-3.png" alt="" width="518" height="283" style="display: block; margin-left: auto; margin-right: auto;"><span style="font-size: 16.8px;"></span></p>
+<p><span style="font-size: 16.8px;">Cogemos el lado izquierdo del corte, realizamos el diagrama de cuerpo libre y dibujamos las tensiones de las barras. Escogemos todas las tensiones como de tracción, es decir, salen del nudo. Si luego nos salen negativas, será que en realidad son de compresión:</span></p>
+<p><img src="ejemploRitter1-4.png" alt="" width="426" height="285" style="display: block; margin-left: auto; margin-right: auto;"><span style="font-size: 16.8px;">Ponemos la ecuación de momento nulo en el nudo E. Como las tensiones T<sub>CE</sub> y T<sub>DE</sub> pasan por él, no generan momento y nos las quitamos. Por lo tanto, podemos calcular directamente la tensión T<sub>DF</sub>:</span></p>
+<p style="text-align: center;"><span style="font-size: 16.8px;">\[ \sum M_E = 0 \Rightarrow 333{,}33\cdot 3 - 400\cdot 1{,}5 + T_{DF}\cdot 2 \Rightarrow T_{DF} = -200\,\text{N} \]</span></p>
+<p><span style="font-size: 16.8px;">Como sale negativa, resulta que es un esfuerzo de <span style="color: #008000;">compresión</span>.</span></p>
+<p><span style="font-size: 16.8px;">Con el equilibrio de fuerzas en el eje vertical, podemos calcular la tensión T<sub>DE</sub>:</span></p>
+<p style="text-align: center;">\[ \sum F_y = 0 \Rightarrow R_{Ay} - F_C - T_{DE}\cos\alpha = 0\]</p>
+<p style="text-align: left;">El ángulo&nbsp;α lo podemos calcular fácilmente de la geometría de la estructura:</p>
+<p style="text-align: center;">\[\alpha = \tan^{-1}\!\left(\frac{0{,}75}{2}\right) = 20{,}55^\circ\]</p>
+<p style="text-align: left;">Por lo tanto:</p>
+<p style="text-align: center;">\[333{,}33 - 400 - T_{DE}\cos 20{,}55^\circ = 0 \Rightarrow T_{DE} = -71{,}20\,\text{N}\]</p>
+<p style="text-align: left;">De nuevo sale negativa, por lo que es un esfuerzo de <span style="color: #008000;"><strong>compresión</strong></span>.</p>
+<p><span style="font-size: 16.8px;"></span>Por último, con la suma de fuerzas horizontales obtenemos la tensión que nos falta, T<sub>CE</sub>:</p>
+<p style="text-align: center;">\[ \sum F_x = 0 \Rightarrow T_{CE} + T_{DF} + T_{DE}\, \sin 20{,}55^\circ = 0 \Rightarrow T_{CE} - 200 - 71{,}2\, \sin 20{,}55^\circ \Rightarrow T_{CE} = 224{,}99\,\text{N} \]</p>
+<p>En esta ocasión, al salir positiva, es un esfuerzo de <span style="color: #008000;"><strong>tracción</strong></span>.</p>
+</td>
+</tr>
+</tbody>
+</table></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-nc-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons Reconocimiento No comercial Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="51_mtodo_de_los_nudos.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="53_mtodo_grfico_de_cremona.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<script type="text/javascript" src="_style_js.js"></script></body></html>

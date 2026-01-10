@@ -1,0 +1,91 @@
+project:
+  type: book
+  output-dir: docs
+
+#lang: es
+
+language:
+  es:
+    section-title-appendices: "Anexos"
+
+book:
+  title: "Unidad 7: Estructuras"
+  subtitle: "Tecnología e Ingeniería II - 2º Bachillerato"
+  author: "José Luis García Jiménez"
+  output-file: "Unidad_7_Estructuras"
+  
+  sidebar:
+    logo: logoMajuelo.jpeg
+    style: "docked"
+    search: true
+    collapse-level: 2
+    
+    
+  chapters:
+    - index.qmd
+    - 01_descripcion.qmd
+    - 02_cargas.qmd
+    - 03_calculos_basicos.qmd
+    
+    # Aquí llamamos solo a los maestros
+    - 04_vigas_completo.qmd
+    - 05_barras_completo.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "En esta página"
+    number-sections: true
+    page-layout: full
+    title-block-banner: "#453f93"
+    title-block-banner-color: white
+    css: styles.css
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <script>
+        window.MathJax = {
+          loader: {load: ['[tex]/enclose']},
+          tex: {
+            packages: {'[+]': ['enclose']},
+            macros: {
+              sen: '{\\operatorname{sen}}',
+              phase: ['{\\enclose{phasorangle}{#1}}', 1],
+              dotZ: '{\\dot{Z}}',
+              dotI: '{\\dot{I}}',
+              VA: '{\\text{ VA}}'
+            }
+          }
+        };
+        </script>
+
+  pdf:
+    output-file: "Unidad_7_Estructuras.pdf"
+    documentclass: scrreprt
+    papersize: a4
+    number-sections: true
+    toc: true
+    colorlinks: true
+    fig-align: center
+    callout-appearance: simple
+    callout-icon: false
+    fig-pos: 'H'
+    geometry:
+      - top=25mm
+      - bottom=25mm
+      - left=25mm
+      - right=25mm
+    include-in-header:
+      text: |
+        \usepackage{amsmath}
+        \usepackage{amssymb}
+        \usepackage{steinmetz}
+        \newcommand{\sen}{\operatorname{sen}}
+        \newcommand{\dotZ}{\dot{Z}}
+        \newcommand{\dotI}{\dot{I}}
+        \newcommand{\VA}{\text{ VA}}
+        \usepackage{enumitem}
+        \setlist[enumerate,1]{label=\arabic*.} % Nivel 1: 1.
+        \setlist[enumerate,2]{label=\alph*)}   % Nivel 2: a)

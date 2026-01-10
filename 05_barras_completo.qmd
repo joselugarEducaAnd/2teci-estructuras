@@ -1,0 +1,9 @@
+# Estructuras de barras articuladas
+
+{{< include tema05_barras/00_teoria_barras.qmd >}}
+
+{{< include tema05_barras/01_metodo_nudos.qmd >}}
+
+{{< include tema05_barras/02_metodo_ritter.qmd >}}
+
+{{< include tema05_barras/03_metodo_cremona.qmd >}}

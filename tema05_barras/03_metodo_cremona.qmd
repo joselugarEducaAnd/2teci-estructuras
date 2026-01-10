@@ -1,0 +1,3 @@
+## Método gráfico de Cremona
+
+Explicación del método...
