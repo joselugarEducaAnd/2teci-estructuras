@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Cálculo de esfuerzos en vigas. Diagramas de esfuerzos – Unidad 7: Estructuras</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05_barras_completo.html" rel="next">
+<link href="./03_calculos_basicos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4ba85d4b4427d31d840a79ec76a35f2e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: #453f93;
+      }
+</style>
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/enclose']},
+  tex: {
+    packages: {'[+]': ['enclose']},
+    macros: {
+      sen: '{\\operatorname{sen}}',
+      phase: ['{\\enclose{phasorangle}{#1}}', 1],
+      dotZ: '{\\dot{Z}}',
+      dotI: '{\\dot{I}}',
+      VA: '{\\text{ VA}}'
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_vigas_completo.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./logoMajuelo.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./logoMajuelo.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Unidad 7: Estructuras</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_descripcion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descripción y elementos de estructuras sencillas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_cargas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cargas. Tipos de apoyos y uniones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_calculos_basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cálculos básicos en estructuras</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_vigas_completo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_barras_completo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">5. Cálculo de esfuerzos en estructuras de barras articuladas</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#criterio-de-signos-cargas" id="toc-criterio-de-signos-cargas" class="nav-link active" data-scroll-target="#criterio-de-signos-cargas"><span class="header-section-number">4.1</span> Criterio de signos (Cargas)</a></li>
+  <li><a href="#viga-isostática" id="toc-viga-isostática" class="nav-link" data-scroll-target="#viga-isostática"><span class="header-section-number">4.2</span> Viga isostática</a></li>
+  <li><a href="#tipos-de-esfuerzos-en-una-viga" id="toc-tipos-de-esfuerzos-en-una-viga" class="nav-link" data-scroll-target="#tipos-de-esfuerzos-en-una-viga"><span class="header-section-number">4.3</span> Tipos de esfuerzos en una viga</a>
+  <ul class="collapse">
+  <li><a href="#criterio-de-signos-para-los-esfuerzos-internos" id="toc-criterio-de-signos-para-los-esfuerzos-internos" class="nav-link" data-scroll-target="#criterio-de-signos-para-los-esfuerzos-internos"><span class="header-section-number">4.3.1</span> Criterio de signos para los esfuerzos internos</a></li>
+  </ul></li>
+  <li><a href="#diagramas-de-esfuerzos" id="toc-diagramas-de-esfuerzos" class="nav-link" data-scroll-target="#diagramas-de-esfuerzos"><span class="header-section-number">4.4</span> Diagramas de esfuerzos</a>
+  <ul class="collapse">
+  <li><a href="#determinar-las-reacciones-en-los-apoyos" id="toc-determinar-las-reacciones-en-los-apoyos" class="nav-link" data-scroll-target="#determinar-las-reacciones-en-los-apoyos">1. Determinar las reacciones en los apoyos</a></li>
+  <li><a href="#cortar-la-viga-mentalmente" id="toc-cortar-la-viga-mentalmente" class="nav-link" data-scroll-target="#cortar-la-viga-mentalmente">2. “Cortar” la viga mentalmente</a></li>
+  <li><a href="#expresar-cada-esfuerzo-en-función-de-la-posición-x" id="toc-expresar-cada-esfuerzo-en-función-de-la-posición-x" class="nav-link" data-scroll-target="#expresar-cada-esfuerzo-en-función-de-la-posición-x">3. Expresar cada esfuerzo en función de la posición x</a></li>
+  <li><a href="#dibujar-los-diagramas" id="toc-dibujar-los-diagramas" class="nav-link" data-scroll-target="#dibujar-los-diagramas">4. Dibujar los diagramas</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-1-viga-con-carga-puntual" id="toc-ejemplo-1-viga-con-carga-puntual" class="nav-link" data-scroll-target="#ejemplo-1-viga-con-carga-puntual"><span class="header-section-number">4.5</span> Ejemplo 1: Viga con carga puntual</a>
+  <ul class="collapse">
+  <li><a href="#enunciado" id="toc-enunciado" class="nav-link" data-scroll-target="#enunciado">Enunciado</a></li>
+  <li><a href="#calcular-las-reacciones" id="toc-calcular-las-reacciones" class="nav-link" data-scroll-target="#calcular-las-reacciones">1. Calcular las reacciones</a></li>
+  <li><a href="#cortar-la-viga-en-tramos" id="toc-cortar-la-viga-en-tramos" class="nav-link" data-scroll-target="#cortar-la-viga-en-tramos">2. “Cortar” la viga en tramos</a></li>
+  <li><a href="#expresar-los-esfuerzos-cortes" id="toc-expresar-los-esfuerzos-cortes" class="nav-link" data-scroll-target="#expresar-los-esfuerzos-cortes">3. Expresar los esfuerzos (Cortes)</a></li>
+  <li><a href="#dibujar-los-diagramas-1" id="toc-dibujar-los-diagramas-1" class="nav-link" data-scroll-target="#dibujar-los-diagramas-1">4. Dibujar los diagramas</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-2-viga-con-carga-distribuida" id="toc-ejemplo-2-viga-con-carga-distribuida" class="nav-link" data-scroll-target="#ejemplo-2-viga-con-carga-distribuida"><span class="header-section-number">4.6</span> Ejemplo 2: Viga con carga distribuida</a>
+  <ul class="collapse">
+  <li><a href="#enunciado-1" id="toc-enunciado-1" class="nav-link" data-scroll-target="#enunciado-1">Enunciado</a></li>
+  <li><a href="#calcular-las-reacciones-1" id="toc-calcular-las-reacciones-1" class="nav-link" data-scroll-target="#calcular-las-reacciones-1">1. Calcular las reacciones</a></li>
+  <li><a href="#cortar-la-viga-en-tramos-1" id="toc-cortar-la-viga-en-tramos-1" class="nav-link" data-scroll-target="#cortar-la-viga-en-tramos-1">2. “Cortar” la viga en tramos</a></li>
+  <li><a href="#expresar-los-esfuerzos-cortes-1" id="toc-expresar-los-esfuerzos-cortes-1" class="nav-link" data-scroll-target="#expresar-los-esfuerzos-cortes-1">3. Expresar los esfuerzos (Cortes)</a></li>
+  <li><a href="#dibujar-los-diagramas-2" id="toc-dibujar-los-diagramas-2" class="nav-link" data-scroll-target="#dibujar-los-diagramas-2">4. Dibujar los diagramas</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida" id="toc-ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida" class="nav-link" data-scroll-target="#ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida"><span class="header-section-number">4.7</span> Ejemplo 3: Viga en voladizo con carga uniformemente repartida</a>
+  <ul class="collapse">
+  <li><a href="#enunciado-2" id="toc-enunciado-2" class="nav-link" data-scroll-target="#enunciado-2">Enunciado</a></li>
+  <li><a href="#calcular-las-reacciones-2" id="toc-calcular-las-reacciones-2" class="nav-link" data-scroll-target="#calcular-las-reacciones-2">1. Calcular las reacciones</a></li>
+  <li><a href="#cortar-la-viga" id="toc-cortar-la-viga" class="nav-link" data-scroll-target="#cortar-la-viga">2. “Cortar” la viga</a></li>
+  <li><a href="#expresar-los-esfuerzos-0-le-x-le-3" id="toc-expresar-los-esfuerzos-0-le-x-le-3" class="nav-link" data-scroll-target="#expresar-los-esfuerzos-0-le-x-le-3">3. Expresar los esfuerzos (<span class="math inline">\(0 \le x \le 3\)</span>)</a></li>
+  <li><a href="#dibujar-los-diagramas-3" id="toc-dibujar-los-diagramas-3" class="nav-link" data-scroll-target="#dibujar-los-diagramas-3">4. Dibujar los diagramas</a></li>
+  </ul></li>
+  <li><a href="#otros-ejemplos-de-cálculo-de-esfuerzos" id="toc-otros-ejemplos-de-cálculo-de-esfuerzos" class="nav-link" data-scroll-target="#otros-ejemplos-de-cálculo-de-esfuerzos"><span class="header-section-number">4.8</span> Otros ejemplos de cálculo de esfuerzos</a>
+  <ul class="collapse">
+  <li><a href="#vídeo-explicativo" id="toc-vídeo-explicativo" class="nav-link" data-scroll-target="#vídeo-explicativo">Vídeo explicativo</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<p>Hemos visto que una viga es un elemento estructural diseñado para soportar fuerzas, por lo que <strong>debe estar en equilibrio,</strong> esto es, que no se rompa ni se mueva por las fuerzas y que no gire por los momentos que producen las fuerzas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/diagrama_viga_simple.png" class="img-fluid figure-img"></p>
+<figcaption>Diagrama de sólido libre de una viga</figcaption>
+</figure>
+</div>
+<p>Dado que consideramos que la viga es bidimensional, <strong>para que una viga esté en equilibrio se tiene que cumplir:</strong></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled" style="width: 70%; margin: auto;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Ecuaciones de Equilibrio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Que la suma de fuerzas en el eje X sea 0 (no se mueve horizontalmente).</li>
+<li>Que la suma de fuerzas en el eje Y sea 0 (no se mueve verticalmente).</li>
+<li>Que la suma de los momentos que producen todas las fuerzas sea 0 (no gira).</li>
+</ul>
+</div>
+</div>
+<p><br>
+</p>
+<section id="criterio-de-signos-cargas" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="criterio-de-signos-cargas"><span class="header-section-number">4.1</span> Criterio de signos (Cargas)</h2>
+<p>Para realizar los cálculos en problemas de vigas, tomaremos el siguiente criterio para los signos de las <strong>cargas externas</strong>:</p>
+<ul>
+<li>Fuerzas <strong>horizontales</strong>: positivas hacia la <strong>derecha</strong>.</li>
+<li>Fuerzas <strong>verticales</strong>: positivas hacia <strong>arriba</strong>.</li>
+<li><strong>Momentos</strong>: positivos si provocan <strong>giro antihorario</strong>.</li>
+</ul>
+</section>
+<section id="viga-isostática" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="viga-isostática"><span class="header-section-number">4.2</span> Viga isostática</h2>
+<p>Una viga será isostática si es posible realizar su análisis estático aplicando las ecuaciones de sumatorio de fuerzas y momentos.</p>
+<p>Como solo vamos a hacer análisis en el plano, siempre tendremos tres ecuaciones como hemos visto antes (<span class="math inline">\(\sum F_{x}=0; \sum F_{y}=0; \sum M_{z}=0\)</span>). Por lo tanto, para resolver el sistema de ecuaciones, <strong>el número total de reacciones (incógnitas) en la viga debe ser 3,</strong> coincidente con el número de ecuaciones estáticas disponibles.</p>
+<ul>
+<li>Si el número de reacciones es <strong>menor a 3</strong>, la viga será un <strong>mecanismo</strong> (se moverá).</li>
+<li>Si el número de reacciones es <strong>superior a 3</strong>, se tratará de una <strong>viga hiperestática.</strong> El grado de hiperestaticidad será mayor conforme aumente el número de reacciones redundantes. Este tipo de vigas no puede calcularse directamente, debiendo utilizar pasos adicionales para su resolución.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/vigas_iso_e_hiper.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Vigas isostáticas e hiperestáticas</figcaption>
+</figure>
+</div>
+<p>Nosotros nos centraremos en el cálculo de vigas isostáticas en este curso.</p>
+</section>
+<section id="tipos-de-esfuerzos-en-una-viga" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="tipos-de-esfuerzos-en-una-viga"><span class="header-section-number">4.3</span> Tipos de esfuerzos en una viga</h2>
+<p>Las cargas y reacciones producen los siguientes esfuerzos en una viga (ignorando la torsión que rara vez ocurre y que no tendremos nunca en cuenta):</p>
+<ul>
+<li><strong>Esfuerzo axil (N):</strong> genera tensiones normales, <strong>según la dirección del eje longitudinal de la viga.</strong> Es producido por la suma de todas las cargas y reacciones paralelas al eje longitudinal de la viga. El esfuerzo puede ser de tracción (tiende a estirar la viga) o de compresión (tiende a aplastarla).</li>
+<li><strong>Esfuerzo cortante (V):</strong> genera tensiones <strong>tangenciales en la viga.</strong> Es producido por aquellas cargas y reacciones aplicadas en dirección perpendicular al eje longitudinal de la viga.</li>
+<li><strong>Momento flector (M):</strong> normalmente es el esfuerzo más determinante y genera tensiones normales en la viga (aparecen axiles de tracción en la parte externa del giro y de compresión en la parte interna). Es producida por aquellas cargas y reacciones perpendiculares al eje longitudinal de la viga, fuerzas paralelas al eje pero descentradas y momentos de giro aplicados.</li>
+</ul>
+<section id="criterio-de-signos-para-los-esfuerzos-internos" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="criterio-de-signos-para-los-esfuerzos-internos"><span class="header-section-number">4.3.1</span> Criterio de signos para los esfuerzos internos</h3>
+<p>Para poder obtener las leyes de esfuerzo, es necesario definir un <strong>criterio de signos</strong> cuando estemos considerando esfuerzos en una sección “<span class="math inline">\(x\)</span>” de la viga:</p>
+<div class="quarto-layout-panel" data-valign="top" data-layout="[33, 33, 33]">
+<div class="quarto-layout-row">
+<section id="esfuerzo-axil-n" class="level4 unnumbered quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered anchored" data-anchor-id="esfuerzo-axil-n">Esfuerzo Axil (N)</h4>
+<p>Se toma como criterio <strong>positivo el esfuerzo de tracción</strong>, es decir, aquellas cargas que tienen a incrementar la longitud de la barra (<strong>la compresión es negativa</strong>).</p>
+<p>A nivel de cálculo: fuerzas horizontales a la izquierda de la sección dirigidas hacia la <strong>izquierda</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/criterioaxil-01.png" class="img-fluid figure-img"></p>
+<figcaption>Criterio Axil</figcaption>
+</figure>
+</div>
+</section>
+<section id="esfuerzo-cortante-v" class="level4 unnumbered quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered anchored" data-anchor-id="esfuerzo-cortante-v">Esfuerzo Cortante (V)</h4>
+<p>Aquellas fuerzas situadas a la izquierda de la sección “<span class="math inline">\(x\)</span>” con dirección perpendicular al eje de la viga y hacia <strong>arriba</strong> generarán un cortante positivo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/criteriocortante-01.png" class="img-fluid figure-img"></p>
+<figcaption>Criterio Cortante</figcaption>
+</figure>
+</div>
+</section>
+<section id="momento-flector-m" class="level4 unnumbered quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered anchored" data-anchor-id="momento-flector-m">Momento Flector (M)</h4>
+<p>Se tomará como criterio de momento positivo el <strong>sentido horario</strong> producido por las cargas situadas a la izquierda de la sección “<span class="math inline">\(x\)</span>”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/criteriomomento-01.png" class="img-fluid figure-img"></p>
+<figcaption>Criterio Momento</figcaption>
+</figure>
+</div>
+</section>
+</div>
+</div>
+</section>
+</section>
+<section id="diagramas-de-esfuerzos" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="diagramas-de-esfuerzos"><span class="header-section-number">4.4</span> Diagramas de esfuerzos</h2>
+<p>Para estudiar los esfuerzos de una viga, se representan mediante tres diagramas:</p>
+<ul>
+<li>Diagrama de esfuerzo axil (N) <span class="math inline">\(\rightarrow\)</span> muestra si la barra está en tracción o compresión.</li>
+<li>Diagrama de esfuerzo cortante (V) <span class="math inline">\(\rightarrow\)</span> muestra las fuerzas internas verticales.</li>
+<li>Diagrama de momento flector (M) <span class="math inline">\(\rightarrow\)</span> muestra los momentos internos que tienden a doblar la viga.</li>
+</ul>
+<p>Para obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:</p>
+<section id="determinar-las-reacciones-en-los-apoyos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="determinar-las-reacciones-en-los-apoyos">1. Determinar las reacciones en los apoyos</h3>
+<p>Antes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio:</p>
+<p><span class="math display">\[\sum F_{x}=0 \quad ; \quad \sum F_{y}=0 \quad ; \quad \sum M_{z}=0\]</span></p>
+<p>De ahí se obtienen las reacciones verticales, horizontales y de giro, si las hay. Como estudiaremos siempre vigas isostáticas, habrá exactamente 3 reacciones para calcular.</p>
+</section>
+<section id="cortar-la-viga-mentalmente" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cortar-la-viga-mentalmente">2. “Cortar” la viga mentalmente</h3>
+<p>Se hace un corte imaginario en un punto cualquiera de la viga, a una distancia “<span class="math inline">\(x\)</span>” del extremo izquierdo, para analizar una de las partes.</p>
+<p>Sobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:</p>
+<ul>
+<li><span class="math inline">\(N(x)\)</span>: fuerza horizontal interna (axil).</li>
+<li><span class="math inline">\(V(x)\)</span>: fuerza vertical interna (cortante).</li>
+<li><span class="math inline">\(M(x)\)</span>: momento interno (flector).</li>
+</ul>
+<p>Y <strong>se vuelven a aplicar las ecuaciones de equilibrio a esa porción.</strong></p>
+</section>
+<section id="expresar-cada-esfuerzo-en-función-de-la-posición-x" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expresar-cada-esfuerzo-en-función-de-la-posición-x">3. Expresar cada esfuerzo en función de la posición x</h3>
+<p>Al mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.</p>
+<p>Por ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.</p>
+</section>
+<section id="dibujar-los-diagramas" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dibujar-los-diagramas">4. Dibujar los diagramas</h3>
+<p>Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Diagrama</th>
+<th style="text-align: left;">Eje vertical representa…</th>
+<th style="text-align: left;">Forma típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>N(x)</strong></td>
+<td style="text-align: left;">Esfuerzo axil</td>
+<td style="text-align: left;">Constante (si no hay cargas horizontales)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>V(x)</strong></td>
+<td style="text-align: left;">Esfuerzo cortante</td>
+<td style="text-align: left;">Segmentos horizontales o con saltos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>M(x)</strong></td>
+<td style="text-align: left;">Momento flector</td>
+<td style="text-align: left;">Líneas rectas o curvas suaves (triangular o parabólica)</td>
+</tr>
+</tbody>
+</table>
+<p>Todo esto lo entenderás mejor con los ejemplos resueltos que tienes a continuación.</p>
+<hr>
+</section>
+</section>
+<section id="ejemplo-1-viga-con-carga-puntual" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="ejemplo-1-viga-con-carga-puntual"><span class="header-section-number">4.5</span> Ejemplo 1: Viga con carga puntual</h2>
+<p>En este apartado vamos a resolver paso a paso un ejercicio completo de una viga isostática con una carga puntual.</p>
+<section id="enunciado" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enunciado">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Esquema de la viga</figcaption>
+</figure>
+</div>
+</section>
+<section id="calcular-las-reacciones" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="calcular-las-reacciones">1. Calcular las reacciones</h3>
+<p>Determinamos las reacciones según los tipos de apoyos que vemos en la figura (apoyo fijo en A, apoyo móvil en B):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Diagrama de cuerpo libre y reacciones</figcaption>
+</figure>
+</div>
+<p>Aplicando las condiciones de equilibrio estático:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> Considerando positivas las fuerzas hacia arriba: <span class="math display">\[R_{AY} - P + R_{BY} = 0\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos respecto al punto A para eliminar incógnitas (<span class="math inline">\(R_{AX}\)</span> y <span class="math inline">\(R_{AY}\)</span>). Criterio: antihorario positivo. <span class="math display">\[-P \cdot 1 + R_{BY} \cdot (4+1) = 0\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(P = 15000 \text{ N}\)</span>):</p>
+<p><span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15000 + R_{BY} = 0 \\
+-15000 + 5 \cdot R_{BY} = 0
+\end{cases}
+\]</span></p>
+<p>Resolviendo el sistema:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{BY} &amp;= \frac{15000}{5} = 3000 \text{ N} = \mathbf{3 \text{ kN}} \\
+R_{AY} &amp;= 15000 - 3000 = 12000 \text{ N} = \mathbf{12 \text{ kN}}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="cortar-la-viga-en-tramos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cortar-la-viga-en-tramos">2. “Cortar” la viga en tramos</h3>
+<p>El procedimiento consiste en partir la viga en tramos, <strong>separados por cambios de carga o apoyos.</strong> Recorriendo la viga de derecha a izquierda, definimos un tramo cuando aparece una nueva carga.</p>
+<p>En este caso, la carga puntual <span class="math inline">\(P\)</span> en el punto C divide la viga en dos tramos: <strong>Tramo A-C</strong> y <strong>Tramo C-B</strong>.</p>
+</section>
+<section id="expresar-los-esfuerzos-cortes" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expresar-los-esfuerzos-cortes">3. Expresar los esfuerzos (Cortes)</h3>
+<section id="tramo-a-c-0-leq-x-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tramo-a-c-0-leq-x-1">Tramo A-C (<span class="math inline">\(0 \leq x &lt; 1\)</span>)</h4>
+<p>Analizamos el trozo de viga a una distancia <span class="math inline">\(x\)</span> antes de llegar a la carga <span class="math inline">\(P\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga1-2.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Corte Tramo A-C</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> No hay fuerzas horizontales. <span class="math display">\[N_{A-C}(x) = R_{AX} = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> La única fuerza vertical es la reacción en A (hacia arriba = positiva). <span class="math display">\[V_{A-C}(x) = R_{AY} = \mathbf{12 \text{ kN}}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Generado por <span class="math inline">\(R_{AY}\)</span> a una distancia <span class="math inline">\(x\)</span>. Sentido horario (según nuestro criterio de signos a la izquierda del corte, comprime arriba) es positivo. <span class="math display">\[M_{A-C}(x) = R_{AY} \cdot x = \mathbf{12x \text{ kN}\cdot\text{m}}\]</span></p></li>
+</ul>
+</section>
+<section id="tramo-c-b-1-leq-x-leq-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tramo-c-b-1-leq-x-leq-5">Tramo C-B (<span class="math inline">\(1 \leq x \leq 5\)</span>)</h4>
+<p>Pasamos la carga <span class="math inline">\(P\)</span> y analizamos una sección genérica a distancia <span class="math inline">\(x\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga1-3.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Corte Tramo C-B</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> Sigue siendo nulo. <span class="math display">\[N_{C-B}(x) = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> A la reacción <span class="math inline">\(R_{AY}\)</span> se le resta la carga <span class="math inline">\(P\)</span> (hacia abajo). <span class="math display">\[V_{C-B}(x) = R_{AY} - 15 = 12 - 15 = \mathbf{-3 \text{ kN}}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Sumamos el momento de la reacción y restamos el de la carga <span class="math inline">\(P\)</span> (que genera giro antihorario respecto al corte, negativo). La distancia de la carga <span class="math inline">\(P\)</span> al corte es <span class="math inline">\((x-1)\)</span>. <span class="math display">\[M_{C-B}(x) = R_{AY} \cdot x - 15 \cdot (x-1)\]</span> <span class="math display">\[M_{C-B}(x) = 12x - 15x + 15 = \mathbf{15 - 3x \text{ kN}\cdot\text{m}}\]</span></p></li>
+</ul>
+</section>
+</section>
+<section id="dibujar-los-diagramas-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dibujar-los-diagramas-1">4. Dibujar los diagramas</h3>
+<p>Representamos las funciones obtenidas.</p>
+<ul>
+<li><strong>Axiles:</strong> <span class="math inline">\(N(x) = 0\)</span>.</li>
+<li><strong>Cortantes:</strong> Valor constante de <span class="math inline">\(12\)</span> hasta <span class="math inline">\(x=1\)</span>, donde baja a <span class="math inline">\(-3\)</span>.</li>
+<li><strong>Flectores:</strong> Crecimiento lineal <span class="math inline">\(12x\)</span> hasta el máximo en <span class="math inline">\(x=1\)</span> (<span class="math inline">\(12 \text{ kN}\cdot\text{m}\)</span>), luego decrece linealmente hasta 0 en el apoyo B.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga1-4.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Diagrama de Esfuerzos Cortantes</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/EjemploViga1-5.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Diagrama de Momentos Flectores</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejercicios propuestos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1.</strong> Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Ejercicio 1</figcaption>
+</figure>
+</div>
+<p><em>Solución (partiendo del punto A):</em></p>
+<ul>
+<li><strong>Momentos flectores:</strong>
+<ul>
+<li><span class="math inline">\(0 \leq x \leq 2 \text{ m} \rightarrow M_{x1} = -5x \text{ (kN}\cdot\text{m)}\)</span></li>
+<li><span class="math inline">\(2 \leq x \leq 9 \text{ m} \rightarrow M_{x2} = -10 \text{ (kN}\cdot\text{m)}\)</span></li>
+<li><span class="math inline">\(9 \leq x \leq 10 \text{ m} \rightarrow M_{x3} = 10x - 100 \text{ (kN}\cdot\text{m)}\)</span></li>
+</ul></li>
+<li><strong>Esfuerzos cortantes:</strong>
+<ul>
+<li><span class="math inline">\(0 \leq x \leq 2 \text{ m} \rightarrow V_{x1} = -5 \text{ kN}\)</span></li>
+<li><span class="math inline">\(2 \leq x \leq 9 \text{ m} \rightarrow V_{x2} = 0 \text{ kN}\)</span></li>
+<li><span class="math inline">\(9 \leq x \leq 10 \text{ m} \rightarrow V_{x3} = 10 \text{ kN}\)</span></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong>2 (PAU).</strong> Se requiere analizar la viga presentada en la figura adjunta:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio6.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Ejercicio 2 (PAU)</figcaption>
+</figure>
+</div>
+<p>Considerando los datos proporcionados, calcular:</p>
+<ol type="a">
+<li>Las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ N}\)</span>; <span class="math inline">\(R_{Ay} = 12000 \text{ N}\)</span>; <span class="math inline">\(R_{By} = 4000 \text{ N}\)</span>)</em></li>
+<li>Las ecuaciones de fuerzas cortantes y momentos flectores en cada tramo de la viga en función de la coordenada “x”. <em>(Sol: Para <span class="math inline">\(0 \leq x \leq 1,5\text{m} \rightarrow V(x) = 12 \text{ kN}, M(x) = 12x \text{ kN}\cdot\text{m}\)</span>; Para <span class="math inline">\(1,5 \leq x \leq 6\text{m} \rightarrow V(x) = -4 \text{ kN}, M(x) = -4x + 24 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga.</li>
+</ol>
+<hr>
+<p><strong>3 (PAU).</strong> En la siguiente figura se representan las cargas que debe soportar una viga y los apoyos que tiene en la estructura de la que forma parte.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio7.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Ejercicio 3 (PAU)</figcaption>
+</figure>
+</div>
+<p>Considerando los datos proporcionados, analizar la estructura calculando:</p>
+<ol type="a">
+<li>Las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{Ay} = 3,5 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 2,5 \text{ kN}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga. <em>(Sol: <span class="math inline">\(0 \leq x \leq 1 \rightarrow V=3,5, M=3,5x\)</span>; <span class="math inline">\(1 \leq x \leq 4 \rightarrow V=-1,5, M=-1,5x+5\)</span>; <span class="math inline">\(4 \leq x \leq 5 \rightarrow V=1, M=x-5\)</span>)</em></li>
+<li>Obtener el momento flector máximo. <em>(Sol: <span class="math inline">\(M_{max}(1 \text{ m}) = 3,5 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+</ol>
+<hr>
+<p><strong>4 (PAU).</strong> Se requiere analizar una viga de 5 m con su extremo derecho (punto B) empotrado en una pared. Sobre el extremo izquierdo (punto A) actúa una fuerza peso de 3 kN, y a 2 m del empotramiento se localiza otra fuerza peso de 2 kN. Se pide:</p>
+<ol type="a">
+<li>Calcular el valor de las reacciones que se producen en el empotramiento (punto B) en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Bx} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 5 \text{ kN}\)</span>; <span class="math inline">\(M_{B} = 19 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga en función de x. <em>(Sol: <span class="math inline">\(0 \leq x \leq 3 \rightarrow V=-3, M=-3x\)</span>; <span class="math inline">\(3 \leq x \leq 5 \rightarrow V=-5, M=-5x+6\)</span>)</em></li>
+</ol>
+<hr>
+<p><strong>5 (PAU).</strong> Para evitar inundaciones con las crecidas, se ha canalizado el río Guadalquivir a su paso por Sevilla en varios tramos, y la expansión de la ciudad hace necesario construir un nuevo puente sobre el canal de 46 m de ancho. Se estudia la opción de construir el puente con vigas de hormigón armado tipo Doble T como las de la figura, que pueden alcanzar hasta los 53 m de largo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio8.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Ejercicio 5 (PAU)</figcaption>
+</figure>
+</div>
+<p>Tras el estudio del terreno, se decide usar una viga de 50 m de largo apoyada en un extremo en un soporte fijo y el otro en un apoyo móvil o de rodillo. El puente debe soportar el paso de vehículos pesados, por lo que se diseñará para una masa máxima de vehículos de 65 toneladas. La masa de la viga es 110,5 toneladas. Colabora en el diseño del puente resolviendo las siguientes cuestiones.</p>
+<ol type="a">
+<li>Dibujar el diagrama de sólido libre del puente cuando el vehículo pesado haya recorrido 25 m del puente desde el extremo fijo, y calcular el valor de las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0\)</span>; <span class="math inline">\(R_{Ay} = 861 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 861 \text{ kN}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga, y determinar el momento flector máximo que debe soportar la viga cuando el camión esté en esa posición. <em>(Sol: <span class="math inline">\(0 \leq x \leq 25 \rightarrow V=861, M=861x\)</span>; <span class="math inline">\(25 \leq x \leq 50 \rightarrow V=-861, M=-861x + 43050\)</span>; <span class="math inline">\(M_{max} = 21525 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+</ol>
+<p><em>(NOTA: este ejercicio está planteado para considerar el peso de la viga como una carga puntual aplicada en su centro de masas, no como una distribución continua de carga).</em></p>
+<hr>
+<p><strong>6 (PAU).</strong> El estudio de arquitectura Andalusí está desarrollando el proyecto de un bloque de viviendas en primera línea de playa en Almería. Una de las viviendas del ático dispone de una terraza voladiza de 4 m de longitud que sobresale desde la fachada principal. La terraza se modela como una viga con un extremo empotrado en la fachada y el otro extremo en voladizo.</p>
+<p>Teniendo en cuenta el tamaño total de la terraza, se estima que durante una fiesta puede albergar un grupo de personas con un peso total de 8,5 kN. El peso de la losa de hormigón de la terraza es de 16,8 kN.</p>
+<ol type="a">
+<li>Dibujar el diagrama de cuerpo libre de la terraza y calcular las reacciones considerando la fuerza peso del grupo de personas como una carga puntual aplicada en el centro. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{Ay} = 25,3 \text{ kN}\)</span>; <span class="math inline">\(M_{A} = 50,6 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores resultantes. <em>(Sol: <span class="math inline">\(0 \leq x \leq 2 \rightarrow V=25,3, M=25,3x - 50,6\)</span>; <span class="math inline">\(2 \leq x \leq 4 \rightarrow V=0, M=0\)</span>)</em></li>
+<li>Determinar el valor del momento flector máximo que soportará la terraza y en qué posición se encuentra. <em>(Sol: <span class="math inline">\(M_{max} = 50,6 \text{ kN}\cdot\text{m}\)</span> en <span class="math inline">\(x = 0\)</span>)</em></li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="ejemplo-2-viga-con-carga-distribuida" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="ejemplo-2-viga-con-carga-distribuida"><span class="header-section-number">4.6</span> Ejemplo 2: Viga con carga distribuida</h2>
+<p>En este apartado analizaremos una viga con una carga distribuida rectangular.</p>
+<section id="enunciado-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enunciado-1">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Esquema de la viga</figcaption>
+</figure>
+</div>
+</section>
+<section id="calcular-las-reacciones-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="calcular-las-reacciones-1">1. Calcular las reacciones</h3>
+<p>Determinamos las reacciones según los tipos de apoyos que vemos en la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Diagrama de cuerpo libre y reacciones</figcaption>
+</figure>
+</div>
+<p>Aplicando las condiciones de equilibrio estático:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> Considerando positivas las fuerzas hacia arriba. La carga distribuida (<span class="math inline">\(q\)</span>) se multiplica por la longitud (<span class="math inline">\(L\)</span>) para obtener la fuerza total: <span class="math display">\[R_{AY} - q \cdot L + R_{BY} = 0\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos respecto al punto A. <strong>La carga distribuida equivale a una fuerza <span class="math inline">\(q \cdot L\)</span> aplicada en su centro.</strong> En este caso, la carga de <span class="math inline">\(3\text{m}\)</span> está centrada a <span class="math inline">\(2 + 1,5 = 3,5\text{m}\)</span> de A. <span class="math display">\[-q \cdot L \cdot (2 + \frac{L}{2}) + R_{BY} \cdot (2 + L + 5) = 0\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(q=5 \text{ kN/m}\)</span>, <span class="math inline">\(L=3 \text{ m}\)</span>):</p>
+<p><span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 5 \cdot 3 + R_{BY} = 0 \\
+-5 \cdot 3 \cdot (2 + 1,5) + R_{BY} \cdot (2 + 3 + 5) = 0
+\end{cases}
+\]</span></p>
+<p>Simplificando: <span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15 + R_{BY} = 0 \\
+-52,5 + 10 \cdot R_{BY} = 0
+\end{cases}
+\]</span></p>
+<p>Resolviendo el sistema:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{BY} &amp;= \frac{52,5}{10} = \mathbf{5,25 \text{ kN}} \\
+R_{AY} &amp;= 15 - 5,25 = \mathbf{9,75 \text{ kN}}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="cortar-la-viga-en-tramos-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cortar-la-viga-en-tramos-1">2. “Cortar” la viga en tramos</h3>
+<p>Dividimos la viga en tramos separados por cambios de carga o apoyos: * <strong>Tramo A-C (<span class="math inline">\(0 \le x &lt; 2\)</span>):</strong> Entre el apoyo A y el inicio de la carga. * <strong>Tramo C-D (<span class="math inline">\(2 \le x \le 5\)</span>):</strong> Zona de la carga distribuida. * <strong>Tramo D-B (<span class="math inline">\(5 &lt; x \le 10\)</span>):</strong> Entre el final de la carga y el apoyo B.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-2.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>División en tramos</figcaption>
+</figure>
+</div>
+</section>
+<section id="expresar-los-esfuerzos-cortes-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expresar-los-esfuerzos-cortes-1">3. Expresar los esfuerzos (Cortes)</h3>
+<section id="tramo-a-c-0-le-x-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tramo-a-c-0-le-x-2">Tramo A-C (<span class="math inline">\(0 \le x &lt; 2\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-3.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Corte Tramo A-C</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{A-C}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> <span class="math inline">\(V_{A-C}(x) = R_{AY} = \mathbf{9,75 \text{ kN}}\)</span></li>
+<li><strong>Momento:</strong> <span class="math inline">\(M_{A-C}(x) = R_{AY} \cdot x = \mathbf{9,75x \text{ kN}\cdot\text{m}}\)</span></li>
+</ul>
+</section>
+<section id="tramo-c-d-2-le-x-le-5" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tramo-c-d-2-le-x-le-5">Tramo C-D (<span class="math inline">\(2 \le x \le 5\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-4.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Corte Tramo C-D</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{C-D}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> Restamos la parte de carga distribuida que entra en el corte (<span class="math inline">\(q \cdot (x-2)\)</span>). <span class="math display">\[V_{C-D}(x) = R_{AY} - 5(x-2) = 9,75 - 5x + 10 = \mathbf{19,75 - 5x \text{ kN}}\]</span></li>
+<li><strong>Momento:</strong> La carga distribuida parcial tiene su centro a <span class="math inline">\((x-2)/2\)</span> del corte. <span class="math display">\[M_{C-D}(x) = R_{AY} \cdot x - [5(x-2)] \cdot \frac{x-2}{2}\]</span> <span class="math display">\[M_{C-D}(x) = 9,75x - 2,5(x-2)^2\]</span> <span class="math display">\[M_{C-D}(x) = \mathbf{-2,5x^2 + 19,75x - 10 \text{ kN}\cdot\text{m}}\]</span></li>
+</ul>
+</section>
+<section id="tramo-d-b-5-x-le-10" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="tramo-d-b-5-x-le-10">Tramo D-B (<span class="math inline">\(5 &lt; x \le 10\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-5.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Corte Tramo D-B</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{D-B}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> Ahora restamos la carga distribuida completa (<span class="math inline">\(5 \cdot 3 = 15\)</span>). <span class="math display">\[V_{D-B}(x) = R_{AY} - 15 = 9,75 - 15 = \mathbf{-5,25 \text{ kN}}\]</span></li>
+<li><strong>Momento:</strong> La carga completa de 15 kN está centrada en <span class="math inline">\(x=3,5\)</span> (mitad de la distribución). <span class="math display">\[M_{D-B}(x) = R_{AY} \cdot x - 15 \cdot (x-3,5)\]</span> <span class="math display">\[M_{D-B}(x) = 9,75x - 15x + 52,5 = \mathbf{52,5 - 5,25x \text{ kN}\cdot\text{m}}\]</span></li>
+</ul>
+</section>
+</section>
+<section id="dibujar-los-diagramas-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dibujar-los-diagramas-2">4. Dibujar los diagramas</h3>
+<p>Resumen de ecuaciones y cálculo del máximo:</p>
+<p><span class="math display">\[
+\textbf{Esfuerzo Cortante } V(x) =
+\begin{cases}
+9,75 &amp; 0 \le x &lt; 2 \\
+19,75 - 5x &amp; 2 \le x \le 5 \\
+-5,25 &amp; 5 &lt; x \le 10
+\end{cases} \quad [\text{kN}]
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Momento Flector } M(x) =
+\begin{cases}
+9,75x &amp; 0 \le x &lt; 2 \\
+-2,5x^2 + 19,75x - 10 &amp; 2 \le x \le 5 \\
+-5,25x + 52,5 &amp; 5 &lt; x \le 10
+\end{cases} \quad [\text{kN}\cdot\text{m}]
+\]</span></p>
+<p><strong>Punto de momento máximo:</strong> Se produce donde el cortante es nulo (<span class="math inline">\(V=0\)</span>) dentro del tramo con carga distribuida: <span class="math display">\[19,75 - 5x = 0 \Rightarrow x = 3,95 \text{ m}\]</span> <span class="math display">\[M_{\text{máx}} = -2,5(3,95)^2 + 19,75(3,95) - 10 = \mathbf{29,006 \text{ kN}\cdot\text{m}}\]</span></p>
+<p>Representación gráfica:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga2-6.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Diagramas de Cortantes y Flectores</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejercicio propuesto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1.</strong> La viga de la figura es de madera laminada de perfil rectangular de <span class="math inline">\(25 \times 50 \text{ cm}\)</span> y soporta una carga uniformemente distribuida de <span class="math inline">\(40 \text{ kN/m}\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio11.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Ejercicio propuesto</figcaption>
+</figure>
+</div>
+<ol type="a">
+<li>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga.</li>
+<li>Halla las tensiones máximas de tracción y compresión producidas en la viga como consecuencia de la flexión.</li>
+</ol>
+<p><em>Solución:</em></p>
+<ul>
+<li><ol type="a">
+<li>(Partiendo del punto A):</li>
+</ol>
+<ul>
+<li><span class="math inline">\(0 \le x \le 6 \text{ m} \rightarrow M(x) = 120x - 20x^2 \text{ kN}\cdot\text{m}\)</span></li>
+<li>Momento máximo en <span class="math inline">\(x = 3 \text{ m}: M_{max} = 180 \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(0 \le x \le 6 \text{ m} \rightarrow V(x) = 120 - 40x \text{ kN}\)</span></li>
+</ul></li>
+<li><ol start="2" type="a">
+<li><span class="math inline">\(\sigma_t = 17.280 \text{ kN/m}^2\)</span>; <span class="math inline">\(\sigma_c = -17.280 \text{ kN/m}^2\)</span></li>
+</ol></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida"><span class="header-section-number">4.7</span> Ejemplo 3: Viga en voladizo con carga uniformemente repartida</h2>
+<p>En este ejemplo analizaremos una viga en voladizo (cantilever) empotrada en un extremo y libre en el otro, sometida a una carga distribuida.</p>
+<section id="enunciado-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enunciado-2">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura, con carga uniformemente distribuida:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploVIga3.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Viga en voladizo con carga distribuida</figcaption>
+</figure>
+</div>
+</section>
+<section id="calcular-las-reacciones-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="calcular-las-reacciones-2">1. Calcular las reacciones</h3>
+<p>En este caso hay un solo apoyo (empotramiento en A) donde se concentran las tres reacciones (<span class="math inline">\(R_{AX}, R_{AY}, M_A\)</span>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga3-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Reacciones en el empotramiento</figcaption>
+</figure>
+</div>
+<p>Fíjate que el momento de reacción, <span class="math inline">\(M_A\)</span>, tiene sentido antihorario porque debe oponerse al momento creado por la carga, que tiende a girar la viga en sentido horario.</p>
+<p>Las ecuaciones de equilibrio son:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> La carga total es <span class="math inline">\(Q = q \cdot L\)</span>. <span class="math display">\[R_{AY} - q \cdot L = 0 \Rightarrow \mathbf{R_{AY} = q \cdot L}\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos en el apoyo A. La carga distribuida equivale a una fuerza <span class="math inline">\(q \cdot L\)</span> en el centro (<span class="math inline">\(L/2\)</span>). <span class="math display">\[-q \cdot L \cdot \frac{L}{2} + M_{A} = 0 \Rightarrow \mathbf{M_{A} = q \cdot \frac{L^2}{2}}\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(q=60 \text{ kN/m}\)</span>, <span class="math inline">\(L=3 \text{ m}\)</span>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{AY} &amp;= 60 \cdot 3 = \mathbf{180 \text{ kN}} \\
+M_{A} &amp;= 60 \cdot \frac{3^2}{2} = \mathbf{270 \text{ kN}\cdot\text{m}}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="cortar-la-viga" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cortar-la-viga">2. “Cortar” la viga</h3>
+<p>Como solo tenemos una carga continua sobre toda la longitud, <strong>no es necesario dividir la viga en tramos</strong>. Una única ecuación de <span class="math inline">\(0\)</span> a <span class="math inline">\(L\)</span> servirá para toda la viga.</p>
+</section>
+<section id="expresar-los-esfuerzos-0-le-x-le-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="expresar-los-esfuerzos-0-le-x-le-3">3. Expresar los esfuerzos (<span class="math inline">\(0 \le x \le 3\)</span>)</h3>
+<p>Analizamos una sección a distancia <span class="math inline">\(x\)</span> del empotramiento:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga3-2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Corte genérico a distancia x</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> No hay fuerzas horizontales. <span class="math display">\[N(x) = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> Suma de fuerzas verticales a la izquierda (Reacción <span class="math inline">\(R_{AY}\)</span> positiva, carga distribuida <span class="math inline">\(q \cdot x\)</span> negativa). <span class="math display">\[V(x) = R_{AY} - q \cdot x\]</span> <span class="math display">\[V(x) = 180 - 60x \text{ kN}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Suma de momentos a la izquierda (Reacción <span class="math inline">\(R_{AY}\)</span> positiva, Carga distribuida negativa, Momento de empotramiento <span class="math inline">\(M_A\)</span> negativo).</p>
+<ul>
+<li>Brazo de <span class="math inline">\(R_{AY}\)</span>: <span class="math inline">\(x\)</span></li>
+<li>Brazo de la carga distribuida (<span class="math inline">\(q \cdot x\)</span>): <span class="math inline">\(x/2\)</span></li>
+</ul>
+<p><span class="math display">\[M(x) = R_{AY} \cdot x - (q \cdot x) \cdot \frac{x}{2} - M_{A}\]</span> <span class="math display">\[M(x) = 180x - 60 \cdot \frac{x^2}{2} - 270\]</span> <span class="math display">\[M(x) = -30x^2 + 180x - 270 \text{ kN}\cdot\text{m}\]</span></p></li>
+</ul>
+</section>
+<section id="dibujar-los-diagramas-3" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dibujar-los-diagramas-3">4. Dibujar los diagramas</h3>
+<p>Resumen de las leyes de esfuerzos (<span class="math inline">\(0 \le x \le 3\)</span> m):</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{Cortante:}\quad &amp;V(x) = 180 - 60x \quad [\text{kN}] \\
+\textbf{Flector:}\quad &amp;M(x) = -30x^2 + 180x - 270 = -30(x-3)^2 \quad [\text{kN}\cdot\text{m}]
+\end{align*}\]</span></p>
+<p><strong>Valores extremos:</strong> * <strong>En el empotramiento (<span class="math inline">\(x=0\)</span>):</strong> * <span class="math inline">\(V(0) = 180 \text{ kN}\)</span> * <span class="math inline">\(M(0) = -270 \text{ kN}\cdot\text{m}\)</span> (Máximo momento negativo) * <strong>En el extremo libre (<span class="math inline">\(x=3\)</span>):</strong> * <span class="math inline">\(V(3) = 180 - 180 = 0 \text{ kN}\)</span> * <span class="math inline">\(M(3) = -30(0) = 0 \text{ kN}\cdot\text{m}\)</span></p>
+<p>El diagrama de cortantes es lineal y el de momentos parabólico:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploViga3-3.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Diagramas de Cortante y Flector</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejercicio propuesto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>1.</strong> Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejercicio10.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Ejercicio propuesto</figcaption>
+</figure>
+</div>
+<p><em>Solución (partiendo del punto B, de derecha a izquierda, o reajustando coordenadas):</em></p>
+<ul>
+<li><strong>Momentos flectores:</strong>
+<ul>
+<li><span class="math inline">\(0 \le x \le 4 \text{ m} \rightarrow M(x) = -5x \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(4 \le x \le 6 \text{ m} \rightarrow M(x) = 2,5x^2 + 15x - 40 \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(6 \le x \le 8 \text{ m} \rightarrow M(x) = 50 - 15x \text{ kN}\cdot\text{m}\)</span></li>
+</ul></li>
+<li><strong>Esfuerzos cortantes:</strong>
+<ul>
+<li><span class="math inline">\(0 \le x \le 4 \text{ m} \rightarrow V(x) = -5 \text{ kN}\)</span></li>
+<li><span class="math inline">\(4 \le x \le 6 \text{ m} \rightarrow V(x) = -5x + 15 \text{ kN}\)</span></li>
+<li><span class="math inline">\(6 \le x \le 8 \text{ m} \rightarrow V(x) = -15 \text{ kN}\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="otros-ejemplos-de-cálculo-de-esfuerzos" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="otros-ejemplos-de-cálculo-de-esfuerzos"><span class="header-section-number">4.8</span> Otros ejemplos de cálculo de esfuerzos</h2>
+<p>Para reforzar lo aprendido, aquí tienes un recurso audiovisual donde se explican paso a paso algunos ejercicios adicionales de cálculo de reacciones y diagramas de esfuerzos (cortantes y flectores) en vigas isostáticas.</p>
+<section id="vídeo-explicativo" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="vídeo-explicativo">Vídeo explicativo</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/muCrmuI1T-A" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./03_calculos_basicos.html" class="pagination-link" aria-label="Cálculos básicos en estructuras">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cálculos básicos en estructuras</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05_barras_completo.html" class="pagination-link" aria-label="5. Cálculo de esfuerzos en estructuras de barras articuladas">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">5. Cálculo de esfuerzos en estructuras de barras articuladas</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

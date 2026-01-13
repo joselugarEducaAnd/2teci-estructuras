@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; 5. Cálculo de esfuerzos en estructuras de barras articuladas – Unidad 7: Estructuras</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04_vigas_completo.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4ba85d4b4427d31d840a79ec76a35f2e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: #453f93;
+      }
+</style>
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/enclose']},
+  tex: {
+    packages: {'[+]': ['enclose']},
+    macros: {
+      sen: '{\\operatorname{sen}}',
+      phase: ['{\\enclose{phasorangle}{#1}}', 1],
+      dotZ: '{\\dot{Z}}',
+      dotI: '{\\dot{I}}',
+      VA: '{\\text{ VA}}'
+    }
+  }
+};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_barras_completo.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">5. Cálculo de esfuerzos en estructuras de barras articuladas</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">5. Cálculo de esfuerzos en estructuras de barras articuladas</span></h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-body">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./logoMajuelo.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./logoMajuelo.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Unidad 7: Estructuras</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_descripcion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Descripción y elementos de estructuras sencillas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_cargas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cargas. Tipos de apoyos y uniones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_calculos_basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cálculos básicos en estructuras</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_vigas_completo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_barras_completo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">5. Cálculo de esfuerzos en estructuras de barras articuladas</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#sistemas-isostáticos-e-hiperestáticos" id="toc-sistemas-isostáticos-e-hiperestáticos" class="nav-link active" data-scroll-target="#sistemas-isostáticos-e-hiperestáticos"><span class="header-section-number">5.1</span> Sistemas isostáticos e hiperestáticos</a></li>
+  <li><a href="#métodos-de-cálculo-de-estructuras-de-barras" id="toc-métodos-de-cálculo-de-estructuras-de-barras" class="nav-link" data-scroll-target="#métodos-de-cálculo-de-estructuras-de-barras"><span class="header-section-number">5.2</span> Métodos de cálculo de estructuras de barras</a></li>
+  <li><a href="#método-de-los-nudos" id="toc-método-de-los-nudos" class="nav-link" data-scroll-target="#método-de-los-nudos"><span class="header-section-number">5.3</span> Método de los nudos</a></li>
+  <li><a href="#método-de-las-secciones-ritter" id="toc-método-de-las-secciones-ritter" class="nav-link" data-scroll-target="#método-de-las-secciones-ritter"><span class="header-section-number">5.4</span> Método de las secciones (Ritter)</a></li>
+  <li><a href="#método-gráfico-de-cremona" id="toc-método-gráfico-de-cremona" class="nav-link" data-scroll-target="#método-gráfico-de-cremona"><span class="header-section-number">5.5</span> Método gráfico de Cremona</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-body" id="quarto-document-content">
+
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/cerchas.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Cercha</figcaption>
+</figure>
+</div>
+<p>Las <strong>estructuras de barras articuladas</strong> se utilizan en grúas, torres, puentes, etc. En la modelización de estas estructuras supondremos que son <strong>bidimensionales</strong>, como hemos hecho con las vigas.</p>
+<p>También supondremos que:</p>
+<ul>
+<li>Los nudos son <strong>articulaciones perfectas.</strong></li>
+<li>Las <strong>cargas externas</strong> están <strong>aplicadas exclusivamente en los nudos.</strong></li>
+<li>Las <strong>deformaciones</strong> son <strong>despreciables</strong> frente a las dimensiones de las barras.</li>
+<li>El <strong>peso</strong> de las barras puede considerarse <strong>despreciable</strong> frente a las <strong>cargas</strong> externas.</li>
+</ul>
+<p>Estas simplificaciones implican que <strong>las barras se ven solicitadas esencialmente a un esfuerzo dirigido a lo largo de su eje (axil)</strong>.</p>
+<p>Resolver una cercha supone calcular cómo trabajan todas las barras, y cada barra introduce sólo una incógnita, la <strong>magnitud del axil</strong>.</p>
+<p>El <strong>sentido</strong> del axil podrá ser de <strong>tracción</strong> o <strong>compresión</strong>, dependiendo del signo que obtengamos.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tipo de Esfuerzo</th>
+<th style="text-align: center;">Esquema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>AXIL DE TRACCIÓN</strong></td>
+<td style="text-align: center;"><img src="media/axilTraccion.png" class="img-fluid" width="400"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AXIL DE COMPRESIÓN</strong></td>
+<td style="text-align: center;"><img src="media/axilCompresion.png" class="img-fluid" width="400"></td>
+</tr>
+</tbody>
+</table>
+<section id="sistemas-isostáticos-e-hiperestáticos" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sistemas-isostáticos-e-hiperestáticos"><span class="header-section-number">5.1</span> Sistemas isostáticos e hiperestáticos</h2>
+<p>Las estructuras articuladas se fijan mediante apoyos. Si llamamos <strong><span class="math inline">\(b\)</span></strong> al <strong>número de barras</strong> y <strong><span class="math inline">\(n\)</span></strong> al <strong>número de nudos</strong>, teniendo en cuenta el número de incógnitas en los apoyos (según las ecuaciones de equilibrio), los sistemas se clasifican así:</p>
+<p><strong>Exteriormente</strong>, en función del <strong>exceso o defecto de restricciones en los apoyos</strong>:</p>
+<ul>
+<li><strong>Inestable:</strong> nº de incógnitas &lt; 3</li>
+<li><strong>Isostático:</strong> nº de incógnitas = 3</li>
+<li><strong>Hiperestático:</strong> nº de incógnitas &gt; 3</li>
+</ul>
+<p><strong>Interiormente</strong>, en función del <strong>exceso o defecto de barras</strong>:</p>
+<ul>
+<li><strong>Inestable:</strong> <span class="math inline">\(b &lt; 2n - 3\)</span></li>
+<li><strong>Isostático:</strong> <span class="math inline">\(b = 2n - 3\)</span></li>
+<li><strong>Hiperestático:</strong> <span class="math inline">\(b &gt; 2n - 3\)</span></li>
+</ul>
+<p>Por lo tanto, <strong>para que una estructura sea isostática, debe cumplirse que:</strong></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled" style="width: 70%; margin: auto;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Condición de Isostaticidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\text{nº de incógnitas} = 3\]</span> <span class="math display">\[b = 2n - 3\]</span></p>
+</div>
+</div>
+<p>Nosotros nos limitaremos a ver estructuras isostáticas en este curso.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ejemplo de estructura isostática (Clic para ver)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/isostatico.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Ejemplo de estructura isostática</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="métodos-de-cálculo-de-estructuras-de-barras" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="métodos-de-cálculo-de-estructuras-de-barras"><span class="header-section-number">5.2</span> Métodos de cálculo de estructuras de barras</h2>
+<p>Estudiaremos tres métodos distintos para calcular los esfuerzos en las barras de las estructuras. Dos de esos métodos son analíticos y el tercero es un método gráfico. Son los siguientes:</p>
+<ol type="1">
+<li><strong>Método de los nudos:</strong> Consiste en aplicar el equilibrio a cada nudo de la estructura por separado.</li>
+<li><strong>Método de las secciones (método de Ritter):</strong> Consiste en cortar la estructura en dos partes y aplicar el equilibrio a una de ellas. Útil para conocer el esfuerzo en barras concretas sin calcular toda la estructura.</li>
+<li><strong>Método gráfico de Cremona:</strong> Método geométrico basado en el equilibrio de los polígonos de fuerzas de cada nudo.</li>
+</ol>
+</section>
+<section id="método-de-los-nudos" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="método-de-los-nudos"><span class="header-section-number">5.3</span> Método de los nudos</h2>
+<p>Cuando una estructura articulada es <strong>isostática</strong>, puede analizarse por medio del <strong>método de los nudos.</strong> Al estar la estructura en equilibrio, supondremos en equilibrio todas sus barras y nudos, y obtendremos <strong>ecuaciones de equilibrio estático para cada barra y cada nudo</strong>.</p>
+<p>Para utilizar este método seguimos los siguientes pasos:</p>
+<ol type="1">
+<li>Calculamos las <strong>reacciones en los apoyos</strong> mediante las ecuaciones de equilibrio de toda la estructura.</li>
+<li>Obtenemos la <strong>ecuación de equilibrio para cada nudo</strong> para calcular la <strong>fuerza que ejerce cada barra sobre el nudo</strong>.</li>
+<li>La <strong>fuerza que ejerce el nudo sobre la barra será igual y de sentido contrario.</strong></li>
+<li>Con esto sabremos si las fuerzas son de <strong>tracción</strong> o de <strong>compresión</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejemplo Resuelto: Estructura articulada
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En la figura se representa una estructura de barras donde A es un apoyo articulado y B es un apoyo libre.</p>
+<ol type="a">
+<li>Calcula el valor de las reacciones.</li>
+<li>Empleando el método de los nudos, calcula las tensiones de cada barra.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploNudos1-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section id="comprobación-de-isostaticidad" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="comprobación-de-isostaticidad">Comprobación de isostaticidad</h3>
+<p>Se trata de una estructura isostática exteriormente, ya que hay igual número de incógnitas (<span class="math inline">\(R_{AX}, R_{AY}, R_{BX}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>).</p>
+<p>También es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 5\)</span> cumple la condición <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=4\)</span> el número de nudos).</p>
+</section>
+<section id="diagrama-de-fuerzas-y-reacciones" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="diagrama-de-fuerzas-y-reacciones">1. Diagrama de fuerzas y Reacciones</h3>
+<p>Construimos el diagrama de cuerpo libre global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploNudos1-2.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Diagrama de fuerzas y reacciones</figcaption>
+</figure>
+</div>
+<p>Calculamos el valor de las reacciones en los apoyos A y B aplicando las ecuaciones de equilibrio global:</p>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow R_{Ax} + R_{Bx} - 200 = 0 \\
+\sum F_y &amp;= 0 \Rightarrow R_{Ay} - 400 = 0 \Rightarrow \mathbf{R_{Ay} = 400\,\text{N}} \\
+\sum M_A &amp;= 0 \Rightarrow R_{Bx}\cdot 1 - 200\cdot 1 - 400\cdot 1 = 0 \Rightarrow \mathbf{R_{Bx} = 600\,\text{N}}
+\end{align}\]</span></p>
+<p>Sustituyendo <span class="math inline">\(R_{Bx}\)</span> en la primera ecuación: <span class="math display">\[R_{Ax} + 600 - 200 = 0 \Rightarrow \mathbf{R_{Ax} = -400\,\text{N}}\]</span> <em>(El signo negativo indica que <span class="math inline">\(R_{Ax}\)</span> va hacia la izquierda).</em></p>
+</section>
+<section id="cálculo-de-tensiones-método-de-los-nudos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cálculo-de-tensiones-método-de-los-nudos">2. Cálculo de tensiones (Método de los Nudos)</h3>
+<p>Analizamos el equilibrio de cada nudo por separado.</p>
+<section id="nudo-b" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="nudo-b">Nudo B</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploNudos1-3.png" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Equilibrio en el Nudo B</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow R_{Bx} - T_{BD} = 0 \Rightarrow T_{BD} = 600\,\text{N}\ (\text{compresión}) \\
+\sum F_y &amp;= 0 \Rightarrow T_{AB} = 0\,\text{N}
+\end{align}\]</span></p>
+</section>
+<section id="nudo-c" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="nudo-c">Nudo C</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploNudos1-4.png" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Equilibrio en el Nudo C</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow T_{AC} = 0\,\text{N} \\
+\sum F_y &amp;= 0 \Rightarrow -F_C + T_{CD} = 0 \Rightarrow T_{CD} = 400\,\text{N}\ (\text{compresión})
+\end{align}\]</span></p>
+</section>
+<section id="nudo-d" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="nudo-d">Nudo D</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploNudos1-5.png" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Equilibrio en el Nudo D</figcaption>
+</figure>
+</div>
+<p>Por la geometría de la estructura (cuadrado de <span class="math inline">\(1\times1\)</span>), el ángulo de la barra diagonal AD es <span class="math inline">\(\theta = 45^\circ\)</span>.</p>
+<p><span class="math display">\[
+\sum F_y = 0 \Rightarrow T_{AD}\cos\theta - T_{CD} = 0
+\]</span> <span class="math display">\[
+T_{AD} = \frac{T_{CD}}{\cos\theta} = \frac{400}{\cos 45^\circ} = \mathbf{565,68\,\text{N}\ (\text{tracción})}
+\]</span></p>
+</section>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="método-de-las-secciones-ritter" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="método-de-las-secciones-ritter"><span class="header-section-number">5.4</span> Método de las secciones (Ritter)</h2>
+<p>Se utiliza cuando queremos estudiar <strong>una barra en concreto</strong> y no la totalidad de la estructura.</p>
+<p>Consiste en lo siguiente:</p>
+<ol type="1">
+<li><strong>Cortamos</strong> la estructura por una sección que <strong>intersecte tres barras</strong>.</li>
+<li>Eliminamos una de las dos partes en las que ha quedado dividida la estructura.</li>
+<li>Aplicamos en la otra parte <strong>las tres ecuaciones de equilibrio</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejemplo Resuelto: Método de Ritter (Clic para desplegar)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Empleando el método de las secciones, o de Ritter, calcula las tensiones de las barras CE, ED y DF de la siguiente estructura de barras, donde A es un apoyo libre y G es un apoyo articulado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploRitter1-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section id="comprobación-de-isostaticidad-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="comprobación-de-isostaticidad-1">Comprobación de isostaticidad</h3>
+<p>Se trata de una estructura isostática exteriormente, ya que hay igual número de incógnitas (<span class="math inline">\(R_{Ay}, R_{Gx}, R_{Gy}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>), y también es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 11\)</span> cumple <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=7\)</span> el número de nudos).</p>
+</section>
+<section id="cálculo-de-reacciones" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cálculo-de-reacciones">1. Cálculo de Reacciones</h3>
+<p>Calculamos primero las <strong>reacciones</strong> con las ecuaciones de equilibrio de la estructura global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploRitter1-2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Diagrama global</figcaption>
+</figure>
+</div>
+<p>Con la suma de momentos en G podemos calcular directamente la reacción <strong><span class="math inline">\(R_{Ay}\)</span></strong>:</p>
+<p><span class="math display">\[\sum M_G = 0 \Rightarrow R_{Ay} \cdot 4,5 - 400 \cdot 3 - 200 \cdot 1,5 = 0 \Rightarrow \mathbf{R_{Ay} = 333,33\,\text{N}}\]</span></p>
+<p>Con la suma de fuerzas verticales calculamos la reacción <strong><span class="math inline">\(R_{Gy}\)</span></strong>:</p>
+<p><span class="math display">\[\sum F_y = 0 \Rightarrow R_{Gy} = 600 - 333,33 = \mathbf{266,66\,\text{N}}\]</span></p>
+<p>Por último, la reacción <strong><span class="math inline">\(R_{Gx}\)</span></strong>, es claramente nula al ser la única fuerza horizontal:</p>
+<p><span class="math display">\[\sum F_x = 0 \Rightarrow \mathbf{R_{Gx} = 0\,\text{N}}\]</span></p>
+</section>
+<section id="aplicación-del-método-de-ritter" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="aplicación-del-método-de-ritter">2. Aplicación del Método de Ritter</h3>
+<p>A continuación realizamos la sección de la estructura por tres barras, tal y como se ve en la imagen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploRitter1-3.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Corte de la sección</figcaption>
+</figure>
+</div>
+<p>Cogemos el lado izquierdo del corte, realizamos el diagrama de cuerpo libre y dibujamos las tensiones de las barras. Escogemos todas las tensiones como de tracción, es decir, salen del nudo. Si luego nos salen negativas, será que en realidad son de compresión:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploRitter1-4.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Diagrama de cuerpo libre de la sección</figcaption>
+</figure>
+</div>
+<p><strong>Cálculo de <span class="math inline">\(T_{DF}\)</span>:</strong> Ponemos la ecuación de momento nulo en el nudo E. Como las tensiones <span class="math inline">\(T_{CE}\)</span> y <span class="math inline">\(T_{DE}\)</span> pasan por él, no generan momento y nos las quitamos. Por lo tanto, podemos calcular directamente la tensión <span class="math inline">\(T_{DF}\)</span>:</p>
+<p><span class="math display">\[\sum M_E = 0 \Rightarrow 333,33 \cdot 3 - 400 \cdot 1,5 + T_{DF} \cdot 2 = 0 \Rightarrow \mathbf{T_{DF} = -200\,\text{N}}\]</span></p>
+<p>Como sale negativa, resulta que es un esfuerzo de <strong>compresión</strong>.</p>
+<p><strong>Cálculo de <span class="math inline">\(T_{DE}\)</span>:</strong> Con el equilibrio de fuerzas en el eje vertical, podemos calcular la tensión <span class="math inline">\(T_{DE}\)</span>:</p>
+<p><span class="math display">\[\sum F_y = 0 \Rightarrow R_{Ay} - F_C - T_{DE}\cos\alpha = 0\]</span></p>
+<p>El ángulo <span class="math inline">\(\alpha\)</span> lo podemos calcular fácilmente de la geometría de la estructura: <span class="math display">\[\alpha = \tan^{-1}\!\left(\frac{0,75}{2}\right) = 20,55^\circ\]</span></p>
+<p>Por lo tanto: <span class="math display">\[333,33 - 400 - T_{DE}\cos 20,55^\circ = 0 \Rightarrow \mathbf{T_{DE} = -71,20\,\text{N}}\]</span></p>
+<p>De nuevo sale negativa, por lo que es un esfuerzo de <strong>compresión</strong>.</p>
+<p><strong>Cálculo de <span class="math inline">\(T_{CE}\)</span>:</strong> Por último, con la suma de fuerzas horizontales obtenemos la tensión que nos falta, <span class="math inline">\(T_{CE}\)</span>:</p>
+<p><span class="math display">\[\sum F_x = 0 \Rightarrow T_{CE} + T_{DF} + T_{DE}\sin 20,55^\circ = 0\]</span> <span class="math display">\[T_{CE} - 200 - 71,2 \sin 20,55^\circ = 0 \Rightarrow \mathbf{T_{CE} = 224,99\,\text{N}}\]</span></p>
+<p>En esta ocasión, al salir positiva, es un esfuerzo de <strong>tracción</strong>.</p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="método-gráfico-de-cremona" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="método-gráfico-de-cremona"><span class="header-section-number">5.5</span> Método gráfico de Cremona</h2>
+<p>El método de Cremona es un procedimiento gráfico basado en el método de los nudos.</p>
+<p>Consiste en lo siguiente:</p>
+<ol type="1">
+<li>Dibujamos la estructura indicando las <strong>cargas</strong> y calculando las <strong>reacciones</strong>.</li>
+<li>Asignamos un número a cada <strong>zona del perímetro externo</strong> situada entre dos fuerzas (ya sean cargas o reacciones).</li>
+<li>Asignamos un número a cada <strong>zona interna</strong> situada entre las barras de la estructura.</li>
+<li>Dibujamos el <strong>polígono de fuerzas exteriores y reacciones</strong>.</li>
+<li>Consideramos cada nudo aisladamente, estableciendo <strong>dos ecuaciones de equilibrio para cada nudo</strong>. Comenzaremos por un nudo en el que concurran dos barras.</li>
+<li>Operamos con nudos sucesivos, eligiéndolos de forma que al resolverlos sólo existan dos barras cuyas fuerzas sean desconocidas.</li>
+<li>Determinamos las incógnitas teniendo en cuenta que <strong>las fuerzas exteriores e interiores constituyen polígonos cerrados</strong>.</li>
+<li>Iniciamos la construcción de gráficas. Dibujaremos <strong>polígonos cerrados de fuerzas para cada uno de los nudos</strong>, combinados de forma que <strong>cada fuerza actuante en una barra</strong>, que será común a dos nudos, <strong>solamente se represente una vez</strong>.</li>
+<li>Medimos las fuerzas en el polígono de Cremona y las pasamos a una tabla. Las tensiones que se <strong>acerquen</strong> al nudo serán de <strong>compresión</strong> y las que se <strong>alejen</strong> serán de <strong>tracción</strong>.</li>
+</ol>
+<p>Como siempre, lo veremos mejor con un ejemplo resuelto.</p>
+<div class="callout callout-style-default callout-important callout-titled" style="width: 90%; margin: auto;">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ejemplo Resuelto: Método de Cremona (Clic para desplegar)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Empleando el método gráfico de Cremona, calcula las tensiones de las barras de la siguiente estructura de barras, donde A es un apoyo articulado y D es un apoyo libre.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section id="comprobación-de-isostaticidad-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="comprobación-de-isostaticidad-2">Comprobación de isostaticidad</h3>
+<p>Se trata de una estructura isostática exteriormente, ya que hay igual número de incógnitas (<span class="math inline">\(R_{Ax}, R_{Ay}, R_{Dy}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>).</p>
+<p>También es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 7\)</span> cumple <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=5\)</span> el número de nudos).</p>
+</section>
+<section id="cálculo-de-reacciones-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cálculo-de-reacciones-1">1. Cálculo de Reacciones</h3>
+<p>Calculamos primero las <strong>reacciones</strong> con las ecuaciones de equilibrio de la estructura global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Diagrama global con reacciones</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align*}
+\sum M_A &amp;= 0 \Rightarrow R_{Dy}\cdot 8 - 4\cdot 6 - 2\cdot 2 = 0 \Rightarrow \mathbf{R_{Dy} = 3,5\,\text{kN}} \\
+\sum F_y &amp;= 0 \Rightarrow R_{Ay} = 4 - R_{Dy} = \mathbf{0,5\,\text{kN}} \\
+\sum F_x &amp;= 0 \Rightarrow \mathbf{R_{Ax} = 2\,\text{kN}}
+\end{align*}\]</span></p>
+</section>
+<section id="numeración-de-zonas-notación-de-bow" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="numeración-de-zonas-notación-de-bow">2. Numeración de Zonas (Notación de Bow)</h3>
+<p>Numeramos las barras y asignamos un número a cada zona del perímetro externo situado entre dos fuerzas (acciones o reacciones) y luego a las zonas internas.</p>
+<p>Las zonas del perímetro serán, en este caso, 1, 2, 3, 4 y 5, mientras que las zonas internas serán 6, 7 y 8:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-3.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Numeración de zonas</figcaption>
+</figure>
+</div>
+</section>
+<section id="construcción-del-polígono-de-fuerzas-cremona" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="construcción-del-polígono-de-fuerzas-cremona">3. Construcción del Polígono de Fuerzas (Cremona)</h3>
+<p>Ahora dibujamos el <strong>polígono de fuerzas externas</strong>, que estará formado por los números de las zonas externas (es decir, del 1 al 5). Para dibujarlo, operamos como sigue:</p>
+<ul>
+<li>Situamos el número 1.</li>
+<li>Trazamos desde el número 1 una línea paralela a la fuerza que hay entre 1 y 2 (en este caso <span class="math inline">\(R_{AX}\)</span>), y elegimos una escala para marcar una distancia que corresponda al valor de dicha fuerza (por ejemplo, 1 cm = 1 kN).</li>
+<li>Una vez situado el número 2, repetimos el procedimiento anterior para situar el 3.</li>
+<li>Continuamos hasta llegar al último número (en este caso el 5), comprobando que desde él hacia el 1 el polígono queda <strong>cerrado</strong> (es decir, que terminamos de nuevo sobre el número 1).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-4.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Polígono de fuerzas externas</figcaption>
+</figure>
+</div>
+<p>Sobre el diagrama de Cremona, empezamos a dibujar los números de las zonas internas, correspondientes a las barras que concurren en un nudo <strong>con sólo dos incógnitas.</strong> Para ello, recorremos el nudo en <strong>SENTIDO HORARIO:</strong> mirando, por ejemplo, el <strong>nudo A,</strong> la numeración es 1-2-6-5. Lo que estamos haciendo es sumar las fuerzas que actúan en cada nudo en un determinado orden.</p>
+<p>El nº 6 es el único que no está situado en el diagrama. Vemos cómo situarlo:</p>
+<ul>
+<li>La <strong>barra AB</strong> corresponderá en el diagrama a un segmento <strong>entre 2 y 6.</strong> Por tanto, trazamos desde 2 una línea paralela a la barra AB.</li>
+<li>La <strong>barra AE</strong> corresponderá en el diagrama a un segmento <strong>entre 6 y 5.</strong> Por tanto, trazamos desde 5 una línea paralela a la barra AE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el punto 6.</li>
+</ul>
+<p>Seguimos por el <strong>nudo B:</strong> dibujamos los segmentos de las barras del nudo B.</p>
+<ul>
+<li>La <strong>barra BC</strong> corresponderá en el diagrama a un segmento <strong>entre 3 y 7.</strong> Por tanto, trazamos desde 3 una línea paralela a la barra BC.</li>
+<li>La <strong>barra BE</strong> corresponderá en el diagrama a un segmento <strong>entre 7 y 6</strong>. Por tanto, trazamos desde 6 una línea paralela a la barra BE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el número 7.</li>
+</ul>
+<p>Seguimos con el <strong>nudo C</strong>:</p>
+<ul>
+<li>La <strong>barra CD</strong> corresponderá en el diagrama a un segmento <strong>entre 4 y 8.</strong> Por tanto, trazamos desde 4 una línea paralela a la barra CD.</li>
+<li>La <strong>barra CE</strong> corresponderá en el diagrama a un segmento <strong>entre 8 y 7.</strong> Por tanto, trazamos desde 7 una línea paralela a la barra CE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el punto 8.</li>
+</ul>
+<p>Finalizamos con el <strong>nudo D</strong>:</p>
+<ul>
+<li>La <strong>barra ED</strong> corresponderá en el diagrama a un segmento <strong>entre 5 y 8</strong>. Por tanto, <strong>unimos los puntos 5 y 8</strong> del diagrama y obtendremos una línea paralela a la barra ED que nos representa ya el axil <span class="math inline">\(T_{ED}\)</span>.</li>
+</ul>
+</section>
+<section id="medición-de-resultados" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="medición-de-resultados">4. Medición de Resultados</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-6.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Diagrama de Cremona final</figcaption>
+</figure>
+</div>
+<p>Directamente sobre el diagrama medimos las magnitudes de los axiles. Los que se acerquen al nudo B serán de compresión y los que se alejen serán de tracción:</p>
+<ul>
+<li><strong><span class="math inline">\(T_{AB} = 0,707 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{AE} = 2,5 \text{ kN}\)</span> (tracción)</strong></li>
+<li><strong><span class="math inline">\(T_{BC} = 3 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{BE} = 0,707 \text{ kN}\)</span> (tracción)</strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="media/ejemploCremona1-7.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Diagrama con todos los puntos</figcaption>
+</figure>
+</div>
+<p>Los valores que faltaban por medir son estos:</p>
+<ul>
+<li><strong><span class="math inline">\(T_{CD} = 4,95 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{CE} = 0,707 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{ED} = 3,5 \text{ kN}\)</span> (tracción)</strong></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./04_vigas_completo.html" class="pagination-link" aria-label="Cálculo de esfuerzos en vigas. Diagramas de esfuerzos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cálculo de esfuerzos en vigas. Diagramas de esfuerzos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
