@@ -1,3 +1,0 @@
-## Ejemplo 3: empotramiento con carga uniformemente repartida
-
-Desarrollo del ejemplo...

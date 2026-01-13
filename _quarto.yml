@@ -26,8 +26,6 @@ book:
     - 01_descripcion.qmd
     - 02_cargas.qmd
     - 03_calculos_basicos.qmd
-    
-    # Aquí llamamos solo a los maestros
     - 04_vigas_completo.qmd
     - 05_barras_completo.qmd
 

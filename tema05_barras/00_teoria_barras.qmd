@@ -1,3 +1,0 @@
-## Cálculo de esfuerzos en estructuras de barras articuladas
-
-Introducción a las cerchas y barras...

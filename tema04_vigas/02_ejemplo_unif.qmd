@@ -1,3 +1,0 @@
-## Ejemplo 2: carga uniformemente repartida
-
-Desarrollo del ejemplo...

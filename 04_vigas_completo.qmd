@@ -88,7 +88,7 @@ Para estudiar los esfuerzos de una viga, se representan mediante tres diagramas:
 
 Para obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:
 
-### 1. Determinar las reacciones en los apoyos
+### 1. Determinar las reacciones en los apoyos {-}
 
 Antes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio:
 
@@ -96,7 +96,7 @@ $$\sum F_{x}=0 \quad ; \quad \sum F_{y}=0 \quad ; \quad \sum M_{z}=0$$
 
 De ahí se obtienen las reacciones verticales, horizontales y de giro, si las hay. Como estudiaremos siempre vigas isostáticas, habrá exactamente 3 reacciones para calcular.
 
-### 2. "Cortar" la viga mentalmente
+### 2. "Cortar" la viga mentalmente {-}
 
 Se hace un corte imaginario en un punto cualquiera de la viga, a una distancia "$x$" del extremo izquierdo, para analizar una de las partes.
 
@@ -108,13 +108,13 @@ Sobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:
 
 Y **se vuelven a aplicar las ecuaciones de equilibrio a esa porción.**
 
-### 3. Expresar cada esfuerzo en función de la posición x
+### 3. Expresar cada esfuerzo en función de la posición x {-}
 
 Al mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.
 
 Por ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.
 
-### 4. Dibujar los diagramas
+### 4. Dibujar los diagramas {-}
 
 Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):
 
@@ -124,4 +124,483 @@ Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):
 | **V(x)** | Esfuerzo cortante | Segmentos horizontales o con saltos |
 | **M(x)** | Momento flector | Líneas rectas o curvas suaves (triangular o parabólica) |
 
-Todo esto lo entenderás mejor con los ejemplos resueltos de los próximos subapartados.
+Todo esto lo entenderás mejor con los ejemplos resueltos que tienes a continuación.
+
+---
+
+## Ejemplo 1: Viga con carga puntual
+
+En este apartado vamos a resolver paso a paso un ejercicio completo de una viga isostática con una carga puntual.
+
+### Enunciado {-}
+
+Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:
+
+![Esquema de la viga](media/ejemploViga1.png){width=60% fig-align="center"}
+
+### 1. Calcular las reacciones {-}
+
+Determinamos las reacciones según los tipos de apoyos que vemos en la figura (apoyo fijo en A, apoyo móvil en B):
+
+![Diagrama de cuerpo libre y reacciones](media/ejemploViga1-1.png){width=70% fig-align="center"}
+
+Aplicando las condiciones de equilibrio estático:
+
+**1. Equilibrio Horizontal ($\sum F_{x}=0$)**
+$$R_{AX}=0$$
+
+**2. Equilibrio Vertical ($\sum F_{y}=0$)**
+Considerando positivas las fuerzas hacia arriba:
+$$R_{AY} - P + R_{BY} = 0$$
+
+**3. Equilibrio de Momentos ($\sum M_{A}=0$)**
+Tomamos momentos respecto al punto A para eliminar incógnitas ($R_{AX}$ y $R_{AY}$). Criterio: antihorario positivo.
+$$-P \cdot 1 + R_{BY} \cdot (4+1) = 0$$
+
+Sustituyendo los datos ($P = 15000 \text{ N}$):
+
+$$
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15000 + R_{BY} = 0 \\
+-15000 + 5 \cdot R_{BY} = 0
+\end{cases}
+$$
+
+Resolviendo el sistema:
+
+$$
+\begin{aligned}
+R_{AX} &= 0 \text{ N} \\
+R_{BY} &= \frac{15000}{5} = 3000 \text{ N} = \mathbf{3 \text{ kN}} \\
+R_{AY} &= 15000 - 3000 = 12000 \text{ N} = \mathbf{12 \text{ kN}}
+\end{aligned}
+$$
+
+### 2. "Cortar" la viga en tramos {-}
+
+El procedimiento consiste en partir la viga en tramos, **separados por cambios de carga o apoyos.** Recorriendo la viga de derecha a izquierda, definimos un tramo cuando aparece una nueva carga.
+
+En este caso, la carga puntual $P$ en el punto C divide la viga en dos tramos: **Tramo A-C** y **Tramo C-B**.
+
+### 3. Expresar los esfuerzos (Cortes) {-}
+
+#### Tramo A-C ($0 \leq x < 1$) {-}
+
+Analizamos el trozo de viga a una distancia $x$ antes de llegar a la carga $P$.
+
+![Corte Tramo A-C](media/ejemploViga1-2.png){width=40% fig-align="center"}
+
+* **Esfuerzo Axil ($N$):** No hay fuerzas horizontales.
+    $$N_{A-C}(x) = R_{AX} = 0 \text{ kN}$$
+
+* **Esfuerzo Cortante ($V$):** La única fuerza vertical es la reacción en A (hacia arriba = positiva).
+    $$V_{A-C}(x) = R_{AY} = \mathbf{12 \text{ kN}}$$
+
+* **Momento Flector ($M$):** Generado por $R_{AY}$ a una distancia $x$. Sentido horario (según nuestro criterio de signos a la izquierda del corte, comprime arriba) es positivo.
+    $$M_{A-C}(x) = R_{AY} \cdot x = \mathbf{12x \text{ kN}\cdot\text{m}}$$
+
+#### Tramo C-B ($1 \leq x \leq 5$) {-}
+
+Pasamos la carga $P$ y analizamos una sección genérica a distancia $x$.
+
+![Corte Tramo C-B](media/ejemploViga1-3.png){width=50% fig-align="center"}
+
+* **Esfuerzo Axil ($N$):** Sigue siendo nulo.
+    $$N_{C-B}(x) = 0 \text{ kN}$$
+
+* **Esfuerzo Cortante ($V$):** A la reacción $R_{AY}$ se le resta la carga $P$ (hacia abajo).
+    $$V_{C-B}(x) = R_{AY} - 15 = 12 - 15 = \mathbf{-3 \text{ kN}}$$
+
+* **Momento Flector ($M$):** Sumamos el momento de la reacción y restamos el de la carga $P$ (que genera giro antihorario respecto al corte, negativo). La distancia de la carga $P$ al corte es $(x-1)$.
+    $$M_{C-B}(x) = R_{AY} \cdot x - 15 \cdot (x-1)$$
+    $$M_{C-B}(x) = 12x - 15x + 15 = \mathbf{15 - 3x \text{ kN}\cdot\text{m}}$$
+
+### 4. Dibujar los diagramas {-}
+
+Representamos las funciones obtenidas.
+
+* **Axiles:** $N(x) = 0$.
+* **Cortantes:** Valor constante de $12$ hasta $x=1$, donde baja a $-3$.
+* **Flectores:** Crecimiento lineal $12x$ hasta el máximo en $x=1$ ($12 \text{ kN}\cdot\text{m}$), luego decrece linealmente hasta 0 en el apoyo B.
+
+![Diagrama de Esfuerzos Cortantes](media/ejemploViga1-4.png){width=60% fig-align="center"}
+
+![Diagrama de Momentos Flectores](media/EjemploViga1-5.png){width=60% fig-align="center"}
+
+::: {.callout-important style="width: 90%; margin: auto;"}
+## Ejercicios propuestos
+
+**1.** Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:
+
+![Ejercicio 1](media/ejercicio1.png){width=60% fig-align="center"}
+
+*Solución (partiendo del punto A):*
+
+* **Momentos flectores:**
+    * $0 \leq x \leq 2 \text{ m} \rightarrow M_{x1} = -5x \text{ (kN}\cdot\text{m)}$
+    * $2 \leq x \leq 9 \text{ m} \rightarrow M_{x2} = -10 \text{ (kN}\cdot\text{m)}$
+    * $9 \leq x \leq 10 \text{ m} \rightarrow M_{x3} = 10x - 100 \text{ (kN}\cdot\text{m)}$
+
+* **Esfuerzos cortantes:**
+    * $0 \leq x \leq 2 \text{ m} \rightarrow V_{x1} = -5 \text{ kN}$
+    * $2 \leq x \leq 9 \text{ m} \rightarrow V_{x2} = 0 \text{ kN}$
+    * $9 \leq x \leq 10 \text{ m} \rightarrow V_{x3} = 10 \text{ kN}$
+
+***
+
+**2 (PAU).** Se requiere analizar la viga presentada en la figura adjunta:
+
+![Ejercicio 2 (PAU)](media/ejercicio6.png){width=50% fig-align="center"}
+
+Considerando los datos proporcionados, calcular:
+
+a) Las reacciones en ambos apoyos en condiciones de equilibrio estático.
+   *(Sol: $R_{Ax} = 0 \text{ N}$; $R_{Ay} = 12000 \text{ N}$; $R_{By} = 4000 \text{ N}$)*
+b) Las ecuaciones de fuerzas cortantes y momentos flectores en cada tramo de la viga en función de la coordenada "x".
+   *(Sol: Para $0 \leq x \leq 1,5\text{m} \rightarrow V(x) = 12 \text{ kN}, M(x) = 12x \text{ kN}\cdot\text{m}$; Para $1,5 \leq x \leq 6\text{m} \rightarrow V(x) = -4 \text{ kN}, M(x) = -4x + 24 \text{ kN}\cdot\text{m}$)*
+c) Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga.
+
+***
+
+**3 (PAU).** En la siguiente figura se representan las cargas que debe soportar una viga y los apoyos que tiene en la estructura de la que forma parte.
+
+![Ejercicio 3 (PAU)](media/ejercicio7.png){width=50% fig-align="center"}
+
+Considerando los datos proporcionados, analizar la estructura calculando:
+
+a) Las reacciones en ambos apoyos en condiciones de equilibrio estático.
+   *(Sol: $R_{Ax} = 0 \text{ kN}$; $R_{Ay} = 3,5 \text{ kN}$; $R_{By} = 2,5 \text{ kN}$)*
+b) Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga.
+   *(Sol: $0 \leq x \leq 1 \rightarrow V=3,5, M=3,5x$; $1 \leq x \leq 4 \rightarrow V=-1,5, M=-1,5x+5$; $4 \leq x \leq 5 \rightarrow V=1, M=x-5$)*
+c) Obtener el momento flector máximo.
+   *(Sol: $M_{max}(1 \text{ m}) = 3,5 \text{ kN}\cdot\text{m}$)*
+
+***
+
+**4 (PAU).** Se requiere analizar una viga de 5 m con su extremo derecho (punto B) empotrado en una pared. Sobre el extremo izquierdo (punto A) actúa una fuerza peso de 3 kN, y a 2 m del empotramiento se localiza otra fuerza peso de 2 kN. Se pide:
+
+a) Calcular el valor de las reacciones que se producen en el empotramiento (punto B) en condiciones de equilibrio estático.
+   *(Sol: $R_{Bx} = 0 \text{ kN}$; $R_{By} = 5 \text{ kN}$; $M_{B} = 19 \text{ kN}\cdot\text{m}$)*
+b) Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga en función de x.
+   *(Sol: $0 \leq x \leq 3 \rightarrow V=-3, M=-3x$; $3 \leq x \leq 5 \rightarrow V=-5, M=-5x+6$)*
+
+***
+
+**5 (PAU).** Para evitar inundaciones con las crecidas, se ha canalizado el río Guadalquivir a su paso por Sevilla en varios tramos, y la expansión de la ciudad hace necesario construir un nuevo puente sobre el canal de 46 m de ancho. Se estudia la opción de construir el puente con vigas de hormigón armado tipo Doble T como las de la figura, que pueden alcanzar hasta los 53 m de largo.
+
+![Ejercicio 5 (PAU)](media/ejercicio8.png){width=50% fig-align="center"}
+
+Tras el estudio del terreno, se decide usar una viga de 50 m de largo apoyada en un extremo en un soporte fijo y el otro en un apoyo móvil o de rodillo. El puente debe soportar el paso de vehículos pesados, por lo que se diseñará para una masa máxima de vehículos de 65 toneladas. La masa de la viga es 110,5 toneladas. Colabora en el diseño del puente resolviendo las siguientes cuestiones.
+
+a) Dibujar el diagrama de sólido libre del puente cuando el vehículo pesado haya recorrido 25 m del puente desde el extremo fijo, y calcular el valor de las reacciones en ambos apoyos en condiciones de equilibrio estático.
+   *(Sol: $R_{Ax} = 0$; $R_{Ay} = 861 \text{ kN}$; $R_{By} = 861 \text{ kN}$)*
+b) Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga, y determinar el momento flector máximo que debe soportar la viga cuando el camión esté en esa posición.
+   *(Sol: $0 \leq x \leq 25 \rightarrow V=861, M=861x$; $25 \leq x \leq 50 \rightarrow V=-861, M=-861x + 43050$; $M_{max} = 21525 \text{ kN}\cdot\text{m}$)*
+
+*(NOTA: este ejercicio está planteado para considerar el peso de la viga como una carga puntual aplicada en su centro de masas, no como una distribución continua de carga).*
+
+***
+
+**6 (PAU).** El estudio de arquitectura Andalusí está desarrollando el proyecto de un bloque de viviendas en primera línea de playa en Almería. Una de las viviendas del ático dispone de una terraza voladiza de 4 m de longitud que sobresale desde la fachada principal. La terraza se modela como una viga con un extremo empotrado en la fachada y el otro extremo en voladizo.
+
+Teniendo en cuenta el tamaño total de la terraza, se estima que durante una fiesta puede albergar un grupo de personas con un peso total de 8,5 kN. El peso de la losa de hormigón de la terraza es de 16,8 kN.
+
+a) Dibujar el diagrama de cuerpo libre de la terraza y calcular las reacciones considerando la fuerza peso del grupo de personas como una carga puntual aplicada en el centro.
+   *(Sol: $R_{Ax} = 0 \text{ kN}$; $R_{Ay} = 25,3 \text{ kN}$; $M_{A} = 50,6 \text{ kN}\cdot\text{m}$)*
+b) Representar los diagramas de esfuerzos cortantes y momentos flectores resultantes.
+   *(Sol: $0 \leq x \leq 2 \rightarrow V=25,3, M=25,3x - 50,6$; $2 \leq x \leq 4 \rightarrow V=0, M=0$)*
+c) Determinar el valor del momento flector máximo que soportará la terraza y en qué posición se encuentra.
+   *(Sol: $M_{max} = 50,6 \text{ kN}\cdot\text{m}$ en $x = 0$)*
+
+:::
+
+---
+
+## Ejemplo 2: Viga con carga distribuida
+
+En este apartado analizaremos una viga con una carga distribuida rectangular.
+
+### Enunciado {-}
+
+Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:
+
+![Esquema de la viga](media/ejemploViga2.png){width=60% fig-align="center"}
+
+### 1. Calcular las reacciones {-}
+
+Determinamos las reacciones según los tipos de apoyos que vemos en la figura:
+
+![Diagrama de cuerpo libre y reacciones](media/ejemploViga2-1.png){width=70% fig-align="center"}
+
+Aplicando las condiciones de equilibrio estático:
+
+**1. Equilibrio Horizontal ($\sum F_{x}=0$)**
+$$R_{AX}=0$$
+
+**2. Equilibrio Vertical ($\sum F_{y}=0$)**
+Considerando positivas las fuerzas hacia arriba. La carga distribuida ($q$) se multiplica por la longitud ($L$) para obtener la fuerza total:
+$$R_{AY} - q \cdot L + R_{BY} = 0$$
+
+**3. Equilibrio de Momentos ($\sum M_{A}=0$)**
+Tomamos momentos respecto al punto A. **La carga distribuida equivale a una fuerza $q \cdot L$ aplicada en su centro.**
+En este caso, la carga de $3\text{m}$ está centrada a $2 + 1,5 = 3,5\text{m}$ de A.
+$$-q \cdot L \cdot (2 + \frac{L}{2}) + R_{BY} \cdot (2 + L + 5) = 0$$
+
+Sustituyendo los datos ($q=5 \text{ kN/m}$, $L=3 \text{ m}$):
+
+$$
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 5 \cdot 3 + R_{BY} = 0 \\
+-5 \cdot 3 \cdot (2 + 1,5) + R_{BY} \cdot (2 + 3 + 5) = 0
+\end{cases}
+$$
+
+Simplificando:
+$$
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15 + R_{BY} = 0 \\
+-52,5 + 10 \cdot R_{BY} = 0
+\end{cases}
+$$
+
+Resolviendo el sistema:
+
+$$
+\begin{aligned}
+R_{AX} &= 0 \text{ N} \\
+R_{BY} &= \frac{52,5}{10} = \mathbf{5,25 \text{ kN}} \\
+R_{AY} &= 15 - 5,25 = \mathbf{9,75 \text{ kN}}
+\end{aligned}
+$$
+
+### 2. "Cortar" la viga en tramos {-}
+
+Dividimos la viga en tramos separados por cambios de carga o apoyos:
+* **Tramo A-C ($0 \le x < 2$):** Entre el apoyo A y el inicio de la carga.
+* **Tramo C-D ($2 \le x \le 5$):** Zona de la carga distribuida.
+* **Tramo D-B ($5 < x \le 10$):** Entre el final de la carga y el apoyo B.
+
+![División en tramos](media/ejemploViga2-2.png){width=70% fig-align="center"}
+
+### 3. Expresar los esfuerzos (Cortes) {-}
+
+#### Tramo A-C ($0 \le x < 2$) {-}
+
+![Corte Tramo A-C](media/ejemploViga2-3.png){width=40% fig-align="center"}
+
+* **Axil:** $N_{A-C}(x) = 0 \text{ kN}$
+* **Cortante:** $V_{A-C}(x) = R_{AY} = \mathbf{9,75 \text{ kN}}$
+* **Momento:** $M_{A-C}(x) = R_{AY} \cdot x = \mathbf{9,75x \text{ kN}\cdot\text{m}}$
+
+#### Tramo C-D ($2 \le x \le 5$) {-}
+
+![Corte Tramo C-D](media/ejemploViga2-4.png){width=50% fig-align="center"}
+
+* **Axil:** $N_{C-D}(x) = 0 \text{ kN}$
+* **Cortante:** Restamos la parte de carga distribuida que entra en el corte ($q \cdot (x-2)$).
+    $$V_{C-D}(x) = R_{AY} - 5(x-2) = 9,75 - 5x + 10 = \mathbf{19,75 - 5x \text{ kN}}$$
+* **Momento:** La carga distribuida parcial tiene su centro a $(x-2)/2$ del corte.
+    $$M_{C-D}(x) = R_{AY} \cdot x - [5(x-2)] \cdot \frac{x-2}{2}$$
+    $$M_{C-D}(x) = 9,75x - 2,5(x-2)^2$$
+    $$M_{C-D}(x) = \mathbf{-2,5x^2 + 19,75x - 10 \text{ kN}\cdot\text{m}}$$
+
+
+
+#### Tramo D-B ($5 < x \le 10$) {-}
+
+![Corte Tramo D-B](media/ejemploViga2-5.png){width=50% fig-align="center"}
+
+* **Axil:** $N_{D-B}(x) = 0 \text{ kN}$
+* **Cortante:** Ahora restamos la carga distribuida completa ($5 \cdot 3 = 15$).
+    $$V_{D-B}(x) = R_{AY} - 15 = 9,75 - 15 = \mathbf{-5,25 \text{ kN}}$$
+* **Momento:** La carga completa de 15 kN está centrada en $x=3,5$ (mitad de la distribución).
+    $$M_{D-B}(x) = R_{AY} \cdot x - 15 \cdot (x-3,5)$$
+    $$M_{D-B}(x) = 9,75x - 15x + 52,5 = \mathbf{52,5 - 5,25x \text{ kN}\cdot\text{m}}$$
+
+
+
+### 4. Dibujar los diagramas {-}
+
+Resumen de ecuaciones y cálculo del máximo:
+
+$$
+\textbf{Esfuerzo Cortante } V(x) =
+\begin{cases}
+9,75 & 0 \le x < 2 \\
+19,75 - 5x & 2 \le x \le 5 \\
+-5,25 & 5 < x \le 10
+\end{cases} \quad [\text{kN}]
+$$
+
+$$
+\textbf{Momento Flector } M(x) =
+\begin{cases}
+9,75x & 0 \le x < 2 \\
+-2,5x^2 + 19,75x - 10 & 2 \le x \le 5 \\
+-5,25x + 52,5 & 5 < x \le 10
+\end{cases} \quad [\text{kN}\cdot\text{m}]
+$$
+
+**Punto de momento máximo:**
+Se produce donde el cortante es nulo ($V=0$) dentro del tramo con carga distribuida:
+$$19,75 - 5x = 0 \Rightarrow x = 3,95 \text{ m}$$
+$$M_{\text{máx}} = -2,5(3,95)^2 + 19,75(3,95) - 10 = \mathbf{29,006 \text{ kN}\cdot\text{m}}$$
+
+Representación gráfica:
+
+![Diagramas de Cortantes y Flectores](media/ejemploViga2-6.png){width=60% fig-align="center"}
+
+
+::: {.callout-important style="width: 90%; margin: auto;"}
+
+## Ejercicio propuesto
+
+**1.** La viga de la figura es de madera laminada de perfil rectangular de $25 \times 50 \text{ cm}$ y soporta una carga uniformemente distribuida de $40 \text{ kN/m}$.
+
+![Ejercicio propuesto](media/ejercicio11.png){width=70% fig-align="center"}
+
+a) Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga.
+b) Halla las tensiones máximas de tracción y compresión producidas en la viga como consecuencia de la flexión.
+
+*Solución:*
+
+* a) (Partiendo del punto A):
+    * $0 \le x \le 6 \text{ m} \rightarrow M(x) = 120x - 20x^2 \text{ kN}\cdot\text{m}$
+    * Momento máximo en $x = 3 \text{ m}: M_{max} = 180 \text{ kN}\cdot\text{m}$
+    * $0 \le x \le 6 \text{ m} \rightarrow V(x) = 120 - 40x \text{ kN}$ 
+* b) $\sigma_t = 17.280 \text{ kN/m}^2$; $\sigma_c = -17.280 \text{ kN/m}^2$
+
+:::
+
+---
+
+## Ejemplo 3: Viga en voladizo con carga uniformemente repartida
+
+En este ejemplo analizaremos una viga en voladizo (cantilever) empotrada en un extremo y libre en el otro, sometida a una carga distribuida.
+
+
+### Enunciado {-}
+
+Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura, con carga uniformemente distribuida:
+
+![Viga en voladizo con carga distribuida](media/ejemploVIga3.png){width=50% fig-align="center"}
+
+### 1. Calcular las reacciones {-}
+
+En este caso hay un solo apoyo (empotramiento en A) donde se concentran las tres reacciones ($R_{AX}, R_{AY}, M_A$):
+
+![Reacciones en el empotramiento](media/ejemploViga3-1.png){width=60% fig-align="center"}
+
+Fíjate que el momento de reacción, $M_A$, tiene sentido antihorario porque debe oponerse al momento creado por la carga, que tiende a girar la viga en sentido horario.
+
+Las ecuaciones de equilibrio son:
+
+**1. Equilibrio Horizontal ($\sum F_{x}=0$)**
+$$R_{AX}=0$$
+
+**2. Equilibrio Vertical ($\sum F_{y}=0$)**
+La carga total es $Q = q \cdot L$.
+$$R_{AY} - q \cdot L = 0 \Rightarrow \mathbf{R_{AY} = q \cdot L}$$
+
+**3. Equilibrio de Momentos ($\sum M_{A}=0$)**
+Tomamos momentos en el apoyo A. La carga distribuida equivale a una fuerza $q \cdot L$ en el centro ($L/2$).
+$$-q \cdot L \cdot \frac{L}{2} + M_{A} = 0 \Rightarrow \mathbf{M_{A} = q \cdot \frac{L^2}{2}}$$
+
+Sustituyendo los datos ($q=60 \text{ kN/m}$, $L=3 \text{ m}$):
+
+$$
+\begin{aligned}
+R_{AX} &= 0 \text{ N} \\
+R_{AY} &= 60 \cdot 3 = \mathbf{180 \text{ kN}} \\
+M_{A} &= 60 \cdot \frac{3^2}{2} = \mathbf{270 \text{ kN}\cdot\text{m}}
+\end{aligned}
+$$
+
+### 2. "Cortar" la viga {-}
+
+Como solo tenemos una carga continua sobre toda la longitud, **no es necesario dividir la viga en tramos**. Una única ecuación de $0$ a $L$ servirá para toda la viga.
+
+### 3. Expresar los esfuerzos ($0 \le x \le 3$) {-}
+
+Analizamos una sección a distancia $x$ del empotramiento:
+
+![Corte genérico a distancia x](media/ejemploViga3-2.png){width=50% fig-align="center"}
+
+* **Esfuerzo Axil ($N$):** No hay fuerzas horizontales.
+    $$N(x) = 0 \text{ kN}$$
+
+* **Esfuerzo Cortante ($V$):** Suma de fuerzas verticales a la izquierda (Reacción $R_{AY}$ positiva, carga distribuida $q \cdot x$ negativa).
+    $$V(x) = R_{AY} - q \cdot x$$
+    $$V(x) = 180 - 60x \text{ kN}$$
+
+* **Momento Flector ($M$):** Suma de momentos a la izquierda (Reacción $R_{AY}$ positiva, Carga distribuida negativa, Momento de empotramiento $M_A$ negativo).
+    * Brazo de $R_{AY}$: $x$
+    * Brazo de la carga distribuida ($q \cdot x$): $x/2$
+    
+    $$M(x) = R_{AY} \cdot x - (q \cdot x) \cdot \frac{x}{2} - M_{A}$$
+    $$M(x) = 180x - 60 \cdot \frac{x^2}{2} - 270$$
+    $$M(x) = -30x^2 + 180x - 270 \text{ kN}\cdot\text{m}$$
+
+### 4. Dibujar los diagramas {-}
+
+Resumen de las leyes de esfuerzos ($0 \le x \le 3$ m):
+
+
+\begin{align*}
+\textbf{Cortante:}\quad &V(x) = 180 - 60x \quad [\text{kN}] \\
+\textbf{Flector:}\quad &M(x) = -30x^2 + 180x - 270 = -30(x-3)^2 \quad [\text{kN}\cdot\text{m}]
+\end{align*}
+
+
+**Valores extremos:**
+* **En el empotramiento ($x=0$):**
+    * $V(0) = 180 \text{ kN}$
+    * $M(0) = -270 \text{ kN}\cdot\text{m}$ (Máximo momento negativo)
+* **En el extremo libre ($x=3$):**
+    * $V(3) = 180 - 180 = 0 \text{ kN}$
+    * $M(3) = -30(0) = 0 \text{ kN}\cdot\text{m}$
+
+El diagrama de cortantes es lineal y el de momentos parabólico:
+
+![Diagramas de Cortante y Flector](media/ejemploViga3-3.png){width=90% fig-align="center"}
+
+::: {.callout-important style="width: 90%; margin: auto;"}
+## Ejercicio propuesto
+
+**1.** Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura:
+
+![Ejercicio propuesto](media/ejercicio10.png){width=60% fig-align="center"}
+
+*Solución (partiendo del punto B, de derecha a izquierda, o reajustando coordenadas):*
+
+* **Momentos flectores:**
+    * $0 \le x \le 4 \text{ m} \rightarrow M(x) = -5x \text{ kN}\cdot\text{m}$
+    * $4 \le x \le 6 \text{ m} \rightarrow M(x) = 2,5x^2 + 15x - 40 \text{ kN}\cdot\text{m}$
+    * $6 \le x \le 8 \text{ m} \rightarrow M(x) = 50 - 15x \text{ kN}\cdot\text{m}$
+* **Esfuerzos cortantes:**
+    * $0 \le x \le 4 \text{ m} \rightarrow V(x) = -5 \text{ kN}$
+    * $4 \le x \le 6 \text{ m} \rightarrow V(x) = -5x + 15 \text{ kN}$
+    * $6 \le x \le 8 \text{ m} \rightarrow V(x) = -15 \text{ kN}$
+
+:::
+
+---
+
+## Otros ejemplos de cálculo de esfuerzos
+
+Para reforzar lo aprendido, aquí tienes un recurso audiovisual donde se explican paso a paso algunos ejercicios adicionales de cálculo de reacciones y diagramas de esfuerzos (cortantes y flectores) en vigas isostáticas.
+
+### Vídeo explicativo {-}
+
+::: {.content-visible when-format="html"}
+{{< video https://youtu.be/muCrmuI1T-A >}}
+:::
+
+::: {.content-visible when-format="pdf"}
+[![Ver vídeo: Ejercicios de diagramas de esfuerzos](https://img.youtube.com/vi/muCrmuI1T-A/sddefault.jpg){width=60% fig-align="center"}](https://youtu.be/JCaDfvIgqTY)
+
+[*(Click para ver vídeo explicativo)*](https://youtu.be/JCaDfvIgqTY)
+:::
