@@ -9,7 +9,7 @@ En esta unidad de **Tecnología e Ingeniería II**,  veremos desde los conceptos
 
 ## Contenidos de la unidad
 
-A continuación se detallan las secciones que componen esta unidad:
+A continuación se detallan las secciones que componen esta unidad: 
 
 1. **Descripción y elementos de estructuras sencillas**: Una visión general sobre la función de las estructuras.
 2. **Cargas. Tipos de apoyos y uniones**: Clasificación de las fuerzas externas a las estructuras.
