@@ -75,7 +75,7 @@ $$Y_{G}=\frac{\sum S_{i} \cdot Y_{i}}{S} = \frac{S_{CH} \cdot Y_{CH} + S_{O} \cd
 
 ### Ejercicio propuesto
 
-**1.** Dada la pieza siguiente, realizada en alambre de grosor homogéneo, calcula el radio de la forma circular que hará que el centro de masas del sistema esté justo en el punto de unión de la forma recta y la circular. *(Solución: R = 22,71 cm)*
+**1.** Dada la pieza siguiente, realizada en alambre de grosor homogéneo, calcula el radio de la forma circular que hará que el centro de masas del sistema esté justo en el punto de unión de la forma recta y la circular. *(Solución: R = 2,82 cm)*
 
 ![Ejercicio propuesto 1](media/ejercicio2.png){width="399" fig-align="center"}
 
