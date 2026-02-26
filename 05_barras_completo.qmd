@@ -1,4 +1,4 @@
-# 5. Cálculo de esfuerzos en estructuras de barras articuladas
+# Cálculo de esfuerzos en estructuras de barras articuladas
 
 ![Cercha](media/cerchas.png){width=80% fig-align="center"}
 
