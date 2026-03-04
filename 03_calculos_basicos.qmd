@@ -239,7 +239,7 @@ b.  Calcular la tensión en la cuerda tensora y las componentes de la fuerza de 
 
 ------------------------------------------------------------------------
 
-**4 (PAU).** Un asta de peso 0,40 N y densidad uniforme está suspendida como se muestra en la figura. En su extremo libre sujeta un peso de 2 kN.
+**4 (PAU).** Un asta de peso 0,40 kN y densidad uniforme está suspendida como se muestra en la figura. En su extremo libre sujeta un peso de 2 kN.
 
 ![Ejercicio PAU 4](media/ejercicio4.png){width="234" fig-align="center"}
 
