@@ -235,7 +235,7 @@ Representamos las funciones obtenidas.
 
 ![Ejercicio 1](media/ejercicio1.png){width=60% fig-align="center"}
 
-*Solución (partiendo del punto A):*
+*Solución (partiendo del extremo izquierdo de la viga):*
 
 * **Momentos flectores:**
     * $0 \leq x \leq 2 \text{ m} \rightarrow M_{x1} = -5x \text{ (kN}\cdot\text{m)}$
