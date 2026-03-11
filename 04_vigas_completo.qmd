@@ -281,7 +281,7 @@ c) Obtener el momento flector máximo.
 **4 (PAU).** Se requiere analizar una viga de 5 m con su extremo derecho (punto B) empotrado en una pared. Sobre el extremo izquierdo (punto A) actúa una fuerza peso de 3 kN, y a 2 m del empotramiento se localiza otra fuerza peso de 2 kN. Se pide:
 
 a) Calcular el valor de las reacciones que se producen en el empotramiento (punto B) en condiciones de equilibrio estático.
-   *(Sol: $R_{Bx} = 0 \text{ kN}$; $R_{By} = 5 \text{ kN}$; $M_{B} = 19 \text{ kN}\cdot\text{m}$)*
+   *(Sol: $R_{Bx} = 0 \text{ kN}$; $R_{By} = 5 \text{ kN}$; $M_{B} = - 19 \text{ kN}\cdot\text{m}$)*
 b) Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga en función de x.
    *(Sol: $0 \leq x \leq 3 \rightarrow V=-3, M=-3x$; $3 \leq x \leq 5 \rightarrow V=-5, M=-5x+6$)*
 
