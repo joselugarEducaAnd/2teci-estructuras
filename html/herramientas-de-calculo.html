@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260825115631PAGE03">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herramientas de cálculo | Estructuras</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Estructuras">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260825115631QMDELPX","packageTitle":"Estructuras","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260825115631PAGE03" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Bienvenida</a>
+</li>
+<li> <a href="../html/elementos-y-esfuerzos-estructurales.html" class="no-ch">Elementos y esfuerzos estructurales</a>
+</li>
+<li> <a href="../html/cargas-apoyos-y-uniones.html" class="no-ch">Cargas, apoyos y uniones</a>
+</li>
+<li class="active"> <a href="../html/herramientas-de-calculo.html" class="active no-ch">Herramientas de cálculo</a>
+</li>
+<li> <a href="../html/vigas-y-diagramas-nvm.html" class="no-ch">Vigas y diagramas N/V/M</a>
+</li>
+<li> <a href="../html/cerchas.html" class="no-ch">Cerchas</a>
+</li>
+</ul>
+</nav><main id="20260825115631PAGE03" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Estructuras</p></div>
+<div class="page-header"><h1 class="page-title">Herramientas de cálculo</h1></div>
+</header><div id="page-content-20260825115631PAGE03" class="page-content">
+<article id="20260825115631BLK003" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Contenido</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260825115631IDEV003" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260825115631IDEV003&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#3d6694;--chrome-osc:#294d75;--chrome-tinte:#eff3f8;--chrome-linea:#c8d6e4}</style><div class="exe-text"><p>Antes de calcular una estructura conviene separar cuatro ideas que no significan lo mismo:</p>
+<ul>
+<li><strong>Equilibrio:</strong> la resultante de fuerzas y momentos es nula; el cuerpo no acelera ni gira.</li>
+<li><strong>Resistencia:</strong> los elementos soportan las solicitaciones sin rotura ni fallo del material.</li>
+<li><strong>Rigidez:</strong> las deformaciones se mantienen dentro de límites admisibles.</li>
+<li><strong>Estabilidad:</strong> la estructura conserva su configuración resistente y no vuelca ni pierde estabilidad por fenómenos como el pandeo.</li>
+</ul>
+<p>En esta unidad calcularemos el <strong>equilibrio estático</strong> y los esfuerzos N/V/M. Las comprobaciones de resistencia, rigidez y estabilidad pertenecen al dimensionado y no se deducen solo de que se cumplan las ecuaciones de equilibrio.</p>
+<div class="marco marco-teoria"><p class="marco-titulo">Cuándo usar cada herramienta</p>
+<p>Usa las componentes vectoriales cuando aparezca una fuerza inclinada y el momento cuando calcules reacciones. El centro de gravedad se desarrolla en el desplegable siguiente.</p>
+</div>
+<details><summary><strong>Centro de gravedad</strong></summary>
+<section class="level2" data-number="3.1" id="centro-de-gravedad">
+<h2 class="" data-number="3.1"><span class="header-section-number">3.1</span> Centro de gravedad</h2>
+<p>El concepto del <strong>centro de gravedad</strong> es fundamental en el diseño de estructuras, en la física, en la ingeniería, y en muchas otras disciplinas que dependen del equilibrio y la estabilidad de los cuerpos.</p>
+<p>El centro de gravedad de un cuerpo es el punto en el cual <strong>se puede considerar que está concentrado todo su peso o masa</strong>, en términos de cómo la gravedad actúa sobre él. En otras palabras, es el punto en el que las fuerzas de gravedad que actúan sobre cada una de las partículas que componen el cuerpo se equilibran y suman, permitiendo que <strong>el objeto se comporte como si todo su peso estuviera concentrado en ese lugar.</strong></p>
+<p><strong>Características</strong> del centro de gravedad:</p>
+<ol type="1">
+<li><strong>Equilibrio:</strong> si un cuerpo se sostiene en su centro de gravedad, este se mantendrá en equilibrio sin inclinarse hacia ningún lado.</li>
+<li><strong>Distribución de masa:</strong> la ubicación del centro de gravedad depende de cómo esté distribuida la masa del objeto. En objetos <strong>homogéneos</strong> (con distribución uniforme de masa), el centro de gravedad suele coincidir con el <strong>centro geométrico</strong> del objeto.</li>
+<li><strong>Posición del centro de gravedad:</strong> El centro de gravedad no siempre está dentro del objeto; puede encontrarse fuera del cuerpo, dependiendo de la forma y distribución de su masa. Por ejemplo, en un aro o un anillo, el centro de gravedad está en el centro del espacio vacío.</li>
+</ol>
+<p>En un objeto <strong>irregular</strong>, como una silla, el centro de gravedad estará en algún punto dependiendo de cómo esté distribuida su masa, que puede no coincidir con su centro geométrico. Para calcular el centro de gravedad en estos casos, hay que <strong>descomponer el cuerpo en objetos más pequeños</strong> que sí sean homogéneos, y calcular el centro de gravedad así:</p>
+<div class="bloque bloque-formula"><p class="marco-titulo">Fórmulas del Centro de Gravedad</p>
+<p><span class="math display">\[X_{G}=\frac{\sum m_{i} \cdot X_{i}}{M} \quad ; \quad Y_{G}=\frac{\sum m_{i} \cdot Y_{i}}{M}\]</span></p>
+<p>Donde:</p>
+<div style="margin-top: -1em;">
+</div>
+<ul>
+<li><span class="math inline">\(X_G, Y_G\)</span>: coordenadas del centro de gravedad del cuerpo completo.</li>
+<li><span class="math inline">\(m_i\)</span>: masa del objeto “<span class="math inline">\(i\)</span>”.</li>
+<li><span class="math inline">\(X_i, Y_i\)</span>: coordenadas del centro de gravedad del objeto “<span class="math inline">\(i\)</span>”.</li>
+<li><span class="math inline">\(M\)</span>: masa total del cuerpo completo.</li>
+</ul>
+</div>
+<p>Si tenemos un cuerpo con orificios, podemos considerar estos como objetos de <strong>masa negativa</strong>, a efectos de calcular el centro de gravedad global.</p>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo de cálculo del centro de gravedad</p>
+<p>Halla las coordenadas del centro de gravedad de la chapa cuadrada agujereada de la de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/chapaCG.png" width="350"/></p>
+<figcaption>Chapa con orificio</figcaption>
+</figure>
+</div>
+<p>Llamamos “<span class="math inline">\(L\)</span>” a la longitud de los lados de la chapa (<span class="math inline">\(L = 16 \text{ cm}\)</span>) y “<span class="math inline">\(r\)</span>” al radio del orificio (<span class="math inline">\(r = 5 \text{ cm}\)</span>).</p>
+<p>Podemos calcular fácilmente los centros de gravedad de la chapa sin agujero y del propio agujero.</p>
+<p>Por simetría, la posición de dichos CG es <strong>el centro geométrico de cada una de esas figuras</strong>:</p>
+<ul>
+<li>Chapa sin orificio (centro del cuadrado): <span class="math inline">\(X_{CH} = L / 2 = 8 \text{ cm}\)</span>; <span class="math inline">\(Y_{CH} = L / 2 = 8 \text{ cm}\)</span>.</li>
+<li>Orificio (centro del círculo): <span class="math inline">\(X_{O} = L - r = 16 - 5 = 11 \text{ cm}\)</span>; <span class="math inline">\(Y_{O} = L / 2 = 8 \text{ cm}\)</span>.</li>
+</ul>
+<p>La superficie de cada una de esas figuras es la siguiente:</p>
+<ul>
+<li>Chapa sin orificio: <span class="math inline">\(S_{CH} = L \cdot L = 16 \cdot 16 = 256 \text{ cm}^2\)</span></li>
+<li>Orificio: <span class="math inline">\(S_{O} = -\pi \cdot r^2 = -\pi \cdot 5^2 = -78,54 \text{ cm}^2\)</span></li>
+</ul>
+<p>El orificio hay que quitárselo a la chapa, por eso hemos calculado su superficie con un <strong>signo negativo</strong>, para que vaya <strong>restando</strong> en la expresión final (sería como si lo considerásemos con masa o superficie <strong>negativa</strong>)</p>
+<p>Así, combinando las dos figuras, la posición del centro de gravedad global será la siguiente:</p>
+<p><span class="math display">\[X_{G}=\frac{\sum S_{i} \cdot X_{i}}{S} = \frac{S_{CH} \cdot X_{CH} + S_{O} \cdot X_{O}}{S_{CH} + S_{O}} = \frac{256 \cdot 8 - 78,54 \cdot 11}{256 - 78,54} = 6,67 \text{ cm}\]</span></p>
+<p><span class="math display">\[Y_{G}=\frac{\sum S_{i} \cdot Y_{i}}{S} = \frac{S_{CH} \cdot Y_{CH} + S_{O} \cdot Y_{O}}{S_{CH} + S_{O}} = \frac{256 \cdot 8 - 78,54 \cdot 8}{256 - 78,54} = 8 \text{ cm}\]</span></p>
+</div>
+<section class="level3" data-number="3.1.1" id="ejercicio-propuesto">
+<h3 class="" data-number="3.1.1"><span class="header-section-number">3.1.1</span> Ejercicio propuesto</h3>
+<p><strong>1.</strong> Dada la pieza siguiente, realizada en alambre de grosor homogéneo, calcula el radio de la forma circular que hará que el centro de masas del sistema esté justo en el punto de unión de la forma recta y la circular. <em>(Solución: R = 2,82 cm)</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio2.png" width="399"/></p>
+<figcaption>Ejercicio propuesto 1</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</details>
+<section class="level2" data-number="3.2" id="componentes-vectoriales-de-una-fuerza">
+<h2 class="" data-number="3.2"><span class="header-section-number">3.2</span> Componentes vectoriales de una fuerza</h2>
+<p>Las fuerzas son magnitudes vectoriales definidos por: <strong>Módulo</strong>, <strong>Punto de aplicación</strong>, <strong>Dirección</strong> y <strong>Sentido</strong>.</p>
+<p>Dada una fuerza <span class="math inline">\(F\)</span> cuya dirección forma un ángulo <span class="math inline">\(\alpha\)</span> con el eje horizontal (<span class="math inline">\(X\)</span>):</p>
+<div class="quarto-layout-panel" data-layout="[60, 40]" data-valign="center">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div class="bloque bloque-formula"><p class="marco-titulo">Componentes rectangulares</p>
+<p><span class="math display">\[F_{X} = F \cdot \cos \alpha\]</span> <span class="math display">\[F_{Y} = F \cdot {\operatorname{sen}} \alpha\]</span></p>
+<p>Expresión vectorial: <span class="math display">\[\vec{F} = F_{X} \cdot \vec{i} + F_{Y} \cdot \vec{j}\]</span></p>
+</div>
+<div class="bloque bloque-formula"><p class="marco-titulo">Cálculo inverso</p>
+<ul>
+<li><strong>Módulo:</strong> <span class="math inline">\(F = \sqrt{F_{X}^{2} + F_{Y}^{2}}\)</span></li>
+<li><strong>Dirección:</strong> <span class="math inline">\(\tan \alpha = \frac{F_Y}{F_X}\)</span></li>
+</ul>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/descomposicion_F.png"/></p>
+<figcaption>Descomposición de fuerza</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo resuelto. Descomposición de fuerzas.</p>
+<p>Una persona tira de una cuerda atada a una piedra con una fuerza de 400 N. Si el ángulo que forma la cuerda con la horizontal es de 40º, calcular:</p>
+<ol type="a">
+<li>La fuerza que tiende a elevar la piedra</li>
+<li>La fuerza que tiende a arrastrar la piedra</li>
+</ol>
+<p><strong><em>Solución</em></strong></p>
+<p>El vector de la fuerza aplicada con un ángulo <span class="math inline">\(\alpha = 40^{\circ}\)</span> se descompone en dos vectores de fuerza, uno horizontal <span class="math inline">\(F_X\)</span> y otro vertical <span class="math inline">\(F_Y\)</span>.</p>
+<ol type="a">
+<li><p>El vector de la fuerza vertical que tiende a <strong>elevar</strong> la piedra será: <span class="math display">\[F_{Y}=F \cdot {\operatorname{sen}} \alpha =400 \cdot {\operatorname{sen}} 40^{\circ}=257,12 \text{ N}\]</span></p></li>
+<li><p>El vector de la fuerza horizontal que tiende a <strong>arrastrar</strong> la piedra será: <span class="math display">\[F_{X}=F \cdot \cos \alpha =400 \cdot \cos 40^{\circ}=306,42 \text{ N}\]</span></p></li>
+</ol>
+</div>
+</section>
+<section class="level2" data-number="3.3" id="fuerza-resultante">
+<h2 class="" data-number="3.3"><span class="header-section-number">3.3</span> Fuerza resultante</h2>
+<p>Dos o más fuerzas son <strong>concurrentes</strong> cuando sus <strong>líneas de acción</strong> se cortan en un mismo punto. En ese caso podemos sustituirlas por una sola fuerza resultante equivalente.</p>
+<p>Para calcular el valor de la fuerza resultante, se descompone cada fuerza en sus componentes <span class="math inline">\(F_X\)</span>, <span class="math inline">\(F_Y\)</span>, y se suman. Desde el punto de vista vectorial:</p>
+<div class="bloque bloque-formula"><p class="marco-titulo">Suma vectorial</p>
+<p><span class="math display">\[\vec{F}_{RES}=\sum_{i=1}^{n}\vec{F_{i}} =\vec{F_{1}}+\vec{F_{2}}+\cdots +\vec{F_{n}}\]</span> <span class="math display">\[\vec{F}_{RES}=(F_{1X}+F_{2X}+\cdots +F_{nX}) \cdot \vec{i}+(F_{1Y}+F_{2Y}+\cdots +F_{nY}) \cdot \vec{j}\]</span></p>
+</div>
+<p><br/>
+</p>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo resuelto. Fuerza resultante.</p>
+<p>Tenemos dos fuerzas que se aplican desde un mismo punto, una de valor 100 N y otra de 50 N y cuyas direcciones forman un ángulo entre sí de 60º.</p>
+<ol type="a">
+<li>Calcula el <strong>módulo</strong> del vector de la fuerza resultante.</li>
+<li>Calcula el ángulo que forma la resultante con la primera fuerza.</li>
+<li>Realiza la representación vectorial del sistema.</li>
+</ol>
+<p><strong><em>Solución</em></strong></p>
+<p>Primero expresamos vectorialmente las dos fuerzas, suponiendo que la primera fuerza es horizontal (forma 0º con el eje X) y que, por tanto, la segunda fuerza forma 60º con el eje X (porque están a 60º entre sí):</p>
+<p><span class="math display">\[\vec{F_{1}}=F_{1X} \cdot \vec{i}+F_{1Y} \cdot\vec{j}=100 \cdot \cos 0^{o} \cdot\vec{i}+100 \cdot {\operatorname{sen}} 0^{o} \cdot\vec{j}=100 \cdot\vec{i}\]</span> <span class="math display">\[\vec{F_{2}}=F_{2X} \cdot \vec{i}+F_{2Y} \cdot\vec{j}=50 \cdot \cos 60^{o} \cdot\vec{i}+50 \cdot {\operatorname{sen}} 60^{o} \cdot\vec{j}=25 \cdot\vec{i}+25\sqrt{3} \cdot\vec{j}\]</span></p>
+<p>Calculamos la fuerza resultante sumando vectorialmente las fuerzas <span class="math inline">\(\vec{F_{1}}\)</span> y <span class="math inline">\(\vec{F_{2}}\)</span>:</p>
+<p><span class="math display">\[\vec{F}=\vec{F_{1}}+\vec{F_{2}}=(100 \cdot \vec{i} )+(25 \cdot \vec{i}+25\sqrt{3} \cdot \vec{j})=125 \cdot \vec{i}+25\sqrt{3} \cdot \vec{j}\]</span></p>
+<ol type="a">
+<li>Módulo de la fuerza resultante</li>
+</ol>
+<p>El módulo de la fuerza resultante se calcula ya directamente al tener el vector:</p>
+<p><span class="math display">\[F=|\vec{F}|=\sqrt{F_{X}^{2}+F_{Y}^{2}} =\sqrt{(125^{2}+(25\sqrt{3})^{2})}=132,29 \text{ N}\]</span></p>
+<ol start="2" type="a">
+<li>Ángulo de la resultante con la primera fuerza.</li>
+</ol>
+<p>Como la primera fuerza la hemos tomado en el eje X, el ángulo de la resultante con la primera fuerza es el ángulo de la resultante con el eje X. Por lo tanto, también lo podemos calcular directamente a partir del vector:</p>
+<p><span class="math display">\[\varphi =\arctan \left (\frac{F_{Y}}{F_{X}} \right )=\arctan \left (\frac{25\sqrt{3}}{125} \right )=19,11^{o}\]</span></p>
+<ol start="3" type="a">
+<li>Representación vectorial</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemplo2vectores.jpeg" width="400"/></p>
+<figcaption>Representación vectorial</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section class="level2" data-number="3.4" id="momento-de-una-fuerza">
+<h2 class="" data-number="3.4"><span class="header-section-number">3.4</span> Momento de una fuerza</h2>
+<p>Una fuerza cuya línea de acción no pasa por el punto O produce un <strong>momento respecto de O</strong> y tiende a hacer girar el cuerpo.</p>
+<div class="bloque bloque-formula"><p class="marco-titulo">Momento respecto de O</p>
+<p>La definición vectorial usa el vector posición desde O hasta cualquier punto de la línea de acción de la fuerza:</p>
+<p><span class="math display">\[\vec{M}_O=\vec{r}\times\vec{F}\]</span></p>
+<p>En problemas planos, su módulo es la fuerza por el brazo perpendicular, con el signo del convenio elegido:</p>
+<p><span class="math display">\[M_O=F\,d_{\perp}\]</span></p>
+</div>
+<p><br/>
+En el Sistema Internacional, el momento se mide en <strong>newtons-metro (N·m)</strong>.</p>
+</section>
+<section class="level2" data-number="3.5" id="condiciones-de-equilibrio">
+<h2 class="" data-number="3.5"><span class="header-section-number">3.5</span> Condiciones de equilibrio</h2>
+<p>Para que un sólido se encuentre en equilibrio, deben darse dos condiciones fundamentales:</p>
+<ul>
+<li><p>El sólido no debe <strong>trasladarse</strong> en ninguna dirección, por lo que la <strong>fuerza resultante</strong> de todas las fuerzas que actúen sobre él debe ser <strong>nula</strong>:</p>
+<p><span class="math display">\[\sum \vec{F_{i}}=0\]</span></p></li>
+<li><p>El sólido no debe <strong>girar</strong> en ningún eje, por lo que el <strong>momento resultante</strong> de todos los momentos que actúen sobre él debe ser <strong>nulo</strong>:</p>
+<p><span class="math display">\[\sum \vec{M_{i}}=0\]</span></p></li>
+</ul>
+<p>Estas condiciones pueden establecerse para cada uno de los tres ejes principales del espacio (x, y, z), por lo que tendríamos <strong>6 ecuaciones de equilibrio</strong> de un sólido (tres con las fuerzas y tres con los momentos).</p>
+</section>
+<section class="level2" data-number="3.6" id="ejercicios">
+<h2 class="" data-number="3.6"><span class="header-section-number">3.6</span> Ejercicios de aplicación</h2>
+<div class="bloque bloque-actividad"><p class="marco-titulo">Ejercicios de aplicación</p>
+<p>Practica con estos ejercicios. La tarea que debes entregar está en el apartado <a href="#practica-barra-cable">Práctica: comprobación de una barra con cable</a>, al final de esta página, y utiliza tus dos casos aleatorios.</p>
+<p><strong>1.</strong> Una persona carga en un hombro una barra de madera de 2 m con un cubo en cada extremo. La carga de uno de los cubos es tres veces la del otro (F).</p>
+<ol type="a">
+<li>Calcula el módulo vector de la fuerza resultante. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Solución:</em> <span class="math inline">\(F_R = 4F \text{ N}\)</span>)</p></details></li>
+<li>Calcula el punto de apoyo de la barra para que la carga esté equilibrada. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Solución:</em> <span class="math inline">\(x = 1,5 \text{ m}\)</span> ; <span class="math inline">\(y = 0,5 \text{ m}\)</span>)</p></details></li>
+<li>Realiza la representación vectorial del sistema.</li>
+</ol>
+<hr/>
+<p><strong>2.</strong> Una puerta de 400 N de peso y 2 m de alto por 1 m de ancho se soporta en dos bisagras que se sitúan a 1,5 m una de otra y la misma distancia de los extremos superior e inferior de la puerta. Supón que la bisagra inferior solo ejerce fuerza horizontal y que todo el peso de la puerta lo recoge la bisagra superior.</p>
+<ol type="a">
+<li>Realiza la representación vectorial del sistema de fuerzas.</li>
+<li>Calcula el valor de las fuerzas que se ejercen en cada bisagra. <em>(Solución: bisagra superior:</em> <span class="math inline">\(F_R = 421,64 \text{ N}\)</span> ; bisagra inferior: <span class="math inline">\(R = F_X = 133,33 \text{ N}\)</span>)</li>
+</ol>
+<hr/>
+
+<p><strong>3 (PAU).</strong> En el sistema en equilibrio que se muestra en la figura adjunta, la viga uniforme de longitud L pesa 0,60 kN y está sujeta a un apoyo articulado fijo en el punto A y a una cuerda tensora en el punto B. En el otro extremo, la viga sujeta un peso de 0,80 kN.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio3.png" width="271"/></p>
+<figcaption>Ejercicio PAU 3</figcaption>
+</figure>
+</div>
+<p>Se pide:</p>
+<ol type="a">
+<li>Dibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.</li>
+<li>Calcular la tensión en la cuerda tensora y las componentes de la fuerza de reacción que ejerce el apoyo articulado fijo sobre la viga. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Sol:</em> <span class="math inline">\(F_T = 2281,7 \text{ N}\)</span>; <span class="math inline">\(F_{Rx} = 1747,9 \text{ N}\)</span>; <span class="math inline">\(F_{Ry} = -66,6 \text{ N}\)</span>)</p></details></li>
+</ol>
+<hr/>
+
+<p><strong>4 (PAU).</strong> Un asta de peso 0,40 kN y densidad uniforme está suspendida como se muestra en la figura. En su extremo libre sujeta un peso de 2 kN.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio4.png" width="234"/></p>
+<figcaption>Ejercicio PAU 4</figcaption>
+</figure>
+</div>
+<p>Se pide:</p>
+<ol type="a">
+<li>Dibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.</li>
+<li>Calcular la tensión en la cuerda y la fuerza que ejerce el pivote en P sobre el asta <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Sol:</em> <span class="math inline">\(F_T = 2,46 \text{ kN}\)</span>; <span class="math inline">\(F_R = 3,44 \text{ kN}\)</span>; <span class="math inline">\(\theta = 44º\)</span>)</p></details></li>
+</ol>
+<hr/>
+<p><strong>5 (PAU).</strong> Para colgar un cartel en la fachada de un edificio, se usa una barra horizontal con un extremo fijo en la pared a cierta altura. El otro extremo de la barra se sujeta con un cable tensor que se fija a la pared 3,2 m por encima del apoyo fijo de la barra.</p>
+<p>La barra mide 2,8 m de largo y su masa es despreciable. El cartel es cuadrado, de 1,9 m de lado y 52,3 kg. Cuelga del punto central de su lado superior mediante un cable fijado a la barra, de modo que el extremo derecho del cartel queda alineado con el extremo derecho de la barra. Toma <span class="math inline">\(g = 9,81 \text{ m/s}^2\)</span>.</p>
+<p>Se pide:</p>
+<ol type="a">
+<li>Dibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.</li>
+<li>Calcular la tensión del cable de soporte. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Sol:</em> <span class="math inline">\(F_T = 450,44 \text{ N}\)</span>)</p></details></li>
+<li>Calcular las componentes horizontal y vertical de la reacción ejercida por la pared. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Sol:</em> <span class="math inline">\(F_{Rx} = 296,61 \text{ N}\)</span>; <span class="math inline">\(F_{Ry} = 174,07 \text{ N}\)</span>)</p></details></li>
+</ol>
+<hr/>
+<p><strong>6 (PAU).</strong> Una grúa fija tiene una masa de 1 000 kg y se usa para levantar un contenedor de 2 400 kg. Toma <span class="math inline">\(g = 9,81 \text{ m/s}^2\)</span>. La grúa se mantiene en su lugar por medio de un perno en A y un balancín en B. El perno es un tipo de anclaje fijo que permite rotaciones de la grúa, pero no traslaciones, y un balancín es un apoyo móvil tipo rodillo que permite rotaciones y traslaciones. El centro de gravedad de la grúa está ubicado en G de acuerdo con el siguiente dibujo:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio5.png" width="281"/></p>
+<figcaption>Ejercicio PAU 6</figcaption>
+</figure>
+</div>
+<p>Se pide:</p>
+<ol type="a">
+<li>Dibujar el diagrama del sólido libre.</li>
+<li>Calcular la fuerza de reacción en los apoyos A y B. <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(Sol:</em> <span class="math inline">\(A_x = 107,26 \text{ kN}\)</span> izqda; <span class="math inline">\(A_y = 33,35 \text{ kN}\)</span> arriba; <span class="math inline">\(B_x = 107,26 \text{ kN}\)</span> dcha)</p></details></li>
+</ol>
+<hr/>
+<p><strong>7 (PAU).</strong> Un tractor como el de la figura tiene una masa de 2 100 lb y se utiliza para levantar 900 lb de grava en su pala delantera. El tractor se apoya en las ruedas traseras y delanteras, que están separadas 60 in. El centro de gravedad del tractor se sitúa 20 in por delante de las ruedas traseras, y durante el transporte el centro de gravedad de la pala cargada se encuentra 50 in por delante de las ruedas delanteras.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio9.png" width="229"/></p>
+<figcaption>Ejercicio PAU 7</figcaption>
+</figure>
+</div>
+<p>Se pide:</p>
+<ol type="a">
+<li>Dibujar el diagrama del sólido libre indicando correctamente el sentido de todas las fuerzas.</li>
+<li>Calcular las reacciones en ruedas traseras (apoyo A) y en las delanteras (apoyo B). <details class="solucion-diferida"><summary>Consultar resultado después de intentarlo</summary><p><em>(</em><span class="math inline">\(A_y = 2,89 \text{ kN}\)</span>; <span class="math inline">\(B_y = 10,47 \text{ kN}\)</span>)</p></details></li>
+</ol>
+<p>Considerar 1 lb = 0,454 kg, 1 in = 2,54 cm y <span class="math inline">\(g = 9,81 \text{ m/s}^2\)</span>.</p>
+</div>
+</section>
+<section class="level2" id="practica-barra-cable">
+<h2>Práctica: comprobación de una barra con cable</h2>
+<div class="marco marco-actividad"><p class="marco-titulo">Enunciado</p>
+<p>Una barra horizontal homogénea está articulada a una pared y se sostiene mediante un cable. En su extremo cuelga una masa. Calcula la tensión del cable y las reacciones de la articulación, comprueba tus resultados y explica qué ocurre al mover el punto de unión del cable.</p>
+<p><strong>El trabajo es individual de principio a fin, incluido el uso del simulador.</strong> Al abrirlo encontrarás dos casos con datos aleatorios. Los dos mantienen la longitud de la barra, la altura del anclaje y las masas; solo cambia la distancia desde la articulación hasta la unión del cable.</p>
+<p><strong>Copia en tu informe todos los datos de los dos casos y su código antes de volver a pulsar «Aleatorio» o recargar la página.</strong> El botón genera un nuevo conjunto. Los botones «Caso 1» y «Caso 2» permiten alternar sin cambiar tus datos. No uses los datos ni las respuestas de otra persona.</p>
+<h3>Qué debes hacer</h3><ol>
+<li>Haz una copia de la plantilla de informe en Google Docs y registra los datos de tus dos casos.</li>
+<li>Para el caso 1, dibuja en tu cuaderno el diagrama de sólido libre con fuerzas, ejes y distancias. Plantea las ecuaciones de equilibrio y calcula T, A<sub>x</sub> y A<sub>y</sub>, con unidades. Anota tu predicción razonada del signo de A<sub>y</sub> antes de comprobar.</li>
+<li>Pulsa «Comprobar» y registra el resultado. Si no coincide con tu cálculo, conserva el desarrollo inicial y explica la corrección.</li>
+<li>Selecciona el caso 2. Antes de mostrar los resultados, predice qué cambiará, dibuja su diagrama y realiza también los cálculos en el cuaderno. Después comprueba y compara.</li>
+<li>Añade al informe imágenes escaneadas o fotografías legibles de <strong>los diagramas y los desarrollos de cálculo de ambos casos</strong>. No basta con una captura del simulador ni con copiar sus resultados.</li>
+<li>Explica los cambios utilizando el equilibrio de momentos y de fuerzas. Interpreta el sentido físico de la reacción vertical cuando su valor es negativo.</li>
+</ol>
+<p><a class="btn btn-primary" href="https://docs.google.com/document/d/1HFXdBUwylmGN59RHGgvrE5zvUAAY-7sejtL9btoVIhU/copy" role="button" target="_blank" rel="noopener">Hacer una copia del informe en Google Docs</a></p>
+<h3>Entrega y calificación</h3>
+<p>En Google Docs, utiliza <strong>Archivo → Descargar → Documento PDF</strong>. Revisa que las imágenes y todos los cálculos se lean y entrega <strong>un único PDF en la tarea de Moodle</strong>. Puedes ampliar el espacio de la plantilla o añadir páginas.</p>
+<p>Se valoran cinco aspectos:</p>
+<ul>
+<li><strong>Diagramas de sólido libre: 22,5 %.</strong></li>
+<li><strong>Cálculo y predicción razonada: 22,5 %.</strong></li>
+<li><strong>Comprobación y corrección de resultados: 22,5 %.</strong></li>
+<li><strong>Explicación física del cambio de geometría: 22,5 %.</strong></li>
+<li><strong>Informe como documento técnico: 10 %.</strong></li>
+</ul>
+<p>La práctica aporta el <strong>10 %</strong> y el examen el <strong>90 %</strong> de la nota del criterio de cálculo de estructuras. Además, el informe sirve como evidencia de tu competencia para documentar técnicamente un trabajo.</p>
+</div>
+<div class="marco marco-teoria"><p class="marco-titulo">Simulador</p>
+<iframe src="../content/resources/barra_cable.html" title="Simulador individual de una barra articulada con cable" style="width:100%;height:1500px;border:1px solid #c8d6e4;border-radius:.5rem" loading="lazy"></iframe>
+<p><a href="../content/resources/barra_cable.html" target="_blank" rel="noopener">Abrir el simulador en una ventana nueva</a>. Esta ventana genera sus propios datos: copia los de la ventana en la que vayas a trabajar.</p>
+</div></section></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/cargas-apoyos-y-uniones.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/vigas-y-diagramas-nvm.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter" class="siteFooter-empty"><div id="siteFooterContent"></div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

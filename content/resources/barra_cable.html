@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Barra articulada con cable</title>
+  <style>
+    :root {
+      --morado: #453f93;
+      --morado-claro: #efedff;
+      --tinta: #20232a;
+      --suave: #f5f6f8;
+      --borde: #c9ccd3;
+      --verde: #176b45;
+      --rojo: #a52a2a;
+      --azul: #1769aa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--tinta);
+      background: #fff;
+      font: 16px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { max-width: 1120px; margin: 0 auto; padding: 1rem; }
+    h1 { color: var(--morado); font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 .3rem; }
+    h2 { font-size: 1.15rem; margin: 0 0 .8rem; }
+    .lead { margin: 0 0 1rem; }
+    .layout { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.7fr); gap: 1rem; }
+    .panel { border: 1px solid var(--borde); border-radius: 12px; padding: 1rem; background: #fff; }
+    .controls { background: var(--suave); }
+    .control { margin: 0 0 .9rem; }
+    .control label { display: flex; justify-content: space-between; gap: .75rem; font-weight: 650; }
+    input[type="range"] { width: 100%; accent-color: var(--morado); }
+    .preset-row, .action-row { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+    button {
+      border: 2px solid var(--morado); border-radius: 8px; padding: .55rem .8rem;
+      background: #fff; color: var(--morado); font-weight: 700; cursor: pointer;
+    }
+    button.primary { background: var(--morado); color: #fff; }
+    button:focus-visible, input:focus-visible { outline: 3px solid #f4b400; outline-offset: 2px; }
+    svg { width: 100%; height: auto; display: block; border-radius: 8px; background: #fff; }
+    .hint { font-size: .94rem; color: #50545c; }
+    .results { margin-top: 1rem; display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: .6rem; }
+    .result { border: 1px solid var(--borde); border-radius: 9px; padding: .65rem; background: #fff; }
+    .result strong { display: block; color: var(--morado); font-size: 1.15rem; }
+    .warning { margin-top: .8rem; border-left: 5px solid var(--rojo); background: #fff0f0; padding: .7rem .8rem; }
+    .ok { border-left-color: var(--verde); background: #eef9f3; }
+    .hidden { display: none; }
+    table { width:100%; border-collapse:collapse; margin:.7rem 0; font-size:.94rem; }
+    th,td { padding:.45rem; border-bottom:1px solid var(--borde); text-align:left; }
+    th { background:var(--morado-claro); }
+    textarea { width:100%; min-height:12rem; font:inherit; font-size:.9rem; padding:.6rem; }
+    button[aria-pressed="true"] { background:var(--morado); color:white; }
+    .dataset { margin-bottom:1rem; }
+    .steps { margin-top: 1rem; border-left: 5px solid var(--morado); background: var(--morado-claro); padding: .8rem 1rem; }
+    .steps ol { margin: .25rem 0 .2rem 1.25rem; padding: 0; }
+    .steps li + li { margin-top: .35rem; }
+    .formula { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #f0f1f3; padding: .1rem .3rem; border-radius: 4px; }
+    @media (max-width: 780px) {
+      .layout { grid-template-columns: 1fr; }
+      .results { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Barra articulada con cable</h1>
+  <p class="lead">Trabajo individual. Estos dos casos se han generado para ti. Haz tus cálculos y predicciones antes de pulsar <strong>Comprobar</strong>.</p>
+  <section class="panel dataset" aria-labelledby="mis-datos">
+    <h2 id="mis-datos">Mis dos casos</h2>
+    <p><strong>Código de datos: <output id="datasetCode">—</output></strong></p>
+    <p class="warning"><strong>Copia en tu informe todos los datos de ambos casos antes de volver a pulsar «Aleatorio».</strong> Al generar otros casos o recargar esta página cambian los datos. Cambiar entre «Caso 1» y «Caso 2» no los modifica.</p>
+    <table><thead><tr><th>Dato</th><th>Caso 1</th><th>Caso 2</th></tr></thead><tbody id="datasetRows"></tbody></table>
+    <button type="button" id="random">Aleatorio</button>
+    <div id="confirmRandom" class="warning hidden" role="alert">
+      <p>¿Has copiado los datos de los dos casos en tu informe? Si continúas, se sustituirán y se ocultarán los resultados.</p>
+      <button type="button" id="regenerate">Sí, generar otros dos casos</button>
+      <button type="button" id="cancelRandom">Conservar mis datos</button>
+    </div>
+    <details><summary>Copiar los datos al informe</summary>
+      <label for="dataText">Selecciona y copia este texto, o utiliza el botón.</label>
+      <textarea id="dataText" readonly></textarea>
+      <button type="button" id="copyData">Copiar datos</button>
+      <p id="copyStatus" aria-live="polite"></p>
+    </details>
+    <p id="randomError" class="warning hidden" role="alert"></p>
+  </section>
+
+  <section class="layout">
+    <div class="panel controls" aria-labelledby="controles">
+      <h2 id="controles">Datos del caso <span id="caseNumber">1</span></h2>
+
+      <div class="control">
+        <label>Longitud de la barra, L <output id="lengthOut">—</output></label>
+      </div>
+      <div class="control">
+        <label>Punto de unión del cable, b <output id="attachOut">—</output></label>
+      </div>
+      <div class="control">
+        <label>Altura del anclaje, h <output id="heightOut">—</output></label>
+      </div>
+      <div class="control">
+        <label>Masa de la barra <output id="barMassOut">—</output></label>
+      </div>
+      <div class="control">
+        <label>Masa suspendida en el extremo <output id="loadMassOut">—</output></label>
+      </div>
+
+      <div class="preset-row" aria-label="Seleccionar mi caso">
+        <button type="button" data-case="0" aria-pressed="true">Caso 1</button>
+        <button type="button" data-case="1" aria-pressed="false">Caso 2</button>
+      </div>
+      <div class="action-row">
+        <button class="primary" id="check" type="button">Comprobar</button>
+        <button id="hide" type="button">Ocultar resultados</button>
+      </div>
+      <p class="hint">Se usa <em>g</em> = 9,81 m/s². La barra es homogénea y su peso actúa en el centro.</p>
+      <p class="hint">Los dos casos mantienen L, h y las masas. Solo cambia b. Las flechas indican el sentido de las fuerzas; su longitud no representa su módulo.</p>
+    </div>
+
+    <div class="panel" aria-labelledby="esquema">
+      <h2 id="esquema">Esquema y diagrama de fuerzas</h2>
+      <svg id="scene" viewBox="0 0 900 500" role="img" aria-labelledby="svgTitle svgDesc">
+        <title id="svgTitle">Barra horizontal articulada y sostenida por un cable</title>
+        <desc id="svgDesc">La barra tiene una articulación a la izquierda, un cable inclinado y dos pesos verticales. Al comprobar aparecen la tensión y las reacciones.</desc>
+        <defs>
+          <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a52a2a"/></marker>
+          <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1769aa"/></marker>
+          <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#176b45"/></marker>
+          <pattern id="wall" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="14" stroke="#999" stroke-width="4"/></pattern>
+        </defs>
+        <rect x="42" y="55" width="35" height="355" fill="url(#wall)"/>
+        <line id="bar" x1="90" y1="330" x2="750" y2="330" stroke="#453f93" stroke-width="18" stroke-linecap="round"/>
+        <circle cx="90" cy="330" r="13" fill="#fff" stroke="#20232a" stroke-width="4"/>
+        <path d="M65 365 L90 333 L115 365 Z" fill="#d7d8dd" stroke="#20232a" stroke-width="3"/>
+        <line id="cable" x1="90" y1="120" x2="503" y2="330" stroke="#50545c" stroke-width="7"/>
+        <circle id="anchor" cx="90" cy="120" r="9" fill="#20232a"/>
+        <circle id="joint" cx="503" cy="330" r="9" fill="#20232a"/>
+
+        <line id="barWeight" x1="420" y1="345" x2="420" y2="420" stroke="#a52a2a" stroke-width="5" marker-end="url(#arrowRed)"/>
+        <text id="barWeightLabel" x="430" y="397" fill="#a52a2a" font-size="20" font-weight="700">P barra</text>
+        <line id="loadWeight" x1="750" y1="345" x2="750" y2="445" stroke="#a52a2a" stroke-width="5" marker-end="url(#arrowRed)"/>
+        <text id="loadWeightLabel" x="765" y="420" fill="#a52a2a" font-size="20" font-weight="700">P carga</text>
+
+        <g id="answerVectors" class="hidden">
+          <line id="tensionVector" x1="503" y1="330" x2="420" y2="250" stroke="#1769aa" stroke-width="6" marker-end="url(#arrowBlue)"/>
+          <text id="tensionLabel" x="400" y="235" fill="#1769aa" font-size="20" font-weight="700">T</text>
+          <line id="axVector" x1="90" y1="330" x2="185" y2="330" stroke="#176b45" stroke-width="6" marker-end="url(#arrowGreen)"/>
+          <text id="axLabel" x="155" y="315" fill="#176b45" font-size="20" font-weight="700">Aₓ</text>
+          <line id="ayVector" x1="90" y1="330" x2="90" y2="255" stroke="#176b45" stroke-width="6" marker-end="url(#arrowGreen)"/>
+          <text id="ayLabel" x="105" y="275" fill="#176b45" font-size="20" font-weight="700">Aᵧ</text>
+        </g>
+
+        <line id="dimL" x1="90" y1="475" x2="750" y2="475" stroke="#666" stroke-width="2"/>
+        <text id="dimLLabel" x="400" y="495" fill="#444" font-size="18">L = 4,0 m</text>
+        <text id="dimBLabel" x="245" y="315" fill="#444" font-size="18">b = 2,5 m</text>
+        <text id="dimHLabel" x="100" y="205" fill="#444" font-size="18">h = 2,0 m</text>
+      </svg>
+
+      <div id="results" class="results hidden" aria-live="polite">
+        <div class="result">Ángulo del cable<strong id="thetaResult">—</strong></div>
+        <div class="result">Tensión, T<strong id="tResult">—</strong></div>
+        <div class="result">Reacción, Aₓ<strong id="axResult">—</strong></div>
+        <div class="result">Reacción, Aᵧ<strong id="ayResult">—</strong></div>
+      </div>
+      <div id="message" class="warning hidden" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <strong>Orden de trabajo</strong>
+    <ol>
+      <li>Copia los datos de ambos casos en tu informe. Dibuja en tu cuaderno el diagrama de sólido libre y calcula la tensión y las reacciones para el <strong>Caso 1</strong>.</li>
+      <li>Predice el signo de A<sub>y</sub> y después pulsa <strong>Comprobar</strong>.</li>
+      <li>Selecciona el <strong>Caso 2</strong>. Sin comprobar todavía, predice los cambios y resuélvelo también en tu cuaderno.</li>
+      <li>Comprueba y contrasta ambos resultados. Añade al informe imágenes escaneadas o fotografías legibles de los diagramas y los desarrollos de cálculo de ambos casos.</li>
+    </ol>
+  </section>
+
+  <details>
+    <summary><strong>Relaciones que puedes utilizar</strong></summary>
+    <p><span class="formula">ΣM<sub>A</sub> = 0</span> permite obtener la componente vertical de la tensión. Después, <span class="formula">ΣF<sub>x</sub> = 0</span> y <span class="formula">ΣF<sub>y</sub> = 0</span> permiten obtener las reacciones.</p>
+  </details>
+</main>
+
+<script>
+(() => {
+  const g = 9.81;
+  // BEGIN RANDOM CORE — 31 × 31 × 21 × 29 × 10 × 10 conjuntos equiprobables.
+  function randomInt(n, source = crypto) {
+    const limit = Math.floor(4294967296 / n) * n;
+    const value = new Uint32Array(1);
+    do { source.getRandomValues(value); } while (value[0] >= limit);
+    return value[0] % n;
+  }
+  function positionOptions(Lcm, mb, ml) {
+    const critical = Lcm * (mb / 2 + ml) / (mb + ml);
+    const bounds = [
+      [Math.ceil(.30 * Lcm), Math.min(Math.floor(.65 * Lcm), Math.ceil(critical) - 2)],
+      [Math.floor(critical) + 2, Lcm - 2]
+    ];
+    return bounds.map(([lo, hi]) => {
+      if (hi - lo < 9) throw new Error('Geometría sin diez posiciones distintas');
+      return Array.from({length:10}, (_,i) => (lo + Math.round((hi-lo)*i/9))/100);
+    });
+  }
+  function datasetFromIndices(indices) {
+    const [il,ih,im,ip,ib1,ib2] = indices;
+    const d = {L:(30+il)/10, h:(10+ih)/10, mb:20+5*im, ml:10+5*ip};
+    const positions = positionOptions(300+10*il,d.mb,d.ml);
+    const serial = (((((il*31+ih)*21+im)*29+ip)*10+ib1)*10+ib2)+1;
+    return {code:'BC-'+String(serial).padStart(8,'0'), cases:[{...d,b:positions[0][ib1]},{...d,b:positions[1][ib2]}]};
+  }
+  function generateDataset(source = crypto) {
+    return datasetFromIndices([31,31,21,29,10,10].map(n=>randomInt(n,source)));
+  }
+  // END RANDOM CORE
+  let dataset, activeCase = 0;
+  const ids = ["length", "attach", "height", "barMass", "loadMass"];
+  const out = Object.fromEntries(ids.map(id => [id, document.getElementById(id + "Out")]));
+  const scene = {
+    bar: document.getElementById("bar"), cable: document.getElementById("cable"),
+    anchor: document.getElementById("anchor"), joint: document.getElementById("joint"),
+    barWeight: document.getElementById("barWeight"), barWeightLabel: document.getElementById("barWeightLabel"),
+    loadWeight: document.getElementById("loadWeight"), loadWeightLabel: document.getElementById("loadWeightLabel"),
+    dimL: document.getElementById("dimL"), dimLLabel: document.getElementById("dimLLabel"),
+    dimBLabel: document.getElementById("dimBLabel"), dimHLabel: document.getElementById("dimHLabel"),
+    answerVectors: document.getElementById("answerVectors"), tensionVector: document.getElementById("tensionVector"),
+    tensionLabel: document.getElementById("tensionLabel"), axVector: document.getElementById("axVector"),
+    axLabel: document.getElementById("axLabel"), ayVector: document.getElementById("ayVector"), ayLabel: document.getElementById("ayLabel")
+  };
+  const results = document.getElementById("results");
+  const message = document.getElementById("message");
+
+  const number = value => Number(value).toLocaleString("es-ES", {maximumFractionDigits: 2, minimumFractionDigits: 2});
+  const force = value => `${Math.round(value).toLocaleString("es-ES")} N`;
+
+  function data() {
+    return dataset.cases[activeCase];
+  }
+
+  function solve(d) {
+    const wb = d.mb * g;
+    const p = d.ml * g;
+    const ty = (wb * d.L / 2 + p * d.L) / d.b;
+    const theta = Math.atan2(d.h, d.b);
+    const t = ty / Math.sin(theta);
+    const tx = ty / Math.tan(theta);
+    return {wb, p, ty, theta, t, ax: tx, ay: wb + p - ty};
+  }
+
+  function draw(showAnswers = false) {
+    if (!dataset) return;
+    const d = data();
+    const s = solve(d);
+    const scale = Math.min(660/d.L, 260/d.h);
+    const x0 = 90, y0 = 330, barPx = scale*d.L;
+    const xEnd = x0 + barPx;
+    const xJoint = x0 + (d.b / d.L) * barPx;
+    const xMid = x0 + barPx / 2;
+    const yAnchor = y0 - scale*d.h;
+
+    out.length.value = `${number(d.L)} m`;
+    out.attach.value = `${number(d.b)} m`;
+    out.height.value = `${number(d.h)} m`;
+    out.barMass.value = `${d.mb} kg`;
+    out.loadMass.value = `${d.ml} kg`;
+
+    scene.bar.setAttribute("x2", xEnd);
+    scene.cable.setAttribute("y1", yAnchor);
+    scene.cable.setAttribute("x2", xJoint);
+    scene.anchor.setAttribute("cy", yAnchor);
+    scene.joint.setAttribute("cx", xJoint);
+    scene.barWeight.setAttribute("x1", xMid); scene.barWeight.setAttribute("x2", xMid);
+    scene.barWeightLabel.setAttribute("x", xMid + 10);
+    scene.loadWeight.setAttribute("x1", xEnd); scene.loadWeight.setAttribute("x2", xEnd);
+    scene.loadWeightLabel.setAttribute("x", xEnd + 12);
+    scene.dimL.setAttribute("x2", xEnd);
+    scene.dimLLabel.setAttribute("x", x0 + barPx / 2 - 35);
+    scene.dimLLabel.textContent = `L = ${number(d.L)} m`;
+    scene.dimBLabel.setAttribute("x", x0 + (xJoint - x0) / 2 - 35);
+    scene.dimBLabel.textContent = `b = ${number(d.b)} m`;
+    scene.dimHLabel.textContent = `h = ${number(d.h)} m`;
+    scene.dimHLabel.setAttribute('y', (yAnchor+y0)/2);
+
+    scene.tensionVector.setAttribute("x1", xJoint); scene.tensionVector.setAttribute("y1", y0);
+    const ux = (x0 - xJoint) / Math.hypot(xJoint - x0, y0 - yAnchor);
+    const uy = (yAnchor - y0) / Math.hypot(xJoint - x0, y0 - yAnchor);
+    scene.tensionVector.setAttribute("x2", xJoint + ux * 115); scene.tensionVector.setAttribute("y2", y0 + uy * 115);
+    scene.tensionLabel.setAttribute("x", xJoint + ux * 125 - 10); scene.tensionLabel.setAttribute("y", y0 + uy * 125 - 5);
+
+    const ayDirection = s.ay >= 0 ? -1 : 1;
+    scene.ayVector.setAttribute("y2", y0 + ayDirection * 85);
+    scene.ayLabel.setAttribute("y", y0 + ayDirection * 70);
+
+    if (showAnswers) {
+      document.getElementById("thetaResult").textContent = `${number(s.theta * 180 / Math.PI)}°`;
+      document.getElementById("tResult").textContent = force(s.t);
+      document.getElementById("axResult").textContent = force(s.ax);
+      document.getElementById("ayResult").textContent = `${s.ay < 0 ? "−" : ""}${force(Math.abs(s.ay))}`;
+      scene.answerVectors.classList.remove("hidden"); results.classList.remove("hidden"); message.classList.remove("hidden");
+      if (s.ay < 0) {
+        message.classList.remove("ok");
+        message.innerHTML = `<strong>Aᵧ es negativa.</strong> La articulación ejerce una fuerza hacia abajo sobre la barra. No la cambies de signo: interpreta por qué aparece y comprueba si el apoyo real podría ejercerla.`;
+      } else {
+        message.classList.add("ok");
+        message.innerHTML = `<strong>Aᵧ es positiva.</strong> La articulación ejerce una fuerza hacia arriba. Compara este caso con el anterior y relaciona el cambio con el momento que aporta el cable.`;
+      }
+    } else {
+      scene.answerVectors.classList.add("hidden"); results.classList.add("hidden"); message.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("check").addEventListener("click", () => draw(true));
+  document.getElementById("hide").addEventListener("click", () => draw(false));
+  document.querySelectorAll("[data-case]").forEach(button => button.addEventListener("click", () => {
+    activeCase = Number(button.dataset.case);
+    document.getElementById('caseNumber').textContent = activeCase+1;
+    document.querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.case)===activeCase)));
+    draw(false);
+  }));
+  function newDataset() {
+    try {
+      dataset = generateDataset(); activeCase=0;
+      document.getElementById('caseNumber').textContent='1';
+      document.querySelectorAll('[data-case]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.case==='0')));
+      document.getElementById('datasetCode').textContent=dataset.code;
+      const [a,b]=dataset.cases;
+      const rows=[['Longitud L (m)',number(a.L),number(b.L)],['Unión del cable b (m)',number(a.b),number(b.b)],['Altura h (m)',number(a.h),number(b.h)],['Masa de la barra (kg)',a.mb,b.mb],['Masa suspendida (kg)',a.ml,b.ml],['Gravedad g (m/s²)','9,81','9,81']];
+      document.getElementById('datasetRows').innerHTML=rows.map(r=>'<tr>'+r.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('');
+      document.getElementById('dataText').value='Código: '+dataset.code+'\nDato | Caso 1 | Caso 2\n'+rows.map(r=>r.join(' | ')).join('\n');
+      document.getElementById('copyStatus').textContent='';
+      document.getElementById('randomError').classList.add('hidden');
+      document.getElementById('check').disabled=false;
+      draw(false);
+    } catch(e) {
+      const error=document.getElementById('randomError');
+      error.textContent='No se han podido generar datos aleatorios. Abre el simulador en un navegador actualizado; no uses datos de otra persona.';
+      error.classList.remove('hidden');
+      document.getElementById('check').disabled=true;
+    }
+    document.getElementById('confirmRandom').classList.add('hidden');
+  }
+  document.getElementById('random').addEventListener('click',()=>document.getElementById('confirmRandom').classList.remove('hidden'));
+  document.getElementById('cancelRandom').addEventListener('click',()=>document.getElementById('confirmRandom').classList.add('hidden'));
+  document.getElementById('regenerate').addEventListener('click',newDataset);
+  document.getElementById('copyData').addEventListener('click',async()=>{
+    const field=document.getElementById('dataText'); field.focus(); field.select();
+    try { await navigator.clipboard.writeText(field.value); document.getElementById('copyStatus').textContent='Datos copiados. Pégalos en tu informe.'; }
+    catch(e) { document.getElementById('copyStatus').textContent='Datos seleccionados: utiliza Copiar en tu dispositivo y pégalos en tu informe.'; }
+  });
+  newDataset();
+})();
+</script>
+</body>
+</html>

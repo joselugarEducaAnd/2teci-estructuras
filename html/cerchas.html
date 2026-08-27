@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260825115631PAGE05">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerchas | Estructuras</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Estructuras">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260825115631QMDELPX","packageTitle":"Estructuras","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260825115631PAGE05" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Bienvenida</a>
+</li>
+<li> <a href="../html/elementos-y-esfuerzos-estructurales.html" class="no-ch">Elementos y esfuerzos estructurales</a>
+</li>
+<li> <a href="../html/cargas-apoyos-y-uniones.html" class="no-ch">Cargas, apoyos y uniones</a>
+</li>
+<li> <a href="../html/herramientas-de-calculo.html" class="no-ch">Herramientas de cálculo</a>
+</li>
+<li> <a href="../html/vigas-y-diagramas-nvm.html" class="no-ch">Vigas y diagramas N/V/M</a>
+</li>
+<li class="active"> <a href="../html/cerchas.html" class="active no-ch">Cerchas</a>
+</li>
+</ul>
+</nav><main id="20260825115631PAGE05" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Estructuras</p></div>
+<div class="page-header"><h1 class="page-title">Cerchas</h1></div>
+</header><div id="page-content-20260825115631PAGE05" class="page-content">
+<article id="20260825115631BLK005" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Contenido</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260825115631IDEV005" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260825115631IDEV005&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#3d6694;--chrome-osc:#294d75;--chrome-tinte:#eff3f8;--chrome-linea:#c8d6e4}</style><div class="exe-text"><div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/cerchas.png" style="width:80.0%"/></p>
+<figcaption>Cercha</figcaption>
+</figure>
+</div>
+<div class="marco marco-teoria"><p class="marco-titulo">Cerchas</p><p>Una cercha transmite las cargas mediante barras unidas en nudos. En esta página aprenderás a calcular sus reacciones y los esfuerzos de sus barras.</p></div>
+<p>Las <strong>estructuras de barras articuladas</strong> se utilizan en grúas, torres, puentes, etc. En la modelización de estas estructuras supondremos que son <strong>bidimensionales</strong>, como hemos hecho con las vigas.</p>
+<p>También supondremos que:</p>
+<ul>
+<li>Los nudos son <strong>articulaciones perfectas.</strong></li>
+<li>Las <strong>cargas externas</strong> están <strong>aplicadas exclusivamente en los nudos.</strong></li>
+<li>Las <strong>deformaciones</strong> son <strong>despreciables</strong> frente a las dimensiones de las barras.</li>
+<li>El <strong>peso</strong> de las barras puede considerarse <strong>despreciable</strong> frente a las <strong>cargas</strong> externas.</li>
+</ul>
+<p>Estas simplificaciones implican que <strong>las barras se ven solicitadas esencialmente a un esfuerzo dirigido a lo largo de su eje (axil)</strong>.</p>
+<p>Resolver una cercha supone calcular cómo trabajan todas las barras, y cada barra introduce sólo una incógnita, la <strong>magnitud del axil</strong>.</p>
+<p>El <strong>sentido</strong> del axil podrá ser de <strong>tracción</strong> o <strong>compresión</strong>, dependiendo del signo que obtengamos.</p>
+<table class="caption-top table tabla-datos">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tipo de Esfuerzo</th>
+<th style="text-align: center;">Esquema</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>AXIL DE TRACCIÓN</strong></td>
+<td style="text-align: center;"><img class="img-fluid" src="../content/resources/axilTraccion.png" width="400"/></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>AXIL DE COMPRESIÓN</strong></td>
+<td style="text-align: center;"><img class="img-fluid" src="../content/resources/axilCompresion.png" width="400"/></td>
+</tr>
+</tbody>
+</table>
+<section class="level2" data-number="5.1" id="sistemas-isostáticos-e-hiperestáticos">
+<h2 class="" data-number="5.1"><span class="header-section-number">5.1</span> Sistemas isostáticos e hiperestáticos</h2>
+<p>Las estructuras articuladas se fijan mediante apoyos. Si llamamos <strong><span class="math inline">\(b\)</span></strong> al <strong>número de barras</strong> y <strong><span class="math inline">\(n\)</span></strong> al <strong>número de nudos</strong>, teniendo en cuenta el número de incógnitas en los apoyos (según las ecuaciones de equilibrio), los sistemas se clasifican así:</p>
+<p><strong>Exteriormente</strong>, el recuento de incógnitas debe interpretarse junto con la geometría de las restricciones:</p>
+<ul>
+<li><strong>Inestable:</strong> faltan restricciones independientes o su disposición permite un movimiento.</li>
+<li><strong>Isostático:</strong> hay tres restricciones independientes, dispuestas de manera estable, y las reacciones se obtienen con las ecuaciones de equilibrio.</li>
+<li><strong>Hiperestático:</strong> existen restricciones redundantes y hacen falta relaciones adicionales de deformación.</li>
+</ul>
+<p><strong>Interiormente</strong>, en función del <strong>exceso o defecto de barras</strong>:</p>
+<ul>
+<li><strong>Inestable:</strong> <span class="math inline">\(b &lt; 2n - 3\)</span></li>
+<li><strong>Isostático:</strong> <span class="math inline">\(b = 2n - 3\)</span></li>
+<li><strong>Hiperestático:</strong> <span class="math inline">\(b &gt; 2n - 3\)</span></li>
+</ul>
+<p>Para una cercha plana simple, las condiciones de recuento habituales son:</p>
+<div class="bloque bloque-formula"><p class="marco-titulo">Comprobación necesaria de isostaticidad</p>
+<p><span class="math display">\[\text{3 restricciones exteriores independientes y estables}\]</span> <span class="math display">\[b = 2n - 3\]</span></p>
+</div>
+<p>Estas igualdades son comprobaciones necesarias en los casos habituales, pero la geometría debe revisarse: contar incógnitas y barras no sustituye a comprobar la estabilidad.</p>
+<p>Nosotros nos limitaremos a ver estructuras isostáticas en este curso.</p>
+<div class="marco marco-teoria"><p class="marco-titulo">Ejemplo de estructura isostática (Clic para ver)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/isostatico.png" style="width:80.0%"/></p>
+<figcaption>Ejemplo de estructura isostática</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section class="level2" data-number="5.2" id="métodos-de-cálculo-de-estructuras-de-barras">
+<h2 class="" data-number="5.2"><span class="header-section-number">5.2</span> Métodos de cálculo de estructuras de barras</h2>
+<p>Estudiaremos tres métodos distintos para calcular los esfuerzos en las barras de las estructuras. Dos de esos métodos son analíticos y el tercero es un método gráfico. Son los siguientes:</p>
+<ol type="1">
+<li><strong>Método de los nudos:</strong> Consiste en aplicar el equilibrio a cada nudo de la estructura por separado.</li>
+<li><strong>Método de las secciones (método de Ritter):</strong> Consiste en cortar la estructura en dos partes y aplicar el equilibrio a una de ellas. Útil para conocer el esfuerzo en barras concretas sin calcular toda la estructura.</li>
+<li><strong>Método gráfico de Cremona:</strong> Método geométrico basado en el equilibrio de los polígonos de fuerzas de cada nudo.</li>
+</ol>
+</section>
+<section class="level2" data-number="5.3" id="método-de-los-nudos">
+<h2 class="" data-number="5.3"><span class="header-section-number">5.3</span> Método de los nudos</h2>
+<p>Cuando una estructura articulada es <strong>isostática</strong>, puede analizarse por medio del <strong>método de los nudos.</strong> Al estar la estructura en equilibrio, supondremos en equilibrio todas sus barras y nudos, y obtendremos <strong>ecuaciones de equilibrio estático para cada barra y cada nudo</strong>.</p>
+<p>Para utilizar este método seguimos los siguientes pasos:</p>
+<ol type="1">
+<li>Calculamos las <strong>reacciones en los apoyos</strong> mediante las ecuaciones de equilibrio de toda la estructura.</li>
+<li>Obtenemos la <strong>ecuación de equilibrio para cada nudo</strong> para calcular la <strong>fuerza que ejerce cada barra sobre el nudo</strong>.</li>
+<li>La <strong>fuerza que ejerce el nudo sobre la barra será igual y de sentido contrario.</strong></li>
+<li>Con esto sabremos si las fuerzas son de <strong>tracción</strong> o de <strong>compresión</strong>.</li>
+</ol>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo resuelto: Estructura articulada</p>
+<p>En la figura se representa una estructura de barras donde A es un apoyo articulado y B es un apoyo libre.</p>
+<ol type="a">
+<li>Calcula el valor de las reacciones.</li>
+<li>Empleando el método de los nudos, calcula las tensiones de cada barra.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploNudos1-1.png" style="width:50.0%"/></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section class="level3 unnumbered" id="comprobación-de-isostaticidad">
+<h3 class="unnumbered">Comprobación de isostaticidad</h3>
+<p>La disposición mostrada es estable y tiene tres restricciones exteriores independientes; además, hay igual número de incógnitas (<span class="math inline">\(R_{AX}, R_{AY}, R_{BX}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>).</p>
+<p>También es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 5\)</span> cumple la condición <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=4\)</span> el número de nudos).</p>
+</section>
+<section class="level3 unnumbered" id="diagrama-de-fuerzas-y-reacciones">
+<h3 class="unnumbered">1. Diagrama de fuerzas y Reacciones</h3>
+<p>Construimos el diagrama de cuerpo libre global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploNudos1-2.png" style="width:40.0%"/></p>
+<figcaption>Diagrama de fuerzas y reacciones</figcaption>
+</figure>
+</div>
+<p>Calculamos el valor de las reacciones en los apoyos A y B aplicando las ecuaciones de equilibrio global:</p>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow R_{Ax} + R_{Bx} - 200 = 0 \\
+\sum F_y &amp;= 0 \Rightarrow R_{Ay} - 400 = 0 \Rightarrow \mathbf{R_{Ay} = 400\,\text{N}} \\
+\sum M_A &amp;= 0 \Rightarrow R_{Bx}\cdot 1 - 200\cdot 1 - 400\cdot 1 = 0 \Rightarrow \mathbf{R_{Bx} = 600\,\text{N}}
+\end{align}\]</span></p>
+<p>Sustituyendo <span class="math inline">\(R_{Bx}\)</span> en la primera ecuación: <span class="math display">\[R_{Ax} + 600 - 200 = 0 \Rightarrow \mathbf{R_{Ax} = -400\,\text{N}}\]</span> <em>(El signo negativo indica que <span class="math inline">\(R_{Ax}\)</span> va hacia la izquierda).</em></p>
+</section>
+<section class="level3 unnumbered" id="cálculo-de-tensiones-método-de-los-nudos">
+<h3 class="unnumbered">2. Cálculo de tensiones (Método de los Nudos)</h3>
+<p>Analizamos el equilibrio de cada nudo por separado.</p>
+<section class="level4 unnumbered" id="nudo-b">
+<h4 class="unnumbered">Nudo B</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploNudos1-3.png" style="width:30.0%"/></p>
+<figcaption>Equilibrio en el Nudo B</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow R_{Bx} - T_{BD} = 0 \Rightarrow T_{BD} = 600\,\text{N}\ (\text{compresión}) \\
+\sum F_y &amp;= 0 \Rightarrow T_{AB} = 0\,\text{N}
+\end{align}\]</span></p>
+</section>
+<section class="level4 unnumbered" id="nudo-c">
+<h4 class="unnumbered">Nudo C</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploNudos1-4.png" style="width:30.0%"/></p>
+<figcaption>Equilibrio en el Nudo C</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align}
+\sum F_x &amp;= 0 \Rightarrow T_{AC} = 0\,\text{N} \\
+\sum F_y &amp;= 0 \Rightarrow -F_C + T_{CD} = 0 \Rightarrow T_{CD} = 400\,\text{N}\ (\text{compresión})
+\end{align}\]</span></p>
+</section>
+<section class="level4 unnumbered" id="nudo-d">
+<h4 class="unnumbered">Nudo D</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploNudos1-5.png" style="width:30.0%"/></p>
+<figcaption>Equilibrio en el Nudo D</figcaption>
+</figure>
+</div>
+<p>Por la geometría de la estructura (cuadrado de <span class="math inline">\(1\times1\)</span>), el ángulo de la barra diagonal AD es <span class="math inline">\(\theta = 45^\circ\)</span>.</p>
+<p><span class="math display">\[
+\sum F_y = 0 \Rightarrow T_{AD}\cos\theta - T_{CD} = 0
+\]</span> <span class="math display">\[
+T_{AD} = \frac{T_{CD}}{\cos\theta} = \frac{400}{\cos 45^\circ} = \mathbf{565,69\,\text{N}\ (\text{tracción})}
+\]</span></p>
+</section>
+</section>
+</div>
+</section>
+<section class="level2" data-number="5.4" id="método-de-las-secciones-ritter">
+<h2 class="" data-number="5.4"><span class="header-section-number">5.4</span> Método de las secciones (Ritter)</h2>
+<p>Se utiliza cuando queremos estudiar <strong>una barra en concreto</strong> y no la totalidad de la estructura.</p>
+<p>Consiste en lo siguiente:</p>
+<ol type="1">
+<li><strong>Cortamos</strong> la estructura por una sección que <strong>intersecte tres barras</strong>.</li>
+<li>Eliminamos una de las dos partes en las que ha quedado dividida la estructura.</li>
+<li>Aplicamos en la otra parte <strong>las tres ecuaciones de equilibrio</strong>.</li>
+</ol>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo resuelto: Método de Ritter (Clic para desplegar)</p>
+<p>Empleando el método de las secciones, o de Ritter, calcula las tensiones de las barras CE, ED y DF de la siguiente estructura de barras, donde A es un apoyo libre y G es un apoyo articulado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploRitter1-1.png" style="width:60.0%"/></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section class="level3 unnumbered" id="comprobación-de-isostaticidad-1">
+<h3 class="unnumbered">Comprobación de isostaticidad</h3>
+<p>La disposición mostrada es estable y tiene tres restricciones exteriores independientes; además, hay igual número de incógnitas (<span class="math inline">\(R_{Ay}, R_{Gx}, R_{Gy}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>), y también es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 11\)</span> cumple <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=7\)</span> el número de nudos).</p>
+</section>
+<section class="level3 unnumbered" id="cálculo-de-reacciones">
+<h3 class="unnumbered">1. Cálculo de Reacciones</h3>
+<p>Calculamos primero las <strong>reacciones</strong> con las ecuaciones de equilibrio de la estructura global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploRitter1-2.png" style="width:60.0%"/></p>
+<figcaption>Diagrama global</figcaption>
+</figure>
+</div>
+<p>Con la suma de momentos en G podemos calcular directamente la reacción <strong><span class="math inline">\(R_{Ay}\)</span></strong>:</p>
+<p><span class="math display">\[\sum M_G = 0 \Rightarrow R_{Ay} \cdot 4,5 - 400 \cdot 3 - 200 \cdot 1,5 = 0 \Rightarrow \mathbf{R_{Ay} = 333,33\,\text{N}}\]</span></p>
+<p>Con la suma de fuerzas verticales calculamos la reacción <strong><span class="math inline">\(R_{Gy}\)</span></strong>:</p>
+<p><span class="math display">\[\sum F_y = 0 \Rightarrow R_{Gy} = 600 - 333,33 = \mathbf{266,67\,\text{N}}\]</span></p>
+<p>Por último, la reacción <strong><span class="math inline">\(R_{Gx}\)</span></strong>, es claramente nula al ser la única fuerza horizontal:</p>
+<p><span class="math display">\[\sum F_x = 0 \Rightarrow \mathbf{R_{Gx} = 0\,\text{N}}\]</span></p>
+</section>
+<section class="level3 unnumbered" id="aplicación-del-método-de-ritter">
+<h3 class="unnumbered">2. Aplicación del Método de Ritter</h3>
+<p>A continuación realizamos la sección de la estructura por tres barras, tal y como se ve en la imagen:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploRitter1-3.png" style="width:60.0%"/></p>
+<figcaption>Corte de la sección</figcaption>
+</figure>
+</div>
+<p>Cogemos el lado izquierdo del corte, realizamos el diagrama de cuerpo libre y dibujamos las tensiones de las barras. Escogemos todas las tensiones como de tracción, es decir, salen del nudo. Si luego nos salen negativas, será que en realidad son de compresión:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploRitter1-4.png" style="width:50.0%"/></p>
+<figcaption>Diagrama de cuerpo libre de la sección</figcaption>
+</figure>
+</div>
+<p><strong>Cálculo de <span class="math inline">\(T_{DF}\)</span>:</strong> Ponemos la ecuación de momento nulo en el nudo E. Como las tensiones <span class="math inline">\(T_{CE}\)</span> y <span class="math inline">\(T_{DE}\)</span> pasan por él, no generan momento y nos las quitamos. Por lo tanto, podemos calcular directamente la tensión <span class="math inline">\(T_{DF}\)</span>:</p>
+<p><span class="math display">\[\sum M_E = 0 \Rightarrow 333,33 \cdot 3 - 400 \cdot 1,5 + T_{DF} \cdot 2 = 0 \Rightarrow \mathbf{T_{DF} = -200\,\text{N}}\]</span></p>
+<p>Como sale negativa, resulta que es un esfuerzo de <strong>compresión</strong>.</p>
+<p><strong>Cálculo de <span class="math inline">\(T_{DE}\)</span>:</strong> Con el equilibrio de fuerzas en el eje vertical, podemos calcular la tensión <span class="math inline">\(T_{DE}\)</span>:</p>
+<p><span class="math display">\[\sum F_y = 0 \Rightarrow R_{Ay} - F_C - T_{DE}\cos\alpha = 0\]</span></p>
+<p>El ángulo <span class="math inline">\(\alpha\)</span> lo podemos calcular fácilmente de la geometría de la estructura: <span class="math display">\[\alpha = \tan^{-1}\!\left(\frac{0,75}{2}\right) = 20,56^\circ\]</span></p>
+<p>Por lo tanto: <span class="math display">\[333,33 - 400 - T_{DE}\cos 20,56^\circ = 0 \Rightarrow \mathbf{T_{DE} = -71,20\,\text{N}}\]</span></p>
+<p>De nuevo sale negativa, por lo que es un esfuerzo de <strong>compresión</strong>.</p>
+<p><strong>Cálculo de <span class="math inline">\(T_{CE}\)</span>:</strong> Por último, con la suma de fuerzas horizontales obtenemos la tensión que nos falta, <span class="math inline">\(T_{CE}\)</span>:</p>
+<p><span class="math display">\[\sum F_x = 0 \Rightarrow T_{CE} + T_{DF} + T_{DE}\sin 20,56^\circ = 0\]</span> <span class="math display">\[T_{CE} - 200 - 71,2 \sin 20,56^\circ = 0 \Rightarrow \mathbf{T_{CE} = 225,00\,\text{N}}\]</span></p>
+<p>En esta ocasión, al salir positiva, es un esfuerzo de <strong>tracción</strong>.</p>
+</section>
+</div>
+</section>
+<section class="level2" data-number="5.5" id="método-gráfico-de-cremona">
+<h2 class="" data-number="5.5"><span class="header-section-number">5.5</span> Método gráfico de Cremona</h2>
+<p>El método de Cremona es un procedimiento gráfico basado en el método de los nudos.</p>
+<p>Consiste en lo siguiente:</p>
+<ol type="1">
+<li>Dibujamos la estructura indicando las <strong>cargas</strong> y calculando las <strong>reacciones</strong>.</li>
+<li>Asignamos un número a cada <strong>zona del perímetro externo</strong> situada entre dos fuerzas (ya sean cargas o reacciones).</li>
+<li>Asignamos un número a cada <strong>zona interna</strong> situada entre las barras de la estructura.</li>
+<li>Dibujamos el <strong>polígono de fuerzas exteriores y reacciones</strong>.</li>
+<li>Consideramos cada nudo aisladamente, estableciendo <strong>dos ecuaciones de equilibrio para cada nudo</strong>. Comenzaremos por un nudo en el que concurran dos barras.</li>
+<li>Operamos con nudos sucesivos, eligiéndolos de forma que al resolverlos sólo existan dos barras cuyas fuerzas sean desconocidas.</li>
+<li>Determinamos las incógnitas teniendo en cuenta que <strong>las fuerzas exteriores e interiores constituyen polígonos cerrados</strong>.</li>
+<li>Iniciamos la construcción de gráficas. Dibujaremos <strong>polígonos cerrados de fuerzas para cada uno de los nudos</strong>, combinados de forma que <strong>cada fuerza actuante en una barra</strong>, que será común a dos nudos, <strong>solamente se represente una vez</strong>.</li>
+<li>Medimos las fuerzas en el polígono de Cremona y las pasamos a una tabla. Las tensiones que se <strong>acerquen</strong> al nudo serán de <strong>compresión</strong> y las que se <strong>alejen</strong> serán de <strong>tracción</strong>.</li>
+</ol>
+<p>Como siempre, lo veremos mejor con un ejemplo resuelto.</p>
+<div class="bloque bloque-resuelto"><p class="marco-titulo">Ejemplo resuelto: Método de Cremona (Clic para desplegar)</p>
+<p>Empleando el método gráfico de Cremona, calcula las tensiones de las barras de la siguiente estructura de barras, donde A es un apoyo articulado y D es un apoyo libre.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-1.png" style="width:60.0%"/></p>
+<figcaption>Estructura propuesta</figcaption>
+</figure>
+</div>
+<section class="level3 unnumbered" id="comprobación-de-isostaticidad-2">
+<h3 class="unnumbered">Comprobación de isostaticidad</h3>
+<p>La disposición mostrada es estable y tiene tres restricciones exteriores independientes; además, hay igual número de incógnitas (<span class="math inline">\(R_{Ax}, R_{Ay}, R_{Dy}\)</span>) que de ecuaciones (<span class="math inline">\(\sum F_x = 0; \sum F_y = 0; \sum M = 0\)</span>).</p>
+<p>También es isostática interiormente, ya que el número de barras <span class="math inline">\(b = 7\)</span> cumple <span class="math inline">\(b = 2n-3\)</span> (siendo <span class="math inline">\(n=5\)</span> el número de nudos).</p>
+</section>
+<section class="level3 unnumbered" id="cálculo-de-reacciones-1">
+<h3 class="unnumbered">1. Cálculo de Reacciones</h3>
+<p>Calculamos primero las <strong>reacciones</strong> con las ecuaciones de equilibrio de la estructura global:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-2.png" style="width:60.0%"/></p>
+<figcaption>Diagrama global con reacciones</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\begin{align*}
+\sum M_A &amp;= 0 \Rightarrow R_{Dy}\cdot 8 - 4\cdot 6 - 2\cdot 2 = 0 \Rightarrow \mathbf{R_{Dy} = 3,5\,\text{kN}} \\
+\sum F_y &amp;= 0 \Rightarrow R_{Ay} = 4 - R_{Dy} = \mathbf{0,5\,\text{kN}} \\
+\sum F_x &amp;= 0 \Rightarrow \mathbf{R_{Ax} = 2\,\text{kN}}
+\end{align*}\]</span></p>
+</section>
+<section class="level3 unnumbered" id="numeración-de-zonas-notación-de-bow">
+<h3 class="unnumbered">2. Numeración de Zonas (Notación de Bow)</h3>
+<p>Numeramos las barras y asignamos un número a cada zona del perímetro externo situado entre dos fuerzas (acciones o reacciones) y luego a las zonas internas.</p>
+<p>Las zonas del perímetro serán, en este caso, 1, 2, 3, 4 y 5, mientras que las zonas internas serán 6, 7 y 8:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-3.png" style="width:70.0%"/></p>
+<figcaption>Numeración de zonas</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3 unnumbered" id="construcción-del-polígono-de-fuerzas-cremona">
+<h3 class="unnumbered">3. Construcción del Polígono de Fuerzas (Cremona)</h3>
+<p>Ahora dibujamos el <strong>polígono de fuerzas externas</strong>, que estará formado por los números de las zonas externas (es decir, del 1 al 5). Para dibujarlo, operamos como sigue:</p>
+<ul>
+<li>Situamos el número 1.</li>
+<li>Trazamos desde el número 1 una línea paralela a la fuerza que hay entre 1 y 2 (en este caso <span class="math inline">\(R_{AX}\)</span>), y elegimos una escala para marcar una distancia que corresponda al valor de dicha fuerza (por ejemplo, 1 cm = 1 kN).</li>
+<li>Una vez situado el número 2, repetimos el procedimiento anterior para situar el 3.</li>
+<li>Continuamos hasta llegar al último número (en este caso el 5), comprobando que desde él hacia el 1 el polígono queda <strong>cerrado</strong> (es decir, que terminamos de nuevo sobre el número 1).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-4.png" style="width:40.0%"/></p>
+<figcaption>Polígono de fuerzas externas</figcaption>
+</figure>
+</div>
+<p>Sobre el diagrama de Cremona, empezamos a dibujar los números de las zonas internas, correspondientes a las barras que concurren en un nudo <strong>con sólo dos incógnitas.</strong> Para ello, recorremos el nudo en <strong>SENTIDO HORARIO:</strong> mirando, por ejemplo, el <strong>nudo A,</strong> la numeración es 1-2-6-5. Lo que estamos haciendo es sumar las fuerzas que actúan en cada nudo en un determinado orden.</p>
+<p>El nº 6 es el único que no está situado en el diagrama. Vemos cómo situarlo:</p>
+<ul>
+<li>La <strong>barra AB</strong> corresponderá en el diagrama a un segmento <strong>entre 2 y 6.</strong> Por tanto, trazamos desde 2 una línea paralela a la barra AB.</li>
+<li>La <strong>barra AE</strong> corresponderá en el diagrama a un segmento <strong>entre 6 y 5.</strong> Por tanto, trazamos desde 5 una línea paralela a la barra AE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el punto 6.</li>
+</ul>
+<p>Seguimos por el <strong>nudo B:</strong> dibujamos los segmentos de las barras del nudo B.</p>
+<ul>
+<li>La <strong>barra BC</strong> corresponderá en el diagrama a un segmento <strong>entre 3 y 7.</strong> Por tanto, trazamos desde 3 una línea paralela a la barra BC.</li>
+<li>La <strong>barra BE</strong> corresponderá en el diagrama a un segmento <strong>entre 7 y 6</strong>. Por tanto, trazamos desde 6 una línea paralela a la barra BE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el número 7.</li>
+</ul>
+<p>Seguimos con el <strong>nudo C</strong>:</p>
+<ul>
+<li>La <strong>barra CD</strong> corresponderá en el diagrama a un segmento <strong>entre 4 y 8.</strong> Por tanto, trazamos desde 4 una línea paralela a la barra CD.</li>
+<li>La <strong>barra CE</strong> corresponderá en el diagrama a un segmento <strong>entre 8 y 7.</strong> Por tanto, trazamos desde 7 una línea paralela a la barra CE.</li>
+<li>En el punto donde se corten estas dos líneas, estará el punto 8.</li>
+</ul>
+<p>Finalizamos con el <strong>nudo D</strong>:</p>
+<ul>
+<li>La <strong>barra ED</strong> corresponderá en el diagrama a un segmento <strong>entre 5 y 8</strong>. Por tanto, <strong>unimos los puntos 5 y 8</strong> del diagrama y obtendremos una línea paralela a la barra ED que nos representa ya el axil <span class="math inline">\(T_{ED}\)</span>.</li>
+</ul>
+</section>
+<section class="level3 unnumbered" id="medición-de-resultados">
+<h3 class="unnumbered">4. Medición de Resultados</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-6.png" style="width:40.0%"/></p>
+<figcaption>Diagrama de Cremona final</figcaption>
+</figure>
+</div>
+<p>Directamente sobre el diagrama medimos las magnitudes de los axiles. Los que se acerquen al nudo B serán de compresión y los que se alejen serán de tracción:</p>
+<ul>
+<li><strong><span class="math inline">\(T_{AB} = 0,707 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{AE} = 2,5 \text{ kN}\)</span> (tracción)</strong></li>
+<li><strong><span class="math inline">\(T_{BC} = 3 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{BE} = 0,707 \text{ kN}\)</span> (tracción)</strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploCremona1-7.png" style="width:40.0%"/></p>
+<figcaption>Diagrama con todos los puntos</figcaption>
+</figure>
+</div>
+<p>Los valores que faltaban por medir son estos:</p>
+<ul>
+<li><strong><span class="math inline">\(T_{CD} = 4,95 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{CE} = 0,707 \text{ kN}\)</span> (compresión)</strong></li>
+<li><strong><span class="math inline">\(T_{ED} = 3,5 \text{ kN}\)</span> (tracción)</strong></li>
+</ul>
+</section>
+</div>
+</section></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/vigas-y-diagramas-nvm.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<span class="nav-button nav-button-right" aria-hidden="true"><span>Siguiente</span></span>
+</div>
+<footer id="siteFooter" class="siteFooter-empty"><div id="siteFooterContent"></div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

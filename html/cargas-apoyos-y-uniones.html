@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260825115631PAGE02">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cargas, apoyos y uniones | Estructuras</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Estructuras">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260825115631QMDELPX","packageTitle":"Estructuras","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260825115631PAGE02" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Bienvenida</a>
+</li>
+<li> <a href="../html/elementos-y-esfuerzos-estructurales.html" class="no-ch">Elementos y esfuerzos estructurales</a>
+</li>
+<li class="active"> <a href="../html/cargas-apoyos-y-uniones.html" class="active no-ch">Cargas, apoyos y uniones</a>
+</li>
+<li> <a href="../html/herramientas-de-calculo.html" class="no-ch">Herramientas de cálculo</a>
+</li>
+<li> <a href="../html/vigas-y-diagramas-nvm.html" class="no-ch">Vigas y diagramas N/V/M</a>
+</li>
+<li> <a href="../html/cerchas.html" class="no-ch">Cerchas</a>
+</li>
+</ul>
+</nav><main id="20260825115631PAGE02" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Estructuras</p></div>
+<div class="page-header"><h1 class="page-title">Cargas, apoyos y uniones</h1></div>
+</header><div id="page-content-20260825115631PAGE02" class="page-content">
+<article id="20260825115631BLK002" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Contenido</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260825115631IDEV002" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260825115631IDEV002&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#3d6694;--chrome-osc:#294d75;--chrome-tinte:#eff3f8;--chrome-linea:#c8d6e4}</style><div class="exe-text"><div class="marco marco-teoria"><p class="marco-titulo">Apoyos y reacciones</p>
+<p>Estudia qué movimientos impide cada apoyo y deduce de ahí sus reacciones. El número de flechas no se memoriza aislado: se razona desde los grados de libertad.</p>
+</div>
+<section class="level2" data-number="2.1" id="cargas-aplicadas-y-reacciones">
+<h2 class="" data-number="2.1"><span class="header-section-number">2.1</span> Cargas aplicadas y reacciones</h2>
+<p>Las <strong>fuerzas</strong> que actúan sobre la estructura se llaman <strong>cargas estructurales</strong> y son causantes de <strong>esfuerzos</strong>, <strong>deformaciones</strong> y <strong>desplazamientos</strong>. Todas tienen que ser incluidas en el cálculo estructural.</p>
+<ul>
+<li><strong>Tipos:</strong> Las cargas pueden ser <strong>fijas</strong> (como el peso propio) o <strong>variables</strong> (como el viento).</li>
+<li><strong>Unidades:</strong> Se miden en <strong>newtons (N)</strong> en el Sistema Internacional.</li>
+<li><strong>Distribución:</strong> Pueden ser <strong>puntuales</strong> (un punto), <strong>distribuidas</strong> (sobre una longitud) o <strong>momentos</strong> (giros en una sección).</li>
+</ul>
+<p>Para mantener el equilibrio estático, es necesario que se produzcan <strong>reacciones</strong>. La viga no está aislada, sino sujeta a otros elementos que generan una reacción opuesta a las cargas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/cargas-01.png" style="width:60.0%"/></p>
+<figcaption>Esquema de cargas y reacciones</figcaption>
+</figure>
+</div>
+</section>
+<section class="level2" data-number="2.2" id="tipos-de-apoyos-y-restricciones">
+<h2 class="" data-number="2.2"><span class="header-section-number">2.2</span> Tipos de apoyos y restricciones</h2>
+<p>El valor de las reacciones depende de las cargas y de las <strong>restricciones</strong> de la viga. No es lo mismo un apoyo simple que un empotramiento. Las <strong>limitaciones de movimiento</strong> que introducen los <strong>apoyos</strong> definen estas restricciones.</p>
+<p>Para el cálculo de vigas identificamos tres tipos principales:</p>
+<div class="quarto-layout-panel" data-layout="[33, 33, 33]" data-valign="top">
+<div class="quarto-layout-row">
+<section class="level3 unnumbered quarto-layout-cell" id="apoyo-deslizante" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="unnumbered">Apoyo Deslizante</h3>
+<p>Permite la rotación y el movimiento en una dirección (generalmente horizontal).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/apDeslizante.png"/></p>
+<figcaption>Apoyo Deslizante</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Reacción (<span class="math inline">\(R_y\)</span>):</strong> Aparece una única fuerza <strong>perpendicular a la superficie de apoyo</strong>: vertical si el plano de rodadura es horizontal, y horizontal si es vertical. También se le llama <strong>apoyo móvil</strong> o <strong>apoyo libre</strong>.</li>
+<li><strong>Momento:</strong> No hay, la rotación está permitida.</li>
+</ul>
+</section>
+<section class="level3 unnumbered quarto-layout-cell" id="apoyo-fijo-articulado" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="unnumbered">Apoyo Fijo (Articulado)</h3>
+<p>Permite la rotación pero impide cualquier traslación.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/apFijo.png"/></p>
+<figcaption>Apoyo Fijo</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Reacciones (<span class="math inline">\(R_x, R_y\)</span>):</strong> Aparecen fuerzas en ambos ejes, ya que se <strong>impide la traslación en cualquier dirección</strong>.</li>
+<li><strong>Momento:</strong> No hay, la rotación está permitida.</li>
+</ul>
+</section>
+<section class="level3 unnumbered quarto-layout-cell" id="empotramiento" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h3 class="unnumbered">Empotramiento</h3>
+<p>Impide cualquier movimiento (traslación o rotación).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/apEmpot.png"/></p>
+<figcaption>Empotramiento</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Reacciones (<span class="math inline">\(R_x, R_y\)</span>):</strong> Aparecen fuerzas en ambos ejes.</li>
+<li><strong>Momento (<span class="math inline">\(M_z\)</span>):</strong> Aparece un momento de reacción ya que se <strong>impide la rotación</strong>.</li>
+</ul>
+</section>
+</div>
+</div>
+<section class="level3 unnumbered" id="resumen-de-reacciones-en-apoyos">
+<h3 class="unnumbered">Resumen de reacciones en apoyos</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/apoyos-01.png" style="width:100.0%"/></p>
+<figcaption>Tabla resumen de apoyos</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3" data-number="2.2.1" id="ejemplos-reales">
+<h3 class="" data-number="2.2.1"><span class="header-section-number">2.2.1</span> Ejemplos reales</h3>
+<p>En el siguiente vídeo puedes ver ejemplos en el mundo real de estos tipos de apoyos:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-external="1" frameborder="0" src="https://www.youtube.com/embed/WlriFqiVHNE" title="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</section>
+</section>
+<div class="marco marco-actividad"><p class="marco-titulo">Microcomprobación 1 - Apoyos, grados de libertad y reacciones</p>
+<ol>
+<li>En el plano, ¿qué reacciones genera un apoyo articulado fijo?</li>
+<li>¿Qué reacción genera un apoyo móvil sobre una superficie horizontal?</li>
+<li>¿Tener tres reacciones garantiza por sí solo que una viga sea isostática?</li>
+</ol>
+<details><summary>Comprobar y leer la retroalimentación</summary>
+<p><strong>1.</strong> Dos componentes, R<sub>x</sub> y R<sub>y</sub>: impide las dos traslaciones y permite el giro. <strong>2.</strong> Una reacción vertical, perpendicular a la superficie: permite la traslación horizontal y el giro. <strong>3.</strong> No. Las restricciones deben ser independientes y estar dispuestas de manera que aseguren la estabilidad; tres reacciones concurrentes o mal orientadas pueden dejar un mecanismo.</p>
+</details>
+</div></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/elementos-y-esfuerzos-estructurales.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/herramientas-de-calculo.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter" class="siteFooter-empty"><div id="siteFooterContent"></div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es" id="exe-20260825115631PAGE04">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="eXeLearning v4.0.3">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vigas y diagramas N/V/M | Estructuras</title>
+<link rel="icon" type="image/x-icon" href="../libs/favicon.ico">
+<meta name="description" content="Estructuras">
+<script>document.querySelector("html").classList.add("js");</script><script src="../libs/jquery/jquery.min.js"> </script><script src="../libs/common_i18n.js"> </script><script src="../libs/common.js"> </script><script src="../libs/exe_export.js"> </script><script>window.exeXapi={"odeId":"20260825115631QMDELPX","packageTitle":"Estructuras","language":"es"};</script><script src="../libs/xapi/exe_xapi.js"> </script><script src="../libs/bootstrap/bootstrap.bundle.min.js"> </script><link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+<script src="../idevices/text/text.js"></script><link rel="stylesheet" href="../idevices/text/text.css">
+<script src="../libs/exe_effects/exe_effects.js"> </script>
+<link rel="stylesheet" href="../libs/exe_effects/exe_effects.css">
+<link rel="stylesheet" href="../content/css/base.css"><script src="../theme/style.js"> </script><link rel="stylesheet" href="../theme/style.css"><link rel="stylesheet" href="../theme/zzz-majuelo.css">
+<script src="../libs/exe_math/tex-mml-svg.js"> </script>
+</head>
+<body class="exe-export exe-web-site">
+<script>document.body.className+=" js"</script>
+<div class="exe-content exe-export pre-js siteNav-hidden"><a href="#20260825115631PAGE04" id="skipNav">Skip to content</a> <nav id="siteNav">
+<ul>
+<li> <a href="../index.html" class="main-node no-ch">Bienvenida</a>
+</li>
+<li> <a href="../html/elementos-y-esfuerzos-estructurales.html" class="no-ch">Elementos y esfuerzos estructurales</a>
+</li>
+<li> <a href="../html/cargas-apoyos-y-uniones.html" class="no-ch">Cargas, apoyos y uniones</a>
+</li>
+<li> <a href="../html/herramientas-de-calculo.html" class="no-ch">Herramientas de cálculo</a>
+</li>
+<li class="active"> <a href="../html/vigas-y-diagramas-nvm.html" class="active no-ch">Vigas y diagramas N/V/M</a>
+</li>
+<li> <a href="../html/cerchas.html" class="no-ch">Cerchas</a>
+</li>
+</ul>
+</nav><main id="20260825115631PAGE04" class="page"> 
+<header class="main-header">
+<div class="package-header"><p class="package-title">Estructuras</p></div>
+<div class="page-header"><h1 class="page-title">Vigas y diagramas N/V/M</h1></div>
+</header><div id="page-content-20260825115631PAGE04" class="page-content">
+<article id="20260825115631BLK004" class="box">
+<header class="box-head no-icon">
+<h1 class="box-title">Contenido</h1>
+<button class="box-toggle box-toggle-on" title="Toggle content">
+<span>Toggle content</span>
+</button></header>
+<div class="box-content">
+<div id="20260825115631IDEV004" class="idevice_node text" data-idevice-path="../idevices/text/" data-idevice-type="text" data-idevice-component-type="json" data-idevice-json-data="{&quot;ideviceId&quot;:&quot;20260825115631IDEV004&quot;}">
+<style class="chrome-sda">.exe-content{--chrome:#3d6694;--chrome-osc:#294d75;--chrome-tinte:#eff3f8;--chrome-linea:#c8d6e4}</style><div class="exe-text"><div class="marco marco-teoria"><p class="marco-titulo">Cómo resolver las vigas</p>
+<p>Empieza con el ejemplo 1 completo. Continúa con el problema PAU 2, siguiendo la guía de DSL, reacciones, cortes y valores de borde. Termina resolviendo el problema PAU 5 y comprueba después tu resultado con el que aparece al final de la colección.</p>
+<ul>
+<li>Calcula las reacciones del ejemplo 1 y resuelve el apartado 2a de la colección.</li>
+<li>Completa los diagramas del ejemplo 1 y resuelve el problema 5 de la colección.</li>
+<li>Resuelve los problemas 2 y 7 de la colección.</li>
+<li>Resuelve el problema 4 de la colección sin mirar antes su resultado, y revisa después los errores con la hoja-resumen.</li>
+</ul>
+<p><a download="coleccion_estructuras_con_resultados.pdf" href="../content/resources/coleccion_estructuras_con_resultados.pdf" target="_blank">Abrir problemas seleccionados</a></p>
+
+<p>Resuelve también los problemas que se indiquen en clase.</p>
+</div>
+<p>Una viga puede estar en <strong>equilibrio</strong> y, aun así, no cumplir por resistencia, rigidez o estabilidad. En equilibrio, la resultante de fuerzas y momentos es nula; la resistencia evita superar la capacidad del material; la rigidez limita la deformación; y la estabilidad evita perder la configuración resistente.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/diagrama_viga_simple.png"/></p>
+<figcaption>Diagrama de sólido libre de una viga</figcaption>
+</figure>
+</div>
+<p>Dado que consideramos que la viga es bidimensional, <strong>para que una viga esté en equilibrio se tiene que cumplir:</strong></p>
+<div class="bloque bloque-teoria"><p class="marco-titulo">Ecuaciones de Equilibrio</p>
+<ul>
+<li>Que la suma de fuerzas en el eje X sea 0 (no se mueve horizontalmente).</li>
+<li>Que la suma de fuerzas en el eje Y sea 0 (no se mueve verticalmente).</li>
+<li>Que la suma de los momentos que producen todas las fuerzas sea 0 (no gira).</li>
+</ul>
+</div>
+<p><br/>
+</p>
+<section class="level2" data-number="4.1" id="criterio-de-signos-cargas">
+<h2 class="" data-number="4.1"><span class="header-section-number">4.1</span> Criterio de signos (Cargas)</h2>
+<p>Para realizar los cálculos en problemas de vigas, tomaremos el siguiente criterio para los signos de las <strong>cargas externas</strong>:</p>
+<ul>
+<li>Fuerzas <strong>horizontales</strong>: positivas hacia la <strong>derecha</strong>.</li>
+<li>Fuerzas <strong>verticales</strong>: positivas hacia <strong>arriba</strong>.</li>
+<li><strong>Momentos</strong>: positivos si provocan <strong>giro antihorario</strong>.</li>
+</ul>
+</section>
+<section class="level2" data-number="4.2" id="viga-isostática">
+<h2 class="" data-number="4.2"><span class="header-section-number">4.2</span> Viga isostática</h2>
+<p>Una viga plana es <strong>isostática</strong> cuando sus reacciones pueden determinarse únicamente con las tres ecuaciones de equilibrio y la disposición de los apoyos asegura la estabilidad.</p>
+<p>El recuento de tres incógnitas es necesario en los casos habituales, pero <strong>no basta por sí solo</strong>: las restricciones deben ser independientes y no dejar un movimiento posible. Tres reacciones concurrentes o con direcciones inadecuadas pueden formar un mecanismo.</p>
+<ul>
+<li>Si el número de reacciones es <strong>menor a 3</strong>, la viga será un <strong>mecanismo</strong> (se moverá).</li>
+<li>Si el número de reacciones es <strong>superior a 3</strong>, se tratará de una <strong>viga hiperestática.</strong> El grado de hiperestaticidad será mayor conforme aumente el número de reacciones redundantes. Este tipo de vigas no puede calcularse directamente, debiendo utilizar pasos adicionales para su resolución.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/vigas_iso_e_hiper.png" style="width:80.0%"/></p>
+<figcaption>Vigas isostáticas e hiperestáticas</figcaption>
+</figure>
+</div>
+<p>Nosotros nos centraremos en el cálculo de vigas isostáticas en este curso.</p>
+</section>
+<section class="level2" data-number="4.3" id="tipos-de-esfuerzos-en-una-viga">
+<h2 class="" data-number="4.3"><span class="header-section-number">4.3</span> Tipos de esfuerzos en una viga</h2>
+<p>Las cargas y reacciones producen los siguientes esfuerzos en una viga (ignorando la torsión que rara vez ocurre y que no tendremos nunca en cuenta):</p>
+<ul>
+<li><strong>Esfuerzo axil (N):</strong> genera tensiones normales, <strong>según la dirección del eje longitudinal de la viga.</strong> Es producido por la suma de todas las cargas y reacciones paralelas al eje longitudinal de la viga. El esfuerzo puede ser de tracción (tiende a estirar la viga) o de compresión (tiende a aplastarla).</li>
+<li><strong>Esfuerzo cortante (V):</strong> genera tensiones <strong>tangenciales en la viga.</strong> Es producido por aquellas cargas y reacciones aplicadas en dirección perpendicular al eje longitudinal de la viga.</li>
+<li><strong>Momento flector (M):</strong> normalmente es el esfuerzo más determinante y genera tensiones normales en la viga (aparecen axiles de tracción en la parte externa del giro y de compresión en la parte interna). Es producida por aquellas cargas y reacciones perpendiculares al eje longitudinal de la viga, fuerzas paralelas al eje pero descentradas y momentos de giro aplicados.</li>
+</ul>
+<section class="level3" data-number="4.3.1" id="criterio-de-signos-para-los-esfuerzos-internos">
+<h3 class="" data-number="4.3.1"><span class="header-section-number">4.3.1</span> Criterio de signos para los esfuerzos internos</h3>
+<p>Para poder obtener las leyes de esfuerzo, es necesario definir un <strong>criterio de signos</strong> cuando estemos considerando esfuerzos en una sección “<span class="math inline">\(x\)</span>” de la viga:</p>
+<div class="quarto-layout-panel" data-layout="[33, 33, 33]" data-valign="top">
+<div class="quarto-layout-row">
+<section class="level4 unnumbered quarto-layout-cell" id="esfuerzo-axil-n" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered">Esfuerzo Axil (N)</h4>
+<p>Se toma como criterio <strong>positivo el esfuerzo de tracción</strong>, es decir, aquellas cargas que tienen a incrementar la longitud de la barra (<strong>la compresión es negativa</strong>).</p>
+<p>A nivel de cálculo: fuerzas horizontales a la izquierda de la sección dirigidas hacia la <strong>izquierda</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/criterioaxil-01.png"/></p>
+<figcaption>Criterio Axil</figcaption>
+</figure>
+</div>
+</section>
+<section class="level4 unnumbered quarto-layout-cell" id="esfuerzo-cortante-v" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered">Esfuerzo Cortante (V)</h4>
+<p>Aquellas fuerzas situadas a la izquierda de la sección “<span class="math inline">\(x\)</span>” con dirección perpendicular al eje de la viga y hacia <strong>arriba</strong> generarán un cortante positivo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/criteriocortante-01.png"/></p>
+<figcaption>Criterio Cortante</figcaption>
+</figure>
+</div>
+</section>
+<section class="level4 unnumbered quarto-layout-cell" id="momento-flector-m" style="flex-basis: 33.3%;justify-content: flex-start;">
+<h4 class="unnumbered">Momento Flector (M)</h4>
+<p>Se tomará como criterio de momento positivo el <strong>sentido horario</strong> producido por las cargas situadas a la izquierda de la sección “<span class="math inline">\(x\)</span>”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/criteriomomento-01.png"/></p>
+<figcaption>Criterio Momento</figcaption>
+</figure>
+</div>
+</section>
+</div>
+</div>
+</section>
+</section>
+<div class="marco marco-actividad"><p class="marco-titulo">Microcomprobación 2 - Corte y convenio de signos</p>
+<ol>
+<li>Si cortas por x = 2 m, ¿incluyes una carga situada en x = 3 m?</li>
+<li>En la parte izquierda, una fuerza vertical hacia arriba produce V positivo o negativo con este convenio?</li>
+<li>Si una reacción calculada sale negativa, ¿debes cambiar la ecuación?</li>
+</ol>
+<details><summary>Comprobar y leer la retroalimentación</summary><p><strong>1.</strong> No: el corte aún no la ha atravesado. <strong>2.</strong> V positivo. <strong>3.</strong> No: mantén la ecuación y dibuja después la reacción en el sentido contrario al supuesto. Cambiar el convenio para evitar un signo negativo rompe la coherencia.</p></details>
+</div>
+<section class="level2" data-number="4.4" id="diagramas-de-esfuerzos">
+<h2 class="" data-number="4.4"><span class="header-section-number">4.4</span> Diagramas de esfuerzos</h2>
+<p>Para estudiar los esfuerzos de una viga, se representan mediante tres diagramas:</p>
+<ul>
+<li>Diagrama de esfuerzo axil (N) <span class="math inline">\(\rightarrow\)</span> muestra si la barra está en tracción o compresión.</li>
+<li>Diagrama de esfuerzo cortante (V) <span class="math inline">\(\rightarrow\)</span> muestra las fuerzas internas verticales.</li>
+<li>Diagrama de momento flector (M) <span class="math inline">\(\rightarrow\)</span> muestra los momentos internos que tienden a doblar la viga.</li>
+</ul>
+<p>Para obtener los diagramas de esfuerzos de una viga, hay que realizar los siguientes pasos:</p>
+<div class="exe-fx exe-timeline">
+<h2>1. Determinar las reacciones en los apoyos</h2>
+<p>Antes de analizar los esfuerzos internos, hay que conocer cómo reacciona la viga en sus apoyos. Se aplican las ecuaciones de equilibrio:</p>
+<p><span class="math display">\[\sum F_{x}=0 \quad ; \quad \sum F_{y}=0 \quad ; \quad \sum M_{z}=0\]</span></p>
+<p>De ahí se obtienen las reacciones verticales, horizontales y de momento, si las hay. En los ejemplos isostáticos de esta unidad habrá tres incógnitas independientes y una disposición estable.</p>
+<h2>2. “Cortar” la viga mentalmente</h2>
+<p>Se hace un corte imaginario en un punto cualquiera de la viga, a una distancia “<span class="math inline">\(x\)</span>” del extremo izquierdo, para analizar una de las partes.</p>
+<p>Sobre esa parte se dibujan los esfuerzos internos que aparecen en la sección:</p>
+<ul>
+<li><span class="math inline">\(N(x)\)</span>: fuerza horizontal interna (axil).</li>
+<li><span class="math inline">\(V(x)\)</span>: fuerza vertical interna (cortante).</li>
+<li><span class="math inline">\(M(x)\)</span>: momento interno (flector).</li>
+</ul>
+<p>Y <strong>se vuelven a aplicar las ecuaciones de equilibrio a esa porción.</strong></p>
+<h2>3. Expresar cada esfuerzo en función de la posición x</h2>
+<p>Al mover el punto de corte a lo largo de la viga, los valores de N, V y M cambian. Se escriben las expresiones en cada tramo, teniendo en cuenta la posición de las cargas.</p>
+<p>Por ejemplo, si hay una carga puntual, el cortante cambia bruscamente en ese punto, mientras que el momento flector cambia de forma lineal entre cargas.</p>
+<h2>4. Dibujar los diagramas</h2>
+<p>Con los valores obtenidos, se dibujan tres diagramas (uno debajo del otro):</p>
+<table class="caption-top table tabla-datos">
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Diagrama</th>
+<th style="text-align: left;">Eje vertical representa…</th>
+<th style="text-align: left;">Forma típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>N(x)</strong></td>
+<td style="text-align: left;">Esfuerzo axil</td>
+<td style="text-align: left;">Constante (si no hay cargas horizontales)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>V(x)</strong></td>
+<td style="text-align: left;">Esfuerzo cortante</td>
+<td style="text-align: left;">Segmentos horizontales o con saltos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>M(x)</strong></td>
+<td style="text-align: left;">Momento flector</td>
+<td style="text-align: left;">Líneas rectas o curvas suaves (triangular o parabólica)</td>
+</tr>
+</tbody>
+</table>
+<p>Todo esto lo entenderás mejor con los ejemplos resueltos que tienes a continuación.</p>
+<hr/>
+</div>
+</section>
+<div class="exe-fx exe-tabs">
+<div class="marco marco-actividad"><p class="marco-titulo">Microcomprobación 3 - Lectura de diagramas V/M</p>
+<ol>
+<li>En un tramo sin carga repartida, ¿qué forma tienen V y M?</li>
+<li>¿Qué indica un salto vertical en V?</li>
+<li>¿Dónde buscarías primero un máximo de M?</li>
+</ol>
+<details><summary>Comprobar y leer la retroalimentación</summary><p><strong>1.</strong> V es constante y M es lineal. <strong>2.</strong> Una carga puntual o una reacción; el salto tiene su valor con signo. <strong>3.</strong> Donde V se anula o cambia de signo, sin olvidar extremos y puntos singulares.</p></details>
+</div>
+<h2>Ejemplo 1: resolución completa</h2>
+<section class="level2" data-number="4.5" id="ejemplo-1-viga-con-carga-puntual">
+<h3 class="" data-number="4.5"><span class="header-section-number">4.5</span> Ejemplo 1: Viga con carga puntual</h3>
+<p>En este apartado vamos a resolver paso a paso un ejercicio completo de una viga isostática con una carga puntual.</p>
+<section class="level3 unnumbered" id="enunciado">
+<h3 class="unnumbered">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga1.png" style="width:60.0%"/></p>
+<figcaption>Esquema de la viga</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3 unnumbered" id="calcular-las-reacciones">
+<h3 class="unnumbered">1. Calcular las reacciones</h3>
+<p>Determinamos las reacciones según los tipos de apoyos que vemos en la figura (apoyo fijo en A, apoyo móvil en B):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga1-1.png" style="width:70.0%"/></p>
+<figcaption>Diagrama de cuerpo libre y reacciones</figcaption>
+</figure>
+</div>
+<p>Aplicando las condiciones de equilibrio estático:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> Considerando positivas las fuerzas hacia arriba: <span class="math display">\[R_{AY} - P + R_{BY} = 0\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos respecto al punto A para eliminar incógnitas (<span class="math inline">\(R_{AX}\)</span> y <span class="math inline">\(R_{AY}\)</span>). Criterio: antihorario positivo. <span class="math display">\[-P \cdot 1 + R_{BY} \cdot (4+1) = 0\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(P = 15000 \text{ N}\)</span>):</p>
+<p><span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15000 + R_{BY} = 0 \\
+-15000 + 5 \cdot R_{BY} = 0
+\end{cases}
+\]</span></p>
+<p>Resolviendo el sistema:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{BY} &amp;= \frac{15000}{5} = 3000 \text{ N} = \mathbf{3 \text{ kN}} \\
+R_{AY} &amp;= 15000 - 3000 = 12000 \text{ N} = \mathbf{12 \text{ kN}}
+\end{aligned}
+\]</span></p>
+</section>
+<section class="level3 unnumbered" id="cortar-la-viga-en-tramos">
+<h3 class="unnumbered">2. “Cortar” la viga en tramos</h3>
+<p>El procedimiento consiste en partir la viga en tramos, <strong>separados por cambios de carga o apoyos.</strong> Recorriendo la viga de derecha a izquierda, definimos un tramo cuando aparece una nueva carga.</p>
+<p>En este caso, la carga puntual <span class="math inline">\(P\)</span> en el punto C divide la viga en dos tramos: <strong>Tramo A-C</strong> y <strong>Tramo C-B</strong>.</p>
+</section>
+<section class="level3 unnumbered" id="expresar-los-esfuerzos-cortes">
+<h3 class="unnumbered">3. Expresar los esfuerzos (Cortes)</h3>
+<section class="level4 unnumbered" id="tramo-a-c-0-leq-x-1">
+<h4 class="unnumbered">Tramo A-C (<span class="math inline">\(0 \leq x &lt; 1\)</span>)</h4>
+<p>Analizamos el trozo de viga a una distancia <span class="math inline">\(x\)</span> antes de llegar a la carga <span class="math inline">\(P\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga1-2.png" style="width:40.0%"/></p>
+<figcaption>Corte Tramo A-C</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> No hay fuerzas horizontales. <span class="math display">\[N_{A-C}(x) = R_{AX} = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> La única fuerza vertical es la reacción en A (hacia arriba = positiva). <span class="math display">\[V_{A-C}(x) = R_{AY} = \mathbf{12 \text{ kN}}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Generado por <span class="math inline">\(R_{AY}\)</span> a una distancia <span class="math inline">\(x\)</span>. Sentido horario (según nuestro criterio de signos a la izquierda del corte, comprime arriba) es positivo. <span class="math display">\[M_{A-C}(x) = R_{AY} \cdot x = \mathbf{12x \text{ kN}\cdot\text{m}}\]</span></p></li>
+</ul>
+</section>
+<section class="level4 unnumbered" id="tramo-c-b-1-leq-x-leq-5">
+<h4 class="unnumbered">Tramo C-B (<span class="math inline">\(1 \leq x \leq 5\)</span>)</h4>
+<p>Pasamos la carga <span class="math inline">\(P\)</span> y analizamos una sección genérica a distancia <span class="math inline">\(x\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga1-3.png" style="width:50.0%"/></p>
+<figcaption>Corte Tramo C-B</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> Sigue siendo nulo. <span class="math display">\[N_{C-B}(x) = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> A la reacción <span class="math inline">\(R_{AY}\)</span> se le resta la carga <span class="math inline">\(P\)</span> (hacia abajo). <span class="math display">\[V_{C-B}(x) = R_{AY} - 15 = 12 - 15 = \mathbf{-3 \text{ kN}}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Sumamos el momento de la reacción y restamos el de la carga <span class="math inline">\(P\)</span> (que genera giro antihorario respecto al corte, negativo). La distancia de la carga <span class="math inline">\(P\)</span> al corte es <span class="math inline">\((x-1)\)</span>. <span class="math display">\[M_{C-B}(x) = R_{AY} \cdot x - 15 \cdot (x-1)\]</span> <span class="math display">\[M_{C-B}(x) = 12x - 15x + 15 = \mathbf{15 - 3x \text{ kN}\cdot\text{m}}\]</span></p></li>
+</ul>
+</section>
+</section>
+<section class="level3 unnumbered" id="dibujar-los-diagramas-1">
+<h3 class="unnumbered">4. Dibujar los diagramas</h3>
+<p>Representamos las funciones obtenidas.</p>
+<ul>
+<li><strong>Axiles:</strong> <span class="math inline">\(N(x) = 0\)</span>.</li>
+<li><strong>Cortantes:</strong> Valor constante de <span class="math inline">\(12\)</span> hasta <span class="math inline">\(x=1\)</span>, donde baja a <span class="math inline">\(-3\)</span>.</li>
+<li><strong>Flectores:</strong> Crecimiento lineal <span class="math inline">\(12x\)</span> hasta el máximo en <span class="math inline">\(x=1\)</span> (<span class="math inline">\(12 \text{ kN}\cdot\text{m}\)</span>), luego decrece linealmente hasta 0 en el apoyo B.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga1-4.png" style="width:60.0%"/></p>
+<figcaption>Diagrama de Esfuerzos Cortantes</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/EjemploViga1-5.png" style="width:60.0%"/></p>
+<figcaption>Diagrama de Momentos Flectores</figcaption>
+</figure>
+</div>
+<div class="bloque bloque-actividad"><p class="marco-titulo">Ejercicios propuestos</p>
+<p><strong>1.</strong> Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio1.png" style="width:60.0%"/></p>
+<figcaption>Ejercicio 1</figcaption>
+</figure>
+</div>
+<p><em>Solución (partiendo del extremo izquierdo de la viga):</em></p>
+<ul>
+<li><strong>Momentos flectores:</strong>
+<ul>
+<li><span class="math inline">\(0 \leq x \leq 2 \text{ m} \rightarrow M_{x1} = -5x \text{ (kN}\cdot\text{m)}\)</span></li>
+<li><span class="math inline">\(2 \leq x \leq 9 \text{ m} \rightarrow M_{x2} = -10 \text{ (kN}\cdot\text{m)}\)</span></li>
+<li><span class="math inline">\(9 \leq x \leq 10 \text{ m} \rightarrow M_{x3} = 10x - 100 \text{ (kN}\cdot\text{m)}\)</span></li>
+</ul></li>
+<li><strong>Esfuerzos cortantes:</strong>
+<ul>
+<li><span class="math inline">\(0 \leq x \leq 2 \text{ m} \rightarrow V_{x1} = -5 \text{ kN}\)</span></li>
+<li><span class="math inline">\(2 \leq x \leq 9 \text{ m} \rightarrow V_{x2} = 0 \text{ kN}\)</span></li>
+<li><span class="math inline">\(9 \leq x \leq 10 \text{ m} \rightarrow V_{x3} = 10 \text{ kN}\)</span></li>
+</ul></li>
+</ul>
+<hr/>
+<p><strong>2 (PAU).</strong> Se requiere analizar la viga presentada en la figura adjunta:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio6.png" style="width:50.0%"/></p>
+<figcaption>Ejercicio 2 (PAU)</figcaption>
+</figure>
+</div>
+<p>Considerando los datos proporcionados, calcular:</p>
+<ol type="a">
+<li>Las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ N}\)</span>; <span class="math inline">\(R_{Ay} = 12 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 4 \text{ kN}\)</span>)</em></li>
+<li>Las ecuaciones de fuerzas cortantes y momentos flectores en cada tramo de la viga en función de la coordenada “x”. <em>(Sol: Para <span class="math inline">\(0 \leq x \leq 1,5\text{m} \rightarrow V(x) = 12 \text{ kN}, M(x) = 12x \text{ kN}\cdot\text{m}\)</span>; Para <span class="math inline">\(1,5 \leq x \leq 6\text{m} \rightarrow V(x) = -4 \text{ kN}, M(x) = -4x + 24 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga.</li>
+</ol>
+<hr/>
+<p><strong>3 (PAU).</strong> En la siguiente figura se representan las cargas que debe soportar una viga y los apoyos que tiene en la estructura de la que forma parte.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio7.png" style="width:50.0%"/></p>
+<figcaption>Ejercicio 3 (PAU)</figcaption>
+</figure>
+</div>
+<p>Considerando los datos proporcionados, analizar la estructura calculando:</p>
+<ol type="a">
+<li>Las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{Ay} = 3,5 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 2,5 \text{ kN}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga. <em>(Sol: <span class="math inline">\(0 \leq x \leq 1 \rightarrow V=3,5, M=3,5x\)</span>; <span class="math inline">\(1 \leq x \leq 4 \rightarrow V=-1,5, M=-1,5x+5\)</span>; <span class="math inline">\(4 \leq x \leq 5 \rightarrow V=1, M=x-5\)</span>)</em></li>
+<li>Obtener el momento flector máximo. <em>(Sol: <span class="math inline">\(M_{max}(1 \text{ m}) = 3,5 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+</ol>
+<hr/>
+<p><strong>4 (PAU).</strong> Se requiere analizar una viga de 5 m con su extremo derecho (punto B) empotrado en una pared. Sobre el extremo izquierdo (punto A) actúa una fuerza peso de 3 kN, y a 2 m del empotramiento se localiza otra fuerza peso de 2 kN. Se pide:</p>
+<ol type="a">
+<li>Calcular el valor de las reacciones que se producen en el empotramiento (punto B) en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Bx} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 5 \text{ kN}\)</span>; <span class="math inline">\(M_{B} = - 19 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga en función de x. <em>(Sol: <span class="math inline">\(0 \leq x \leq 3 \rightarrow V=-3, M=-3x\)</span>; <span class="math inline">\(3 \leq x \leq 5 \rightarrow V=-5, M=-5x+6\)</span>)</em></li>
+</ol>
+<hr/>
+<p><strong>5 (PAU).</strong> Para evitar inundaciones con las crecidas, se ha canalizado el río Guadalquivir a su paso por Sevilla en varios tramos, y la expansión de la ciudad hace necesario construir un nuevo puente sobre el canal de 46 m de ancho. Se estudia la opción de construir el puente con vigas de hormigón armado tipo Doble T como las de la figura, que pueden alcanzar hasta los 53 m de largo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio8.png" style="width:50.0%"/></p>
+<figcaption>Ejercicio 5 (PAU)</figcaption>
+</figure>
+</div>
+<p>Tras el estudio del terreno, se decide usar una viga de 50 m de largo apoyada en un extremo en un soporte fijo y el otro en un apoyo móvil o de rodillo. El puente debe soportar el paso de vehículos pesados, por lo que se diseñará para una masa máxima de vehículos de 65 toneladas. La masa de la viga es 110,5 toneladas. Colabora en el diseño del puente resolviendo las siguientes cuestiones.</p>
+<ol type="a">
+<li>Dibujar el diagrama de sólido libre del puente cuando el vehículo pesado haya recorrido 25 m del puente desde el extremo fijo, y calcular el valor de las reacciones en ambos apoyos en condiciones de equilibrio estático. <em>(Sol: <span class="math inline">\(R_{Ax} = 0\)</span>; <span class="math inline">\(R_{Ay} = 861 \text{ kN}\)</span>; <span class="math inline">\(R_{By} = 861 \text{ kN}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores en la viga, y determinar el momento flector máximo que debe soportar la viga cuando el camión esté en esa posición. <em>(Sol: <span class="math inline">\(0 \leq x \leq 25 \rightarrow V=861, M=861x\)</span>; <span class="math inline">\(25 \leq x \leq 50 \rightarrow V=-861, M=-861x + 43050\)</span>; <span class="math inline">\(M_{max} = 21525 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+</ol>
+<p><em>(NOTA: este ejercicio está planteado para considerar el peso de la viga como una carga puntual aplicada en su centro de masas, no como una distribución continua de carga).</em></p>
+<hr/>
+<p><strong>6 (PAU).</strong> El estudio de arquitectura Andalusí está desarrollando el proyecto de un bloque de viviendas en primera línea de playa en Almería. Una de las viviendas del ático dispone de una terraza voladiza de 4 m de longitud que sobresale desde la fachada principal. La terraza se modela como una viga con un extremo empotrado en la fachada y el otro extremo en voladizo.</p>
+<p>Teniendo en cuenta el tamaño total de la terraza, se estima que durante una fiesta puede albergar un grupo de personas con un peso total de 8,5 kN. El peso de la losa de hormigón de la terraza es de 16,8 kN.</p>
+<ol type="a">
+<li>Dibujar el diagrama de cuerpo libre de la terraza y calcular las reacciones considerando la fuerza peso del grupo de personas como una carga puntual aplicada en el centro. <em>(Sol: <span class="math inline">\(R_{Ax} = 0 \text{ kN}\)</span>; <span class="math inline">\(R_{Ay} = 25,3 \text{ kN}\)</span>; <span class="math inline">\(M_{A} = 50,6 \text{ kN}\cdot\text{m}\)</span>)</em></li>
+<li>Representar los diagramas de esfuerzos cortantes y momentos flectores resultantes. <em>(Sol: <span class="math inline">\(0 \leq x \leq 2 \rightarrow V=25,3, M=25,3x - 50,6\)</span>; <span class="math inline">\(2 \leq x \leq 4 \rightarrow V=0, M=0\)</span>)</em></li>
+<li>Determinar el valor del momento flector máximo que soportará la terraza y en qué posición se encuentra. <em>(Sol: <span class="math inline">\(M_{max} = 50,6 \text{ kN}\cdot\text{m}\)</span> en <span class="math inline">\(x = 0\)</span>)</em></li>
+</ol>
+</div>
+<hr/>
+</section>
+</section>
+<h2>Carga uniformemente repartida</h2>
+<section class="level2" data-number="4.6" id="ejemplo-2-viga-con-carga-distribuida">
+<h3 class="" data-number="4.6"><span class="header-section-number">4.6</span> Ejemplo resuelto: viga con carga distribuida</h3>
+<div class="marco marco-nota"><p>Una carga repartida se sustituye por su resultante antes de calcular las reacciones.</p></div>
+<p>En este apartado analizaremos una viga con una carga distribuida rectangular.</p>
+<section class="level3 unnumbered" id="enunciado-1">
+<h3 class="unnumbered">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2.png" style="width:60.0%"/></p>
+<figcaption>Esquema de la viga</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3 unnumbered" id="calcular-las-reacciones-1">
+<h3 class="unnumbered">1. Calcular las reacciones</h3>
+<p>Determinamos las reacciones según los tipos de apoyos que vemos en la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-1.png" style="width:70.0%"/></p>
+<figcaption>Diagrama de cuerpo libre y reacciones</figcaption>
+</figure>
+</div>
+<p>Aplicando las condiciones de equilibrio estático:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> Considerando positivas las fuerzas hacia arriba. La carga distribuida (<span class="math inline">\(q\)</span>) se multiplica por la longitud (<span class="math inline">\(L\)</span>) para obtener la fuerza total: <span class="math display">\[R_{AY} - q \cdot L + R_{BY} = 0\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos respecto al punto A. <strong>La carga distribuida equivale a una fuerza <span class="math inline">\(q \cdot L\)</span> aplicada en su centro.</strong> En este caso, la carga de <span class="math inline">\(3\text{m}\)</span> está centrada a <span class="math inline">\(2 + 1,5 = 3,5\text{m}\)</span> de A. <span class="math display">\[-q \cdot L \cdot (2 + \frac{L}{2}) + R_{BY} \cdot (2 + L + 5) = 0\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(q=5 \text{ kN/m}\)</span>, <span class="math inline">\(L=3 \text{ m}\)</span>):</p>
+<p><span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 5 \cdot 3 + R_{BY} = 0 \\
+-5 \cdot 3 \cdot (2 + 1,5) + R_{BY} \cdot (2 + 3 + 5) = 0
+\end{cases}
+\]</span></p>
+<p>Simplificando: <span class="math display">\[
+\begin{cases}
+R_{AX} = 0 \\
+R_{AY} - 15 + R_{BY} = 0 \\
+-52,5 + 10 \cdot R_{BY} = 0
+\end{cases}
+\]</span></p>
+<p>Resolviendo el sistema:</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{BY} &amp;= \frac{52,5}{10} = \mathbf{5,25 \text{ kN}} \\
+R_{AY} &amp;= 15 - 5,25 = \mathbf{9,75 \text{ kN}}
+\end{aligned}
+\]</span></p>
+</section>
+<section class="level3 unnumbered" id="cortar-la-viga-en-tramos-1">
+<h3 class="unnumbered">2. “Cortar” la viga en tramos</h3>
+<p>Dividimos la viga en tramos separados por cambios de carga o apoyos: * <strong>Tramo A-C (<span class="math inline">\(0 \le x &lt; 2\)</span>):</strong> Entre el apoyo A y el inicio de la carga. * <strong>Tramo C-D (<span class="math inline">\(2 \le x \le 5\)</span>):</strong> Zona de la carga distribuida. * <strong>Tramo D-B (<span class="math inline">\(5 &lt; x \le 10\)</span>):</strong> Entre el final de la carga y el apoyo B.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-2.png" style="width:70.0%"/></p>
+<figcaption>División en tramos</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3 unnumbered" id="expresar-los-esfuerzos-cortes-1">
+<h3 class="unnumbered">3. Expresar los esfuerzos (Cortes)</h3>
+<section class="level4 unnumbered" id="tramo-a-c-0-le-x-2">
+<h4 class="unnumbered">Tramo A-C (<span class="math inline">\(0 \le x &lt; 2\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-3.png" style="width:40.0%"/></p>
+<figcaption>Corte Tramo A-C</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{A-C}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> <span class="math inline">\(V_{A-C}(x) = R_{AY} = \mathbf{9,75 \text{ kN}}\)</span></li>
+<li><strong>Momento:</strong> <span class="math inline">\(M_{A-C}(x) = R_{AY} \cdot x = \mathbf{9,75x \text{ kN}\cdot\text{m}}\)</span></li>
+</ul>
+</section>
+<section class="level4 unnumbered" id="tramo-c-d-2-le-x-le-5">
+<h4 class="unnumbered">Tramo C-D (<span class="math inline">\(2 \le x \le 5\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-4.png" style="width:50.0%"/></p>
+<figcaption>Corte Tramo C-D</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{C-D}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> Restamos la parte de carga distribuida que entra en el corte (<span class="math inline">\(q \cdot (x-2)\)</span>). <span class="math display">\[V_{C-D}(x) = R_{AY} - 5(x-2) = 9,75 - 5x + 10 = \mathbf{19,75 - 5x \text{ kN}}\]</span></li>
+<li><strong>Momento:</strong> La carga distribuida parcial tiene su centro a <span class="math inline">\((x-2)/2\)</span> del corte. <span class="math display">\[M_{C-D}(x) = R_{AY} \cdot x - [5(x-2)] \cdot \frac{x-2}{2}\]</span> <span class="math display">\[M_{C-D}(x) = 9,75x - 2,5(x-2)^2\]</span> <span class="math display">\[M_{C-D}(x) = \mathbf{-2,5x^2 + 19,75x - 10 \text{ kN}\cdot\text{m}}\]</span></li>
+</ul>
+</section>
+<section class="level4 unnumbered" id="tramo-d-b-5-x-le-10">
+<h4 class="unnumbered">Tramo D-B (<span class="math inline">\(5 &lt; x \le 10\)</span>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-5.png" style="width:50.0%"/></p>
+<figcaption>Corte Tramo D-B</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Axil:</strong> <span class="math inline">\(N_{D-B}(x) = 0 \text{ kN}\)</span></li>
+<li><strong>Cortante:</strong> Ahora restamos la carga distribuida completa (<span class="math inline">\(5 \cdot 3 = 15\)</span>). <span class="math display">\[V_{D-B}(x) = R_{AY} - 15 = 9,75 - 15 = \mathbf{-5,25 \text{ kN}}\]</span></li>
+<li><strong>Momento:</strong> La carga completa de 15 kN está centrada en <span class="math inline">\(x=3,5\)</span> (mitad de la distribución). <span class="math display">\[M_{D-B}(x) = R_{AY} \cdot x - 15 \cdot (x-3,5)\]</span> <span class="math display">\[M_{D-B}(x) = 9,75x - 15x + 52,5 = \mathbf{52,5 - 5,25x \text{ kN}\cdot\text{m}}\]</span></li>
+</ul>
+</section>
+</section>
+<section class="level3 unnumbered" id="dibujar-los-diagramas-2">
+<h3 class="unnumbered">4. Dibujar los diagramas</h3>
+<p>Resumen de ecuaciones y cálculo del máximo:</p>
+<p><span class="math display">\[
+\textbf{Esfuerzo Cortante } V(x) =
+\begin{cases}
+9,75 &amp; 0 \le x &lt; 2 \\
+19,75 - 5x &amp; 2 \le x \le 5 \\
+-5,25 &amp; 5 &lt; x \le 10
+\end{cases} \quad [\text{kN}]
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Momento Flector } M(x) =
+\begin{cases}
+9,75x &amp; 0 \le x &lt; 2 \\
+-2,5x^2 + 19,75x - 10 &amp; 2 \le x \le 5 \\
+-5,25x + 52,5 &amp; 5 &lt; x \le 10
+\end{cases} \quad [\text{kN}\cdot\text{m}]
+\]</span></p>
+<p><strong>Punto de momento máximo:</strong> Se produce donde el cortante es nulo (<span class="math inline">\(V=0\)</span>) dentro del tramo con carga distribuida: <span class="math display">\[19,75 - 5x = 0 \Rightarrow x = 3,95 \text{ m}\]</span> <span class="math display">\[M_{\text{máx}} = -2,5(3,95)^2 + 19,75(3,95) - 10 = \mathbf{29,006 \text{ kN}\cdot\text{m}}\]</span></p>
+<p>Representación gráfica:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga2-6.png" style="width:60.0%"/></p>
+<figcaption>Diagramas de Cortantes y Flectores</figcaption>
+</figure>
+</div>
+<div class="bloque bloque-actividad"><p class="marco-titulo">Ejercicio propuesto</p>
+<p><strong>1.</strong> La viga de la figura es de madera laminada de perfil rectangular de <span class="math inline">\(25 \times 50 \text{ cm}\)</span> y soporta una carga uniformemente distribuida de <span class="math inline">\(40 \text{ kN/m}\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio11.png" style="width:70.0%"/></p>
+<figcaption>Ejercicio propuesto</figcaption>
+</figure>
+</div>
+<ol type="a">
+<li>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga.</li>
+<li>Halla las tensiones máximas de tracción y compresión producidas en la viga como consecuencia de la flexión.</li>
+</ol>
+<p><em>Solución:</em></p>
+<ul>
+<li><ol type="a">
+<li>(Partiendo del punto A):</li>
+</ol>
+<ul>
+<li><span class="math inline">\(0 \le x \le 6 \text{ m} \rightarrow M(x) = 120x - 20x^2 \text{ kN}\cdot\text{m}\)</span></li>
+<li>Momento máximo en <span class="math inline">\(x = 3 \text{ m}: M_{max} = 180 \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(0 \le x \le 6 \text{ m} \rightarrow V(x) = 120 - 40x \text{ kN}\)</span></li>
+</ul></li>
+<li><ol start="2" type="a">
+<li><span class="math inline">\(\sigma_t = 17.280 \text{ kN/m}^2\)</span>; <span class="math inline">\(\sigma_c = -17.280 \text{ kN/m}^2\)</span></li>
+</ol></li>
+</ul>
+</div>
+<hr/>
+</section>
+</section>
+<h2>Voladizo con carga repartida</h2>
+<section class="level2" data-number="4.7" id="ejemplo-3-viga-en-voladizo-con-carga-uniformemente-repartida">
+<h3 class="" data-number="4.7"><span class="header-section-number">4.7</span> Ejemplo resuelto: voladizo con carga uniformemente repartida</h3>
+<div class="marco marco-nota"><p>Una carga repartida se sustituye por su resultante antes de calcular las reacciones.</p></div>
+<p>En este ejemplo analizaremos una viga en voladizo (cantilever) empotrada en un extremo y libre en el otro, sometida a una carga distribuida.</p>
+<section class="level3 unnumbered" id="enunciado-2">
+<h3 class="unnumbered">Enunciado</h3>
+<p>Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura, con carga uniformemente distribuida:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploVIga3.png" style="width:50.0%"/></p>
+<figcaption>Viga en voladizo con carga distribuida</figcaption>
+</figure>
+</div>
+</section>
+<section class="level3 unnumbered" id="calcular-las-reacciones-2">
+<h3 class="unnumbered">1. Calcular las reacciones</h3>
+<p>En este caso hay un solo apoyo (empotramiento en A) donde se concentran las tres reacciones (<span class="math inline">\(R_{AX}, R_{AY}, M_A\)</span>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga3-1.png" style="width:60.0%"/></p>
+<figcaption>Reacciones en el empotramiento</figcaption>
+</figure>
+</div>
+<p>Fíjate que el momento de reacción, <span class="math inline">\(M_A\)</span>, tiene sentido antihorario porque debe oponerse al momento creado por la carga, que tiende a girar la viga en sentido horario.</p>
+<p>Las ecuaciones de equilibrio son:</p>
+<p><strong>1. Equilibrio Horizontal (<span class="math inline">\(\sum F_{x}=0\)</span>)</strong> <span class="math display">\[R_{AX}=0\]</span></p>
+<p><strong>2. Equilibrio Vertical (<span class="math inline">\(\sum F_{y}=0\)</span>)</strong> La carga total es <span class="math inline">\(Q = q \cdot L\)</span>. <span class="math display">\[R_{AY} - q \cdot L = 0 \Rightarrow \mathbf{R_{AY} = q \cdot L}\]</span></p>
+<p><strong>3. Equilibrio de Momentos (<span class="math inline">\(\sum M_{A}=0\)</span>)</strong> Tomamos momentos en el apoyo A. La carga distribuida equivale a una fuerza <span class="math inline">\(q \cdot L\)</span> en el centro (<span class="math inline">\(L/2\)</span>). <span class="math display">\[-q \cdot L \cdot \frac{L}{2} + M_{A} = 0 \Rightarrow \mathbf{M_{A} = q \cdot \frac{L^2}{2}}\]</span></p>
+<p>Sustituyendo los datos (<span class="math inline">\(q=60 \text{ kN/m}\)</span>, <span class="math inline">\(L=3 \text{ m}\)</span>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+R_{AX} &amp;= 0 \text{ N} \\
+R_{AY} &amp;= 60 \cdot 3 = \mathbf{180 \text{ kN}} \\
+M_{A} &amp;= 60 \cdot \frac{3^2}{2} = \mathbf{270 \text{ kN}\cdot\text{m}}
+\end{aligned}
+\]</span></p>
+</section>
+<section class="level3 unnumbered" id="cortar-la-viga">
+<h3 class="unnumbered">2. “Cortar” la viga</h3>
+<p>Como solo tenemos una carga continua sobre toda la longitud, <strong>no es necesario dividir la viga en tramos</strong>. Una única ecuación de <span class="math inline">\(0\)</span> a <span class="math inline">\(L\)</span> servirá para toda la viga.</p>
+</section>
+<section class="level3 unnumbered" id="expresar-los-esfuerzos-0-le-x-le-3">
+<h3 class="unnumbered">3. Expresar los esfuerzos (<span class="math inline">\(0 \le x \le 3\)</span>)</h3>
+<p>Analizamos una sección a distancia <span class="math inline">\(x\)</span> del empotramiento:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga3-2.png" style="width:50.0%"/></p>
+<figcaption>Corte genérico a distancia x</figcaption>
+</figure>
+</div>
+<ul>
+<li><p><strong>Esfuerzo Axil (<span class="math inline">\(N\)</span>):</strong> No hay fuerzas horizontales. <span class="math display">\[N(x) = 0 \text{ kN}\]</span></p></li>
+<li><p><strong>Esfuerzo Cortante (<span class="math inline">\(V\)</span>):</strong> Suma de fuerzas verticales a la izquierda (Reacción <span class="math inline">\(R_{AY}\)</span> positiva, carga distribuida <span class="math inline">\(q \cdot x\)</span> negativa). <span class="math display">\[V(x) = R_{AY} - q \cdot x\]</span> <span class="math display">\[V(x) = 180 - 60x \text{ kN}\]</span></p></li>
+<li><p><strong>Momento Flector (<span class="math inline">\(M\)</span>):</strong> Suma de momentos a la izquierda (Reacción <span class="math inline">\(R_{AY}\)</span> positiva, Carga distribuida negativa, Momento de empotramiento <span class="math inline">\(M_A\)</span> negativo).</p>
+<ul>
+<li>Brazo de <span class="math inline">\(R_{AY}\)</span>: <span class="math inline">\(x\)</span></li>
+<li>Brazo de la carga distribuida (<span class="math inline">\(q \cdot x\)</span>): <span class="math inline">\(x/2\)</span></li>
+</ul>
+<p><span class="math display">\[M(x) = R_{AY} \cdot x - (q \cdot x) \cdot \frac{x}{2} - M_{A}\]</span> <span class="math display">\[M(x) = 180x - 60 \cdot \frac{x^2}{2} - 270\]</span> <span class="math display">\[M(x) = -30x^2 + 180x - 270 \text{ kN}\cdot\text{m}\]</span></p></li>
+</ul>
+</section>
+<section class="level3 unnumbered" id="dibujar-los-diagramas-3">
+<h3 class="unnumbered">4. Dibujar los diagramas</h3>
+<p>Resumen de las leyes de esfuerzos (<span class="math inline">\(0 \le x \le 3\)</span> m):</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{Cortante:}\quad &amp;V(x) = 180 - 60x \quad [\text{kN}] \\
+\textbf{Flector:}\quad &amp;M(x) = -30x^2 + 180x - 270 = -30(x-3)^2 \quad [\text{kN}\cdot\text{m}]
+\end{align*}\]</span></p>
+<p><strong>Valores extremos:</strong> * <strong>En el empotramiento (<span class="math inline">\(x=0\)</span>):</strong> * <span class="math inline">\(V(0) = 180 \text{ kN}\)</span> * <span class="math inline">\(M(0) = -270 \text{ kN}\cdot\text{m}\)</span> (Máximo momento negativo) * <strong>En el extremo libre (<span class="math inline">\(x=3\)</span>):</strong> * <span class="math inline">\(V(3) = 180 - 180 = 0 \text{ kN}\)</span> * <span class="math inline">\(M(3) = -30(0) = 0 \text{ kN}\cdot\text{m}\)</span></p>
+<p>El diagrama de cortantes es lineal y el de momentos parabólico:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejemploViga3-3.png" style="width:90.0%"/></p>
+<figcaption>Diagramas de Cortante y Flector</figcaption>
+</figure>
+</div>
+<div class="bloque bloque-actividad"><p class="marco-titulo">Ejercicio propuesto</p>
+<p><strong>1.</strong> Elabora los diagramas de momentos flectores y de esfuerzos cortantes correspondientes a la viga en voladizo de la figura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure" style="display:block;text-align:center;margin-left:auto;margin-right:auto">
+<p><img class="img-fluid figure-img" src="../content/resources/ejercicio10.png" style="width:60.0%"/></p>
+<figcaption>Ejercicio propuesto</figcaption>
+</figure>
+</div>
+<p><em>Solución (partiendo del punto B, de derecha a izquierda, o reajustando coordenadas):</em></p>
+<ul>
+<li><strong>Momentos flectores:</strong>
+<ul>
+<li><span class="math inline">\(0 \le x \le 4 \text{ m} \rightarrow M(x) = -5x \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(4 \le x \le 6 \text{ m} \rightarrow M(x) = -2,5x^2 + 15x - 40 \text{ kN}\cdot\text{m}\)</span></li>
+<li><span class="math inline">\(6 \le x \le 8 \text{ m} \rightarrow M(x) = 50 - 15x \text{ kN}\cdot\text{m}\)</span></li>
+</ul></li>
+<li><strong>Esfuerzos cortantes:</strong>
+<ul>
+<li><span class="math inline">\(0 \le x \le 4 \text{ m} \rightarrow V(x) = -5 \text{ kN}\)</span></li>
+<li><span class="math inline">\(4 \le x \le 6 \text{ m} \rightarrow V(x) = -5x + 15 \text{ kN}\)</span></li>
+<li><span class="math inline">\(6 \le x \le 8 \text{ m} \rightarrow V(x) = -15 \text{ kN}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<hr/>
+</section>
+</section>
+</div>
+<section class="level2" data-number="4.8" id="otros-ejemplos-de-cálculo-de-esfuerzos">
+<h2 class="" data-number="4.8"><span class="header-section-number">4.8</span> Otros ejemplos de cálculo de esfuerzos</h2>
+<p>Para reforzar lo aprendido, aquí tienes un recurso audiovisual donde se explican paso a paso algunos ejercicios adicionales de cálculo de reacciones y diagramas de esfuerzos (cortantes y flectores) en vigas isostáticas.</p>
+<section class="level3 unnumbered" id="vídeo-explicativo">
+<h3 class="unnumbered">Vídeo explicativo</h3>
+<div class="quarto-video ratio ratio-16x9"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-external="1" frameborder="0" src="https://www.youtube.com/embed/muCrmuI1T-A" title="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</section>
+</section></div>
+</div>
+</div>
+</article>
+</div></main><div class="nav-buttons">
+<a href="../html/herramientas-de-calculo.html" title="Anterior" class="nav-button nav-button-left"><span>Anterior</span></a>
+<a href="../html/cerchas.html" title="Siguiente" class="nav-button nav-button-right"><span>Siguiente</span></a>
+</div>
+<footer id="siteFooter" class="siteFooter-empty"><div id="siteFooterContent"></div></footer>
+</div>
+<p id="made-with-eXe"> <a href="https://exelearning.net/" target="_blank" rel="noopener"> <span>Creado con eXeLearning <span>(Ventana nueva)</span></span></a></p>
+</body>
+</html>
