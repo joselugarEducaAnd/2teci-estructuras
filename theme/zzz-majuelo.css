@@ -351,3 +351,31 @@ button.toggler:hover, button.toggler:focus,
 .exe-content .exe-paginated .fx-pagination .fx-current a:focus {
   background: var(--chrome); color: #fff;
 }
+
+/* ==========================================================================
+   Ajustes 2026-10-06 (petición de Pepe · DOCA-064)
+   Fórmulas en bloque (MathJax) desplazables en pantallas estrechas.
+   - Por debajo de 1024 px una fórmula ancha se desplaza en horizontal dentro
+     de su propia caja en lugar de salirse de la columna y cortarse.
+   - Solo bajo 1024 px: en escritorio hay fórmulas junto a figuras flotantes
+     y la caja con overflow las bajaría bajo la figura (medido); a partir de
+     1024 px ninguna fórmula medida se sale.
+   - width:100% evita que una caja con overflow se encoja a 0 junto a una
+     imagen; el padding sustituye al margen para que el overflow-y:hidden no
+     recorte numeradores ni superíndices (MathJax dibuja fuera de la línea).
+   Validado: SdA 01, 03 y 04 de 2.º TECI a 390/768/1024/1280 px: 0 fórmulas
+   movidas, 0 ocultas, 0 recortes; todas las que se salían quedan desplazables.
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .exe-content mjx-container[display="true"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1.2em 0 .6em;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
