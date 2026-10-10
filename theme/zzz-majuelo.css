@@ -441,3 +441,45 @@ button.toggler:hover, button.toggler:focus,
   overflow: hidden;
   white-space: nowrap;
 }
+
+/* ==========================================================================
+   Ajustes 2026-10-10 · DOCA-064 (DOCA-103) — pista visual en tablas desplazables
+   - Desde el 2026-10-09 una .tabla-datos que no cabe se desplaza en horizontal
+     bajo 1024 px, pero nada lo anuncia: en la tabla «Mapa de necesidades» de
+     4.º TEC (SdA 01) las columnas ocultas pasaban desapercibidas.
+   - zzz-majuelo.js marca con .mj-desliza SOLO las tablas que dejan contenido
+     fuera (más que el relleno de la celda) y les pone delante la línea
+     «Desliza para ver más columnas →» (p.mj-pista-desliza, aria-hidden) y
+     tabindex=0 para moverlas con teclado.
+   - El borde del lado con contenido oculto se difumina con mask-image: derecha
+     al inicio (.mj-inicio), ambos a mitad y solo izquierda al final (.mj-final).
+   - Foco visible con el color de chrome de la SdA.
+   - En escritorio no cambia nada: todo va bajo 1024 px y sin JS no hay clases.
+   Probado inyectado en 4.º TEC SdA 01 «Observar necesidades»: 390 px marca 2
+   tablas, 768 px 1, 1280 px 0; sin desbordamiento de página, 0 errores JS.
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .exe-content p.mj-pista-desliza {
+    margin: 1.3em 0 -.9em;
+    text-align: right;
+    font-size: .82em;
+    font-weight: 600;
+    color: var(--chrome);
+  }
+  .exe-content table.tabla-datos.mj-desliza {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+            mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+  }
+  .exe-content table.tabla-datos.mj-desliza:not(.mj-inicio) {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
+            mask-image: linear-gradient(to right, transparent, #000 44px, #000 calc(100% - 44px), transparent);
+  }
+  .exe-content table.tabla-datos.mj-desliza.mj-final {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 44px);
+            mask-image: linear-gradient(to right, transparent, #000 44px);
+  }
+  .exe-content table.tabla-datos.mj-desliza:focus-visible {
+    outline: 2px solid var(--chrome);
+    outline-offset: 2px;
+  }
+}
